@@ -1,0 +1,6 @@
+2025-03-18 20:45:02 | INFO     | agent.test_agent_b | Action performed: initialization | details={"agent_id": "test_agent_b"}
+2025-03-18 20:45:02 | INFO     | agent.test_agent_b | Message received: type=routed_task | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク", "source_agent": "agent_a"}
+2025-03-18 20:45:02 | INFO     | agent.test_agent_b | Action performed: routed_task_received | details={"task_id": "task_005", "category": "analysis", "source_agent": "agent_a"}
+2025-03-18 20:45:02 | INFO     | agent.test_agent_b | State change: routed_task_accepted | details={"task_id": "task_005", "category": "analysis", "assigned_tasks_count": 1}
+2025-03-18 20:45:02 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:45:02 | INFO     | agent.test_agent_b | Action performed: cleanup | details={"agent_id": "test_agent_b"}

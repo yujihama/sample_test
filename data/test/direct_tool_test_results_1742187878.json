@@ -1,0 +1,174 @@
+{
+  "summary": {
+    "expense_report_status": "success",
+    "transaction_record_status": "success",
+    "timestamp": "2025-03-17T14:04:38.742133"
+  },
+  "details": {
+    "expense_report": {
+      "status": "success",
+      "results": {
+        "document_extraction": {
+          "text": "出張精算書\n申請日: 2025年2月15日\n社員番号: E003\n氏名: 鈴木一郎\n所属部署: 営業部\n出張期間: 2025年2月10日～2025年2月12日\n出張先: 大阪支社\n出張目的: 顧客訪問・商談\n\n【精算内容】\n交通費（往復）: 28,000円\n宿泊費（2泊）: 24,000円\n日当（3日）: 9,000円\nその他経費: 5,000円\n--------------\n合計: 66,000円\n\n承認者: 田中部長\n承認日: 2025年2月17日\n",
+          "statistics": {
+            "line_count": 20,
+            "character_count": 229,
+            "word_count": 40
+          },
+          "extracted_info": {
+            "dates": [
+              "2025年2月15日",
+              "2025年2月10日",
+              "2025年2月12日",
+              "2025年2月17日"
+            ],
+            "amounts": [
+              "28,000円",
+              "24,000円",
+              "9,000円",
+              "5,000円",
+              "66,000円"
+            ]
+          }
+        },
+        "format_validation": {
+          "format_name": "expense_application",
+          "extracted_fields": {
+            "title": null,
+            "applicant": null,
+            "department": "営業部",
+            "date": "2025年2月15日",
+            "amount": null,
+            "purpose": "顧客訪問・商談",
+            "approver": "田中部長"
+          },
+          "missing_fields": [
+            "title",
+            "applicant",
+            "amount"
+          ],
+          "match_percentage": 50.0,
+          "is_valid_format": false
+        },
+        "receipt_extraction": {
+          "text": "領収書\n2025年2月12日\n宛名: 鈴木一郎様\n金額: 24,000円\n但し: 宿泊料金（2泊）として\n大阪ビジネスホテル\n",
+          "statistics": {
+            "line_count": 7,
+            "character_count": 63,
+            "word_count": 12
+          },
+          "extracted_info": {
+            "dates": [
+              "2025年2月12日"
+            ],
+            "amounts": [
+              "24,000円"
+            ]
+          }
+        },
+        "employee_verification": {
+          "found": true,
+          "employee_info": {
+            "id": "E003",
+            "name": "鈴木一郎",
+            "department": "経理部",
+            "position": "主任",
+            "authority_level": 3
+          }
+        },
+        "approval_validation": {
+          "valid": true,
+          "required_level": 3,
+          "approver_level": 5,
+          "approver_name": "田中実",
+          "approver_position": "部長",
+          "message": "承認権限は有効です"
+        }
+      }
+    },
+    "transaction_record": {
+      "status": "success",
+      "results": {
+        "file_structure": {
+          "structure": {
+            "file_type": "CSV",
+            "columns": [
+              "取引ID",
+              "取引日付",
+              "取引種別",
+              "取引金額",
+              "取引先",
+              "承認者",
+              "処理担当者"
+            ],
+            "row_count": 3,
+            "column_count": 7,
+            "sheets": []
+          },
+          "file_path": "C:\\Users\\nyham\\work\\sampletest\\data\\samples\\sample-005_transaction.csv"
+        },
+        "data_extraction": {
+          "extracted_data": [
+            {
+              "取引ID": "T-20250214-0023",
+              "取引日付": "2025-02-14",
+              "取引種別": "機器購入",
+              "取引金額": 820000,
+              "取引先": "株式会社テックサプライ",
+              "承認者": "佐藤次郎",
+              "処理担当者": "田中三郎"
+            },
+            {
+              "取引ID": "T-20250214-0024",
+              "取引日付": "2025-02-14",
+              "取引種別": "消耗品",
+              "取引金額": 35000,
+              "取引先": "株式会社オフィスマテリアル",
+              "承認者": "佐藤次郎",
+              "処理担当者": "田中三郎"
+            },
+            {
+              "取引ID": "T-20250215-0025",
+              "取引日付": "2025-02-15",
+              "取引種別": "ソフトウェア",
+              "取引金額": 450000,
+              "取引先": "デジタルソリューション株式会社",
+              "承認者": "山田太郎",
+              "処理担当者": "田中三郎"
+            }
+          ],
+          "row_count": 3,
+          "file_path": "C:\\Users\\nyham\\work\\sampletest\\data\\samples\\sample-005_transaction.csv",
+          "sheet_name": "Sheet1"
+        },
+        "data_search": {
+          "search_results": {
+            "file_path": "C:\\Users\\nyham\\work\\sampletest\\data\\samples\\sample-005_transaction.csv",
+            "search_value": "820000",
+            "match_count": 1,
+            "matches": [
+              {
+                "sheet": "CSV",
+                "row": 1,
+                "column": "取引金額",
+                "value": "820000"
+              }
+            ]
+          }
+        },
+        "approver_authority": {
+          "found": true,
+          "employee_id": "E005",
+          "name": "中村誠",
+          "department": "営業部",
+          "position": "課長",
+          "authority_level": 4
+        },
+        "approval_validation": {
+          "valid": false,
+          "message": "指定されたカテゴリと金額に対応するルールが見つかりません: 機器購入, 820000.0"
+        }
+      }
+    }
+  }
+}

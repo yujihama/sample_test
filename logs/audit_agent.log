@@ -1,0 +1,600 @@
+2025-03-15 12:13:08 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:13:08 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:13:08 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:13:08 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:13:08 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:13:08 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:13:08 | INFO     | __main__:<module>:31 - 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を起動しています
+2025-03-15 12:13:08 | INFO     | __main__:start_server:21 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 12:13:35 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:13:35 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:13:35 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:13:35 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:13:35 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:13:35 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:13:35 | INFO     | __main__:<module>:31 - 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を起動しています
+2025-03-15 12:13:35 | INFO     | __main__:start_server:21 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 12:13:36 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:13:36 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:13:36 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:13:36 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:13:36 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:13:36 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:16:11 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:16:11 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:16:11 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:16:11 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:16:11 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:16:11 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:17:10 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:17:10 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:17:10 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:17:10 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:17:10 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:17:10 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:17:14 | INFO     | src.api.main:create_audit_procedure:89 - 監査手続きが登録されました: テスト監査手続き (ID: proc_9804)
+2025-03-15 12:17:52 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:17:52 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:17:52 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:17:52 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:17:52 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:17:52 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:17:55 | INFO     | src.api.main:create_audit_procedure:89 - 監査手続きが登録されました: テスト監査手続き (ID: proc_4548)
+2025-03-15 12:17:57 | INFO     | src.api.main:upload_sample:122 - サンプルデータがアップロードされました: test_data.csv (ID: sample_3200)
+2025-03-15 12:17:59 | INFO     | src.api.main:start_workflow:152 - ワークフローが開始されました: wf_proc_4548_sample_3200
+2025-03-15 12:46:26 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:46:26 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:46:26 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:46:26 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:46:26 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:46:26 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:48:34 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:48:34 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:48:34 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:48:34 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:48:34 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:48:34 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:50:07 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:50:07 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:50:07 | INFO     | src.api.main:<module>:50 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:50:07 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:50:07 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:50:07 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:55:07 | INFO     | src.core.config:setup_logging:163 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:55:07 | INFO     | src.core.config:initialize_app:170 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 12:55:07 | INFO     | src.core.config:initialize_app:171 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\data\audit_agent.db
+2025-03-15 12:55:07 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 12:55:07 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 12:55:07 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 12:55:07 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 12:55:07 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:32:26 | INFO     | src.core.config:setup_logging:163 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:32:26 | INFO     | src.core.config:initialize_app:170 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:32:26 | INFO     | src.core.config:initialize_app:171 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\data\audit_agent.db
+2025-03-15 13:32:26 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 13:32:26 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 13:32:26 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 13:32:26 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:32:26 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:32:28 | INFO     | src.api.main:create_audit_procedure:112 - 監査手続きを登録しました: 6a70cbbb-5626-4571-9f6d-8f1e4801965a
+2025-03-15 13:32:30 | INFO     | src.api.main:upload_sample:161 - サンプルデータをアップロードしました: e986aa4c-7524-4030-bf9e-99fa894c89b5, ファイル: test_data.csv
+2025-03-15 13:32:32 | INFO     | src.api.main:start_workflow:231 - ワークフローを開始しました: wf_proc_965a_89b5
+2025-03-15 13:33:15 | INFO     | src.api.main:create_audit_procedure:112 - 監査手続きを登録しました: 454c9119-ffe4-4d18-b60d-7a34f421c23a
+2025-03-15 13:33:17 | INFO     | src.api.main:upload_sample:161 - サンプルデータをアップロードしました: 6d6e1bd1-f92d-4aaa-9086-90e84cf994f6, ファイル: test_data.csv
+2025-03-15 13:33:19 | INFO     | src.api.main:start_workflow:231 - ワークフローを開始しました: wf_proc_c23a_94f6
+2025-03-15 13:41:36 | INFO     | src.core.config:setup_logging:163 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:41:36 | INFO     | src.core.config:initialize_app:170 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:41:36 | INFO     | src.core.config:initialize_app:171 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\data\audit_agent.db
+2025-03-15 13:41:36 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 13:41:36 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 13:41:36 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 13:41:36 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:41:36 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:46:37 | INFO     | src.core.config:setup_logging:163 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:46:37 | INFO     | src.core.config:initialize_app:170 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:46:37 | INFO     | src.core.config:initialize_app:171 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\data\audit_agent.db
+2025-03-15 13:46:37 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 13:46:37 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 13:46:37 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 13:46:37 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:46:37 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:16:39 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:16:39 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:16:39 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:16:39 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 14:16:39 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:16:39 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:16:39 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:16:39 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:17:08 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:17:08 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:17:08 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:17:08 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 14:17:08 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:17:08 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:17:08 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:17:08 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:17:08 | INFO     | __main__:<module>:31 - 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を起動しています
+2025-03-15 14:17:08 | INFO     | __main__:start_server:21 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 14:17:09 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:17:09 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:17:09 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:17:09 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 14:17:09 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:17:09 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:17:09 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:17:09 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:19:44 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:19:44 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:19:44 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:19:44 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 14:19:44 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:19:44 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:19:44 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:19:44 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:26:37 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:26:37 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:26:37 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:26:37 | INFO     | src.migrations.manager:_ensure_migrations_table:54 - migrations_versionテーブルを作成しました
+2025-03-15 14:26:37 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:26:37 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20240315000000_initial を適用しています...
+2025-03-15 14:26:37 | INFO     | src.migrations.manager:record_migration:76 - マイグレーション 20240315000000_initial を記録しました
+2025-03-15 14:26:37 | INFO     | src.migrations.manager:run_migrations:124 - マイグレーション 20240315000000_initial を適用しました
+2025-03-15 14:26:37 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:26:37 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:26:37 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:26:37 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:26:37 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:26:37 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:30:38 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:30:38 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:30:38 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:30:38 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:30:38 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20230101000000_initial を適用しています...
+2025-03-15 14:30:38 | INFO     | src.migrations.manager:record_migration:76 - マイグレーション 20230101000000_initial を記録しました
+2025-03-15 14:30:38 | INFO     | src.migrations.manager:run_migrations:124 - マイグレーション 20230101000000_initial を適用しました
+2025-03-15 14:30:38 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:30:38 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:30:38 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:30:38 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:30:38 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:30:38 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:30:49 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:30:49 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:30:49 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:30:49 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:30:49 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:30:49 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:30:49 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:30:49 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:30:49 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:30:49 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:30:49 | INFO     | __main__:<module>:31 - 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を起動しています
+2025-03-15 14:30:49 | INFO     | __main__:start_server:21 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 14:30:51 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:30:51 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:30:51 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:30:51 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:30:51 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:30:51 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:30:51 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:30:51 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:30:51 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:30:51 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:33:25 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:33:25 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:33:25 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:33:25 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:33:25 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:33:25 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:33:25 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:33:25 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:33:25 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:33:25 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:35:38 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:35:38 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:35:38 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:35:38 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:35:38 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:35:38 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:35:38 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:35:38 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:35:38 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:35:38 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:36:49 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:36:49 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:36:49 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:36:49 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:36:49 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:36:49 | INFO     | src.utils.db_manager:init_db:53 - データベーススキーマが初期化されました
+2025-03-15 14:36:49 | INFO     | src.api.main:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:36:49 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:36:49 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:36:49 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:40:38 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:40:38 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:40:38 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:40:38 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:40:38 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:40:38 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 14:40:38 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:40:48 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:40:48 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:40:48 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:40:48 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:40:48 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:40:48 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 14:40:48 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:40:56 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:40:56 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:40:56 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:40:56 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:40:56 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:40:56 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 14:40:56 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:40:56 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:40:56 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:40:56 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:40:56 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:40:56 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:40:56 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 14:40:56 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:41:39 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:41:39 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:41:39 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:41:39 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:41:39 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:41:39 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflow
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflow_procedure_id ON workflow (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:41:39 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:41:39 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:41:39 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:41:39 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:41:39 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:41:39 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:41:39 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflow
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflow_procedure_id ON workflow (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:41:39 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:42:22 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:42:22 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:42:22 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:42:22 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:42:23 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:42:23 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: upgrade() takes 0 positional arguments but 1 was given
+2025-03-15 14:42:23 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:42:23 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:42:23 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:42:23 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:42:23 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:42:23 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:42:23 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: upgrade() takes 0 positional arguments but 1 was given
+2025-03-15 14:42:23 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:42:52 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:42:52 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:42:52 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:42:52 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:42:53 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:42:53 | ERROR    | src.migrations.manager:run_migrations:136 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: Can't invoke function 'get_bind', as the proxy object has not yet been established for the Alembic 'Operations' class.  Try placing this code inside a callable.
+2025-03-15 14:42:53 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:42:54 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:42:54 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:42:54 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:42:54 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:42:54 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:42:54 | ERROR    | src.migrations.manager:run_migrations:136 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: Can't invoke function 'get_bind', as the proxy object has not yet been established for the Alembic 'Operations' class.  Try placing this code inside a callable.
+2025-03-15 14:42:54 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:43:17 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:43:17 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:43:17 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:43:17 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:43:17 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:43:17 | ERROR    | src.migrations.manager:run_migrations:136 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:43:17 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:43:18 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:43:18 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:43:18 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:43:18 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:43:18 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:43:18 | ERROR    | src.migrations.manager:run_migrations:136 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:43:18 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:43:31 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:43:31 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:43:31 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:43:31 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:43:31 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:43:31 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:43:31 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:43:31 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:43:31 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:43:31 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:43:31 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:43:31 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:43:31 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:43:31 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:46:01 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:46:01 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:46:01 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:46:01 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:46:01 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:46:01 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:46:01 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:46:01 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:46:01 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:46:01 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:46:01 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:46:01 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:46:01 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:46:01 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:46:32 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:46:32 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:46:32 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:46:32 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:46:32 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:46:32 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:46:32 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:46:33 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:46:33 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:46:33 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:46:33 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:46:33 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:46:33 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:46:33 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:47:00 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:47:00 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:47:00 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:47:00 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:47:00 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:47:00 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:47:00 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:47:01 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:47:01 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:47:01 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:47:01 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:47:01 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:47:01 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:47:01 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:47:20 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:47:20 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:47:20 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:47:20 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:47:20 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:47:20 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:47:20 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:47:20 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:47:20 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:47:20 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:47:20 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:47:20 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:47:20 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:47:20 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:47:57 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:47:57 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:47:57 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:47:57 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:47:57 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:47:57 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:47:57 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:47:58 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:47:58 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:47:58 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent.db
+2025-03-15 14:47:58 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:47:58 | INFO     | src.migrations.manager:run_migrations:119 - マイグレーション 20250315144106_add_indexes_for_performance を適用しています...
+2025-03-15 14:47:58 | ERROR    | src.migrations.manager:run_migrations:129 - マイグレーション 20250315144106_add_indexes_for_performance の適用中にエラーが発生しました: (sqlite3.OperationalError) no such table: main.workflows
+[SQL: CREATE INDEX IF NOT EXISTS ix_workflows_procedure_id ON workflows (procedure_id)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 14:47:58 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 14:53:59 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:53:59 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:53:59 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 14:53:59 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:53:59 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:53:59 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 14:53:59 | INFO     | src.api.main:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 14:53:59 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:53:59 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:53:59 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:54:00 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:54:00 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:54:00 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 14:54:00 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 14:54:00 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 14:54:00 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 14:54:00 | INFO     | src.api.main:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 14:54:00 | INFO     | config:setup_directories:77 - アプリケーションディレクトリを作成しました
+2025-03-15 14:54:00 | INFO     | config:setup_logging:105 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:54:00 | INFO     | config:initialize_app:112 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:02:12 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:02:12 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:02:12 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:02:12 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:02:12 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:02:12 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:02:12 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:04:03 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:04:03 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:04:03 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:04:03 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:04:03 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:04:03 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:04:03 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:05:36 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:05:36 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:05:36 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:05:36 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:05:36 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:05:36 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:05:36 | ERROR    | src.utils.db_manager:session_scope:110 - トランザクション中にエラーが発生しました: 'expected_tests' is an invalid keyword argument for AuditProcedure
+2025-03-15 15:05:36 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:06:34 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:06:34 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:06:34 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:06:34 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:06:34 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:06:34 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:06:34 | ERROR    | src.utils.db_manager:session_scope:110 - トランザクション中にエラーが発生しました: Instance <AuditProcedure at 0x15ce5818ec0> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2025-03-15 15:06:34 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:07:43 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:07:43 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:07:43 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:07:43 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:07:43 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:07:43 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:07:44 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:36:00 | ERROR    | src.models.repositories:get:98 - AuditProcedureの取得に失敗しました (id=proc-2bedac30): (sqlite3.OperationalError) no such table: audit_procedures
+[SQL: SELECT audit_procedures.id AS audit_procedures_id, audit_procedures.title AS audit_procedures_title, audit_procedures.description AS audit_procedures_description, audit_procedures.risk_areas AS audit_procedures_risk_areas, audit_procedures.required_data_fields AS audit_procedures_required_data_fields, audit_procedures.created_at AS audit_procedures_created_at, audit_procedures.updated_at AS audit_procedures_updated_at 
+FROM audit_procedures 
+WHERE audit_procedures.id = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('proc-2bedac30', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 15:36:00 | ERROR    | src.api.main:upload_sample:177 - サンプルデータのアップロード中にエラーが発生しました: (sqlite3.OperationalError) no such table: audit_procedures
+[SQL: SELECT audit_procedures.id AS audit_procedures_id, audit_procedures.title AS audit_procedures_title, audit_procedures.description AS audit_procedures_description, audit_procedures.risk_areas AS audit_procedures_risk_areas, audit_procedures.required_data_fields AS audit_procedures_required_data_fields, audit_procedures.created_at AS audit_procedures_created_at, audit_procedures.updated_at AS audit_procedures_updated_at 
+FROM audit_procedures 
+WHERE audit_procedures.id = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('proc-2bedac30', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-15 15:39:31 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:39:31 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:39:31 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:39:31 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:39:31 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:39:31 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:39:31 | INFO     | __main__:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 15:39:31 | INFO     | __main__:<module>:352 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 15:39:31 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:52:01 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:52:01 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:52:01 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:52:01 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:52:01 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:52:01 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:52:01 | INFO     | __main__:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 15:52:02 | INFO     | __main__:<module>:352 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 15:52:02 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:54:06 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:54:06 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:54:06 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:54:06 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:54:06 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:54:06 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:54:06 | INFO     | __main__:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 15:54:06 | INFO     | __main__:<module>:352 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 15:54:06 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:54:16 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:54:16 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:54:16 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:54:16 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:54:16 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:54:16 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:54:16 | INFO     | __main__:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 15:54:16 | INFO     | __main__:<module>:352 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 15:54:16 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:54:42 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:54:42 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:54:42 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:54:42 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:54:42 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:54:42 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:54:42 | INFO     | __main__:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 15:54:42 | INFO     | __main__:<module>:352 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 15:54:42 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:54:51 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:54:51 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:54:51 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:54:51 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:54:51 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:54:51 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:54:51 | INFO     | __main__:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 15:54:51 | INFO     | __main__:<module>:352 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 15:54:51 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 15:55:01 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 15:55:01 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 15:55:01 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 15:55:01 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 15:55:01 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 15:55:01 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 15:55:01 | INFO     | src.api.main:<module>:77 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 16:01:50 | INFO     | src.api.main:upload_sample:179 - サンプルデータをアップロードしました: 3151a48c-7b0c-4de1-b84e-c190bd0acfa3, ファイル: expense_data.csv
+2025-03-15 16:04:13 | INFO     | src.api.main:start_workflow:249 - ワークフローを開始しました: wf_proc_ac30_cfa3
+2025-03-15 16:28:02 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 16:28:02 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 16:28:02 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 16:28:02 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 16:28:02 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 16:28:02 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 16:28:02 | INFO     | src.api.main:<module>:81 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 16:28:02 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 16:29:22 | ERROR    | src.utils.db_manager:get_db:85 - データベースセッション使用中にエラー: 404: ワークフローが見つかりません: "wf_proc_ac30_cfa3
+2025-03-15 17:30:12 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 17:30:12 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 17:30:12 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 17:30:12 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 17:30:12 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 17:30:12 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 17:30:12 | INFO     | src.api.main:<module>:84 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 17:30:12 | INFO     | src.utils.db_manager:close_db_connections:121 - データベース接続を閉じました
+2025-03-15 17:33:39 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 17:33:39 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 17:33:39 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 17:33:39 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 17:33:39 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 17:33:39 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 17:33:39 | INFO     | src.api.main:<module>:84 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 17:33:39 | INFO     | src.utils.workflow_manager:reset_workflow:447 - ワークフロー 'wf_proc_ac30_cfa3' をリセットしました
+2025-03-15 17:35:50 | INFO     | src.utils.workflow_manager:reset_workflow:447 - ワークフロー 'wf_proc_ac30_cfa3' をリセットしました
+2025-03-15 17:37:02 | INFO     | src.utils.workflow_manager:auto_repair_workflows:292 - 問題を検出: ワークフロー 'workflow-b522dad0' は 'failed' 状態ですが、失敗したエージェントが見つかりません
+2025-03-15 17:37:02 | INFO     | src.utils.workflow_manager:auto_repair_workflows:295 -   ドライラン: 実際の修復は行われません
+2025-03-15 17:37:07 | INFO     | src.utils.workflow_manager:auto_repair_workflows:292 - 問題を検出: ワークフロー 'workflow-b522dad0' は 'failed' 状態ですが、失敗したエージェントが見つかりません
+2025-03-15 17:37:11 | INFO     | src.utils.workflow_manager:reset_workflow:447 - ワークフロー 'workflow-b522dad0' をリセットしました
+2025-03-15 17:37:48 | INFO     | src.api.main:upload_sample:292 - サンプルデータをアップロードしました: 0e675746-23e2-451d-b9b4-2f66af902628, ファイル: expense_data.csv
+2025-03-15 17:40:24 | INFO     | src.utils.workflow_manager:reset_workflow:447 - ワークフロー 'wf_proc_ac30_cfa3' をリセットしました
+2025-03-15 17:40:46 | INFO     | src.utils.workflow_manager:reset_workflow:447 - ワークフロー 'wf_proc_ac30_cfa3' をリセットしました
+2025-03-15 17:42:09 | INFO     | src.utils.workflow_manager:auto_repair_workflows:292 - 問題を検出: ワークフロー 'wf_proc_ac30_cfa3' の agent-a の進捗が0のまま5分以上経過しています
+2025-03-15 17:42:09 | INFO     | src.utils.workflow_manager:auto_repair_workflows:304 -   ワークフロー wf_proc_ac30_cfa3 の状態を 'failed' に設定しました
+2025-03-15 17:42:09 | INFO     | src.utils.workflow_manager:auto_repair_workflows:374 - 1件の問題を修復しました
+2025-03-15 17:42:21 | INFO     | src.utils.workflow_manager:reset_workflow:447 - ワークフロー 'wf_proc_ac30_cfa3' をリセットしました
+2025-03-15 17:46:40 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 17:46:40 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 17:46:40 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 17:46:40 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 17:46:40 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 17:46:40 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 17:46:40 | INFO     | src.api.main:<module>:84 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports
+2025-03-15 17:46:45 | INFO     | src.api.main:start_workflow:354 - 新しいワークフローを開始しました: wf_ac30_cfa3_20250315174645
+2025-03-15 17:46:53 | INFO     | src.api.main:start_workflow:354 - 新しいワークフローを開始しました: wf_ac30_cfa3_20250315174653
+2025-03-15 17:50:23 | INFO     | src.core.config:setup_logging:173 - ログレベル INFO でロギングを初期化しました
+2025-03-15 17:50:23 | INFO     | src.core.config:initialize_app:180 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 17:50:23 | INFO     | src.core.config:initialize_app:181 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\audit_agent_new.db
+2025-03-15 17:50:23 | INFO     | src.migrations.manager:run_migrations:84 - データベースマイグレーションを開始します...
+2025-03-15 17:50:23 | INFO     | src.migrations.manager:run_migrations:132 - すべてのマイグレーションが完了しました
+2025-03-15 17:50:23 | INFO     | src.utils.db_manager:init_db:72 - データベーススキーマが初期化されました
+2025-03-15 17:50:23 | INFO     | src.api.main:<module>:84 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, C:\Users\nyham\work\sampletest\data\reports

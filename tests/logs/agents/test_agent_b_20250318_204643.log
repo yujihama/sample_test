@@ -1,0 +1,14 @@
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: initialization | details={"agent_id": "test_agent_b"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Message received: type=error_prone_task | content={"task_id": "task_007", "error_probability": 0.8, "description": "エラーが発生しやすいタスク"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: error_prone_task_received | details={"task_id": "task_007", "error_probability": 0.8, "description": "エラーが発生しやすいタスク"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: error_detected | details={"task_id": "task_007", "reason": "high_error_probability", "error_probability": 0.8}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Message received: type=error_correction | content={"task_id": "task_007", "correction_strategy": "retry_with_params", "params": {"timeout": 30, "retries": 3}}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: error_correction_received | details={"task_id": "task_007", "correction_strategy": "retry_with_params", "params": {"timeout": 30, "retries": 3}}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: correction_applied | details={"task_id": "task_007", "strategy": "retry_with_params"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Message received: type=rerun_task | content={"task_id": "task_007", "description": "修正後の再実行"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: task_rerun | details={"task_id": "task_007", "description": "修正後の再実行"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: task_completed_after_correction | details={"task_id": "task_007"}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:46:43 | INFO     | agent.test_agent_b | Action performed: cleanup | details={"agent_id": "test_agent_b"}

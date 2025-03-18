@@ -1,0 +1,5 @@
+2025-03-18 20:41:53 | INFO     | agent.test_agent_b | Action performed: initialization | details={"agent_id": "test_agent_b"}
+2025-03-18 20:41:53 | INFO     | agent.test_agent_b | Message received: type=status_check | content={"request_id": "status_001"}
+2025-03-18 20:41:53 | INFO     | agent.test_agent_b | Action performed: status_check | details={"active_tasks_count": 0}
+2025-03-18 20:41:53 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:41:53 | INFO     | agent.test_agent_b | Action performed: cleanup | details={"agent_id": "test_agent_b"}

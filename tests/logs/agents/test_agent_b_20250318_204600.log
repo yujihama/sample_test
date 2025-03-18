@@ -1,0 +1,6 @@
+2025-03-18 20:46:00 | INFO     | agent.test_agent_b | Action performed: initialization | details={"agent_id": "test_agent_b"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_b | Message received: type=delegated_subtask | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "description": "サブタスク処理"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_b | Action performed: delegated_subtask_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "description": "サブタスク処理"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_b | Action performed: processing_subtask | details={"subtask_id": "subtask_001"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_b | Action performed: cleanup | details={"agent_id": "test_agent_b"}

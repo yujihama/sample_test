@@ -1,0 +1,648 @@
+﻿"""
+繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ邂｡逅・し繝ｼ繝薙せ繝｢繧ｸ繝･繝ｼ繝ｫ・域隼蝟・沿・・
+縺薙・繝｢繧ｸ繝･繝ｼ繝ｫ縺ｯ縲√お繝ｼ繧ｸ繧ｧ繝ｳ繝磯俣縺ｮ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ邂｡逅・→螳溯｡後・縺溘ａ縺ｮ邨ｱ蜷医し繝ｼ繝薙せ繧呈署萓帙＠縺ｾ縺吶・逡ｰ縺ｪ繧九ち繧､繝励・繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝穂ｽ懈・縺ｨ螳溯｡後ｒ荳蜈・喧縺励√Ρ繝ｼ繧ｯ繝輔Ο繝ｼ髢｢騾｣讖溯・縺ｮ驥崎､・ｒ隗｣豸医＠縺ｾ縺吶・謾ｹ蝟・沿: 蜊倅ｸ雋ｬ莉ｻ縺ｮ蜴溷援縺ｨ萓晏ｭ俶ｧ騾・ｻ｢縺ｮ蜴溷援縺ｫ蝓ｺ縺･縺・◆螳溯｣・"""
+
+import uuid
+import time
+import asyncio
+import threading
+from typing import Dict, List, Any, Optional, Tuple, Callable, Union, Protocol, TypeVar
+from datetime import datetime
+from loguru import logger
+
+# 蜈ｷ菴鍋噪縺ｪ螳溯｣・∈縺ｮ萓晏ｭ倥ｒ貂帙ｉ縺・# 繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝育ｮ｡逅・し繝ｼ繝薙せ繧剃ｽｿ逕ｨ
+from src.core.agent_management_service import get_agent_management_service
+from src.core.config import settings
+from src.models.schema import MessageType
+# 蜈ｱ譛峨＆繧後◆繧ｯ繝ｩ繧､繧｢繝ｳ繝医・縺ｿ繧､繝ｳ繝昴・繝・from src.utils.context import ContextClient
+# 繝ｪ繝昴ず繝医Μ縺ｸ縺ｮ逶ｴ謗･萓晏ｭ倥ｒ驕ｿ縺代ｋ
+from src.repositories.workflow_repository import WorkflowRepository
+
+# 蝙句ｮ夂ｾｩ
+T = TypeVar('T')
+
+# 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ迥ｶ諷九ｒ陦ｨ縺吝渕譛ｬ繧ｯ繝ｩ繧ｹ
+class WorkflowState:
+    """
+    繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷九・蝓ｺ譛ｬ繧ｯ繝ｩ繧ｹ
+    
+    縺吶∋縺ｦ縺ｮ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷九が繝悶ず繧ｧ繧ｯ繝医′蜈ｱ騾壹＠縺ｦ謖√▽繝励Ο繝代ユ繧｣繧貞ｮ夂ｾｩ縺励∪縺吶・    """
+    workflow_id: str
+    context_id: Optional[str] = None
+    current_agent_id: Optional[str] = None
+    status: str = "in_progress"  # in_progress, completed, failed, paused
+    next_agent_ids: List[str] = []
+    previous_agent_id: Optional[str] = None
+    start_time: datetime = datetime.now()
+    end_time: Optional[datetime] = None
+    is_human_intervention_required: bool = False
+    human_query: Optional[Dict[str, Any]] = None
+    human_response: Optional[Dict[str, Any]] = None
+    metadata: Dict[str, Any] = {}
+    messages: List[Dict[str, Any]] = []
+    errors: List[Dict[str, Any]] = []
+    results: Dict[str, Any] = {}
+
+
+# 繧ｰ繝ｩ繝墓ｧ狗ｯ峨・縺溘ａ縺ｮ繝励Ο繝医さ繝ｫ・医う繝ｳ繧ｿ繝ｼ繝輔ぉ繧､繧ｹ・・class GraphBuilder(Protocol):
+    """繧ｰ繝ｩ繝輔ン繝ｫ繝繝ｼ縺ｮ繝励Ο繝医さ繝ｫ螳夂ｾｩ"""
+    
+    def add_node(self, name: str, function: Callable) -> None:
+        ...
+    
+    def add_edge(self, start: str, end: str) -> None:
+        ...
+    
+    def add_conditional_edge(self, start: str, condition: Callable, destinations: Dict[str, str]) -> None:
+        ...
+    
+    def set_entry_point(self, node_name: str) -> None:
+        ...
+    
+    def compile(self) -> Any:
+        ...
+
+
+class WorkflowService:
+    """
+    繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ邂｡逅・し繝ｼ繝薙せ・域隼蝟・沿・・    
+    縺薙・繧ｵ繝ｼ繝薙せ繧ｯ繝ｩ繧ｹ縺ｯ莉･荳九・蠖ｹ蜑ｲ繧呈戟縺｡縺ｾ縺・
+    1. 蜷・ｨｮ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔・菴懈・繧剃ｸ蜈・喧
+    2. 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ螳溯｡梧ｩ溯・縺ｮ謠蝉ｾ・    3. 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷九・邂｡逅・    
+    謾ｹ蝟・せ:
+    - 讖溯・驥崎､・・隗｣豸・    - 蜊倅ｸ雋ｬ莉ｻ縺ｮ蜴溷援縺ｮ驕ｩ逕ｨ
+    - 萓晏ｭ俶ｧ騾・ｻ｢縺ｮ蜴溷援縺ｮ驕ｩ逕ｨ
+    - 邨ｱ荳縺輔ｌ縺溘ョ繝ｼ繧ｿ繝｢繝・Ν縺ｮ菴ｿ逕ｨ
+    """
+    
+    _instance = None
+    
+    def __new__(cls):
+        """繧ｷ繝ｳ繧ｰ繝ｫ繝医Φ繝代ち繝ｼ繝ｳ繧貞ｮ溯｣・""
+        if cls._instance is None:
+            cls._instance = super(WorkflowService, cls).__new__(cls)
+            cls._instance._initialized = False
+        return cls._instance
+    
+    def __init__(self):
+        """繧ｵ繝ｼ繝薙せ縺ｮ蛻晄悄蛹厄ｼ医す繝ｳ繧ｰ繝ｫ繝医Φ縺ｪ縺ｮ縺ｧ1蝗槭□縺大ｮ溯｡鯉ｼ・""
+        if self._initialized:
+            return
+            
+        self._initialized = True
+        
+        # 蜀・Κ繧ｳ繝ｳ繝昴・繝阪Φ繝医・蛻晄悄蛹・        # 繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝育ｮ｡逅・し繝ｼ繝薙せ縺ｮ菴ｿ逕ｨ
+        self.agent_service = get_agent_management_service()
+        self.context_client = ContextClient("workflow_service")
+        self.workflow_repository = WorkflowRepository()
+        
+        # 繧｢繧ｯ繝・ぅ繝悶↑繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ霑ｽ霍｡
+        self.active_workflows: Dict[str, Dict[str, Any]] = {}
+        
+        # 繧ｭ繝｣繝・す繝･縺輔ｌ縺溘Ρ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝・        self.workflow_graph_cache: Dict[str, Any] = {}
+        
+        # 螳溯｡御ｸｭ縺ｮ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ
+        self.running_workflows: Dict[str, Dict[str, Any]] = {}
+        
+        logger.info("邨ｱ蜷医Ρ繝ｼ繧ｯ繝輔Ο繝ｼ邂｡逅・し繝ｼ繝薙せ繧貞・譛溷喧縺励∪縺励◆")
+    
+    def create_workflow_graph(
+        self,
+        workflow_type: str = "agent",
+        config: Optional[Dict[str, Any]] = None
+    ) -> Any:
+        """
+        繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔ｒ菴懈・縺吶ｋ・育ｵｱ蜷育沿・・        
+        Args:
+            workflow_type: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ繧ｿ繧､繝暦ｼ・agent"縲・audit"縺ｪ縺ｩ・・            config: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ險ｭ螳・            
+        Returns:
+            讒区・縺輔ｌ縺溘げ繝ｩ繝輔が繝悶ず繧ｧ繧ｯ繝・        """
+        # 險ｭ螳壹・蛻晄悄蛹・        config = config or {}
+        
+        # 繧ｭ繝｣繝・す繝･繝√ぉ繝・け
+        cache_key = f"{workflow_type}:{hash(str(config))}"
+        if cache_key in self.workflow_graph_cache:
+            logger.info(f"繧ｭ繝｣繝・す繝･縺九ｉ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔ｒ蜿門ｾ・ {workflow_type}")
+            return self.workflow_graph_cache[cache_key]
+        
+        # 繧ｿ繧､繝励↓蠢懊§縺溘げ繝ｩ繝穂ｽ懈・繝｡繧ｽ繝・ラ縺ｮ驕ｸ謚・        if workflow_type == "agent":
+            graph = self._create_agent_workflow_graph(config)
+        elif workflow_type == "audit":
+            graph = self._create_audit_workflow_graph(config)
+        else:
+            raise ValueError(f"譛ｪ繧ｵ繝昴・繝医・繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｿ繧､繝・ {workflow_type}")
+        
+        # 繧ｭ繝｣繝・す繝･縺ｫ菫晏ｭ・        self.workflow_graph_cache[cache_key] = graph
+        
+        logger.info(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔ｒ菴懈・: {workflow_type}")
+        return graph
+    
+    def _create_agent_workflow_graph(self, config: Dict[str, Any]) -> Any:
+        """
+        繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医Ρ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔ｒ菴懈・縺吶ｋ
+        
+        Args:
+            config: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ險ｭ螳・            
+        Returns:
+            讒区・縺輔ｌ縺溘げ繝ｩ繝輔が繝悶ず繧ｧ繧ｯ繝・        """
+        try:
+            # StateGraph縺ｮ菴懈・
+            from langgraph.graph import StateGraph
+            builder = StateGraph(WorkflowState)
+            
+            # 繝弱・繝峨・螳夂ｾｩ
+            # 繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医ヮ繝ｼ繝・            builder.add_node("agent_a", self._create_agent_node(settings.AGENT_A_ID))
+            builder.add_node("agent_b", self._create_agent_node(settings.AGENT_B_ID))
+            builder.add_node("agent_c", self._create_agent_node(settings.AGENT_C_ID))
+            builder.add_node("agent_d", self._create_agent_node(settings.AGENT_D_ID))
+            
+            # 迚ｹ谿翫ヮ繝ｼ繝・            builder.add_node("human_intervention", self._create_human_intervention_node())
+            builder.add_node("error_handling", self._create_error_handling_node())
+            builder.add_node("end", self._create_end_node())
+            
+            # 繧ｨ繝・ず縺ｮ霑ｽ蜉・医お繝ｼ繧ｸ繧ｧ繝ｳ繝医・螳溯｡碁・ｺ上・螳夂ｾｩ・・            # 蝓ｺ譛ｬ逧・↑螳溯｡後ヱ繧ｹ: A -> B -> C -> D -> end
+            builder.add_edge("agent_a", "agent_b")
+            builder.add_edge("agent_b", "agent_c")
+            builder.add_edge("agent_c", "agent_d")
+            builder.add_edge("agent_d", "end")
+            
+            # 莠ｺ髢薙・莉句・
+            builder.add_conditional_edge(
+                "human_intervention",
+                self._human_response_condition,
+                {
+                    "has_response": "previous_agent",
+                    "no_response": "human_intervention"
+                }
+            )
+            
+            # 繧ｨ繝ｩ繝ｼ蜃ｦ逅・            builder.add_edge("error_handling", "agent_a")
+            
+            # 繧ｨ繝ｳ繝医Μ繝ｼ繝昴う繝ｳ繝医・險ｭ螳・            builder.set_entry_point("agent_a")
+            
+            # 繧ｰ繝ｩ繝輔ｒ繧ｳ繝ｳ繝代う繝ｫ
+            workflow_graph = builder.compile()
+            
+            logger.info("繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医Ρ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔・菴懈・螳御ｺ・)
+            return workflow_graph
+        
+        except Exception as e:
+            logger.error(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔・菴懈・荳ｭ縺ｫ繧ｨ繝ｩ繝ｼ縺檎匱逕・ {e}")
+            raise
+    
+    def _create_audit_workflow_graph(self, config: Dict[str, Any]) -> Any:
+        """
+        逶｣譟ｻ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔ｒ菴懈・縺吶ｋ
+        
+        Args:
+            config: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ險ｭ螳・            
+        Returns:
+            讒区・縺輔ｌ縺溘げ繝ｩ繝輔が繝悶ず繧ｧ繧ｯ繝・        """
+        try:
+            # StateGraph縺ｮ菴懈・
+            from langgraph.graph import StateGraph
+            builder = StateGraph(Dict)
+            
+            # 蜷・ヮ繝ｼ繝峨ｒ霑ｽ蜉
+            # 騾壼ｸｸ縺ｮ逶｣譟ｻ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繝弱・繝峨ｒ霑ｽ蜉
+            # (隧ｳ邏ｰ縺ｪ螳溯｣・・逵∫払)
+            
+            # 繧ｨ繝ｳ繝医Μ繝ｼ繝昴う繝ｳ繝医・險ｭ螳・            builder.set_entry_point("check_paused")
+            
+            # 繧ｰ繝ｩ繝輔ｒ繧ｳ繝ｳ繝代う繝ｫ
+            workflow_graph = builder.compile()
+            
+            logger.info("逶｣譟ｻ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔・菴懈・螳御ｺ・)
+            return workflow_graph
+            
+        except Exception as e:
+            logger.error(f"逶｣譟ｻ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔・菴懈・荳ｭ縺ｫ繧ｨ繝ｩ繝ｼ縺檎匱逕・ {e}")
+            raise
+    
+    def _create_agent_node(self, agent_id: str) -> Callable:
+        """
+        繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医ヮ繝ｼ繝蛾未謨ｰ繧剃ｽ懈・
+        
+        Args:
+            agent_id: 繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝・D
+            
+        Returns:
+            繝弱・繝蛾未謨ｰ
+        """
+        def agent_node(state: WorkflowState, config: Dict[str, Any]) -> WorkflowState:
+            # 繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医ヮ繝ｼ繝峨・螳溯｣・            state.current_agent_id = agent_id
+            
+            # 繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝域ュ蝣ｱ繧貞叙蠕・            agent_info = self.agent_service.get_agent_status(agent_id)
+            
+            # 蜑阪・繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医°繧峨・繝｡繝・そ繝ｼ繧ｸ縺後≠繧後・蜃ｦ逅・            if state.messages and len(state.messages) > 0:
+                last_message = state.messages[-1]
+                if last_message.get("to_agent") == agent_id:
+                    # 繝｡繝・そ繝ｼ繧ｸ蜃ｦ逅・ｒ險倬鹸
+                    process_result = {
+                        "status": "processed",
+                        "timestamp": datetime.now().isoformat()
+                    }
+                    state.results[agent_id] = process_result
+            
+            # 谺｡縺ｮ繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医∈縺ｮ貅門ｙ
+            state.previous_agent_id = agent_id
+            
+            # 縺薙・繧ｨ繝ｼ繧ｸ繧ｧ繝ｳ繝医′D縺ｮ蝣ｴ蜷医・繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ螳御ｺ・            if agent_id == settings.AGENT_D_ID:
+                    state.status = "completed"
+                    state.end_time = datetime.now()
+            
+            return state
+            
+        return agent_node
+    
+    def _create_human_intervention_node(self) -> Callable:
+        """
+        莠ｺ髢薙・莉句・繝弱・繝蛾未謨ｰ繧剃ｽ懈・
+        
+        Returns:
+            繝弱・繝蛾未謨ｰ
+        """
+        def human_intervention_node(state: WorkflowState, config: Dict[str, Any]) -> WorkflowState:
+            state.current_agent_id = "human_intervention"
+            
+            # 莠ｺ髢薙・莉句・縺悟ｿ・ｦ√↑迥ｶ諷九↓縺吶ｋ
+            state.is_human_intervention_required = True
+            
+            # 莠ｺ髢薙・蠢懃ｭ斐′縺ゅｋ蝣ｴ蜷医・谺｡縺ｸ騾ｲ繧
+            if state.human_response:
+                state.is_human_intervention_required = False
+            
+            return state
+            
+        return human_intervention_node
+    
+    def _create_error_handling_node(self) -> Callable:
+        """
+        繧ｨ繝ｩ繝ｼ蜃ｦ逅・ヮ繝ｼ繝蛾未謨ｰ繧剃ｽ懈・
+        
+        Returns:
+            繝弱・繝蛾未謨ｰ
+        """
+        def error_handling_node(state: WorkflowState, config: Dict[str, Any]) -> WorkflowState:
+            state.current_agent_id = "error_handling"
+            
+            # 繧ｨ繝ｩ繝ｼ諠・ｱ繧定ｨ倬鹸
+            error_info = {
+                "timestamp": datetime.now().isoformat(),
+                "previous_agent": state.previous_agent_id,
+                "status": "handled",
+            }
+            state.errors.append(error_info)
+            
+            return state
+            
+        return error_handling_node
+    
+    def _create_end_node(self) -> Callable:
+        """
+        邨ゆｺ・ヮ繝ｼ繝蛾未謨ｰ繧剃ｽ懈・
+        
+        Returns:
+            繝弱・繝蛾未謨ｰ
+        """
+        def end_node(state: WorkflowState, config: Dict[str, Any]) -> WorkflowState:
+            state.current_agent_id = "end"
+            
+            # 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ螳御ｺ・            state.status = "completed"
+            state.end_time = datetime.now()
+            
+            # 譛邨らｵ先棡繧偵∪縺ｨ繧√ｋ
+            final_results = {}
+            for agent_id, result in state.results.items():
+                final_results[agent_id] = result
+            
+            state.results["final"] = final_results
+            
+            return state
+        
+        return end_node
+    
+    def _human_response_condition(self, state: WorkflowState) -> str:
+        """
+        莠ｺ髢薙・蠢懃ｭ皮憾諷九↓蝓ｺ縺･縺乗擅莉ｶ髢｢謨ｰ
+        
+        Args:
+            state: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷・            
+        Returns:
+            譚｡莉ｶ邨先棡・・has_response" 縺ｾ縺溘・ "no_response"・・        """
+        return "has_response" if state.human_response else "no_response"
+    
+    async def run_workflow(
+        self,
+        workflow_id: str,
+        workflow_type: str = "agent",
+        initial_data: Optional[Dict[str, Any]] = None,
+        initial_agent_id: str = settings.AGENT_A_ID,
+        config: Optional[Dict[str, Any]] = None,
+        human_interaction_callback: Optional[Callable] = None
+    ) -> Dict[str, Any]:
+        """
+        繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧貞ｮ溯｡後☆繧具ｼ育ｵｱ蜷育沿・・        
+        Args:
+            workflow_id: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼID
+            workflow_type: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ繧ｿ繧､繝・            initial_data: 蛻晄悄繝・・繧ｿ
+            initial_agent_id: 譛蛻昴↓螳溯｡後☆繧九お繝ｼ繧ｸ繧ｧ繝ｳ繝・D
+            config: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ險ｭ螳・            human_interaction_callback: 莠ｺ髢薙・莉句・縺悟ｿ・ｦ√↑縺ｨ縺阪↓蜻ｼ縺ｳ蜃ｺ縺吶さ繝ｼ繝ｫ繝舌ャ繧ｯ髢｢謨ｰ
+            
+        Returns:
+            繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ螳溯｡檎ｵ先棡
+        """
+        logger.info(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} ({workflow_type}) 繧貞ｮ溯｡御ｸｭ")
+        
+        # 繧｢繧ｯ繝・ぅ繝悶Ρ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｨ縺励※霑ｽ霍｡
+        self.active_workflows[workflow_id] = {
+            "id": workflow_id,
+            "type": workflow_type,
+            "status": "starting",
+            "start_time": datetime.now(),
+            "config": config or {}
+        }
+        
+        try:
+            # 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｰ繝ｩ繝輔ｒ蜿門ｾ励∪縺溘・菴懈・
+            workflow_graph = self.create_workflow_graph(workflow_type, config)
+            
+            # 蛻晄悄迥ｶ諷九・菴懈・
+            initial_state = WorkflowState()
+            initial_state.workflow_id = workflow_id
+            initial_state.current_agent_id = initial_agent_id
+            initial_state.start_time = datetime.now()
+            
+            # 蛻晄悄繝・・繧ｿ縺ｮ險ｭ螳・            if initial_data:
+                # 蛻晄悄繧ｳ繝ｳ繝・く繧ｹ繝医・菴懈・
+                context = self.context_client.create_context(workflow_id, initial_data)
+                initial_state.context_id = context.context_id
+                initial_state.metadata["initial_data"] = initial_data
+            
+            # 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ螳溯｡瑚ｨｭ螳・            execution_config = {
+                "configurable": {
+                    "thread_id": workflow_id,
+                }
+            }
+            
+            # 莠ｺ髢薙・莉句・縺悟ｿ・ｦ√↑蝣ｴ蜷医・蜃ｦ逅・            if human_interaction_callback:
+                async def _handle_human_interaction(state: WorkflowState) -> WorkflowState:
+                    if state.is_human_intervention_required and state.human_query:
+                        try:
+                            human_response = await human_interaction_callback(state.human_query)
+                            state.human_response = human_response
+                        except Exception as e:
+                            logger.error(f"莠ｺ髢薙・莉句・繧ｳ繝ｼ繝ｫ繝舌ャ繧ｯ縺ｧ繧ｨ繝ｩ繝ｼ縺檎匱逕・ {e}")
+                            state.errors.append({
+                                "source": "human_interaction",
+                                "timestamp": datetime.now().isoformat(),
+                                "error": str(e),
+                            })
+                    return state
+            
+                # 莠ｺ髢薙・莉句・繝上Φ繝峨Λ繧堤匳骭ｲ
+                execution_config["callbacks"] = [_handle_human_interaction]
+            
+            # 繧ｹ繝・・繧ｿ繧ｹ譖ｴ譁ｰ
+            self.active_workflows[workflow_id]["status"] = "running"
+            
+            # 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ螳溯｡鯉ｼ磯撼蜷梧悄・・            result = await workflow_graph.ainvoke(
+                initial_state,
+                execution_config
+            )
+            
+            # 螳溯｡檎ｵ先棡縺ｮ菫晏ｭ・            final_state = result  # 譛邨ら憾諷・            
+            # 繝・・繧ｿ繝吶・繧ｹ縺ｫ邨先棡繧剃ｿ晏ｭ・            await self.workflow_repository.save_workflow_state(workflow_id, final_state)
+            
+            # 繧ｹ繝・・繧ｿ繧ｹ譖ｴ譁ｰ
+            self.active_workflows[workflow_id]["status"] = final_state.status
+            self.active_workflows[workflow_id]["end_time"] = datetime.now()
+            self.active_workflows[workflow_id]["result"] = {
+                "status": final_state.status,
+                "agents_involved": list(final_state.results.keys()),
+                "error_count": len(final_state.errors)
+            }
+            
+            logger.info(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 縺ｮ螳溯｡後′螳御ｺ・＠縺ｾ縺励◆: {final_state.status}")
+            
+            return {
+                "workflow_id": workflow_id,
+                "status": final_state.status,
+                "start_time": final_state.start_time,
+                "end_time": final_state.end_time,
+                "results": final_state.results.get("final", {})
+            }
+            
+        except Exception as e:
+            logger.error(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 縺ｮ螳溯｡御ｸｭ縺ｫ繧ｨ繝ｩ繝ｼ縺檎匱逕・ {str(e)}")
+            
+            # 繧ｨ繝ｩ繝ｼ諠・ｱ繧定ｨ倬鹸
+            self.active_workflows[workflow_id]["status"] = "error"
+            self.active_workflows[workflow_id]["error"] = str(e)
+            self.active_workflows[workflow_id]["end_time"] = datetime.now()
+            
+            # 蜻ｼ縺ｳ蜃ｺ縺怜・縺ｫ繧ｨ繝ｩ繝ｼ諠・ｱ繧定ｿ斐☆
+            return {
+                "workflow_id": workflow_id,
+                "status": "error",
+                "error": str(e),
+                "start_time": self.active_workflows[workflow_id]["start_time"],
+                "end_time": datetime.now()
+            }
+    
+    def get_workflow_status(self, workflow_id: str) -> Optional[Dict[str, Any]]:
+        """
+        繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ迥ｶ諷九ｒ蜿門ｾ励☆繧・        
+        Args:
+            workflow_id: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼID
+            
+        Returns:
+            繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ迥ｶ諷区ュ蝣ｱ縲∝ｭ伜惠縺励↑縺・ｴ蜷医・None
+        """
+        # 繧｢繧ｯ繝・ぅ繝悶Ρ繝ｼ繧ｯ繝輔Ο繝ｼ縺九ｉ迥ｶ諷九ｒ蜿門ｾ・        if workflow_id in self.active_workflows:
+            return self.active_workflows[workflow_id]
+        
+        # 繝・・繧ｿ繝吶・繧ｹ縺九ｉ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷九ｒ蜿門ｾ・        try:
+            # 繝ｪ繝昴ず繝医Μ縺九ｉ迥ｶ諷九ｒ蜿門ｾ・            workflow_state = asyncio.run(self.workflow_repository.get_workflow_state(workflow_id))
+            
+            if workflow_state:
+                return {
+                    "id": workflow_id,
+                    "status": workflow_state.get("status", "unknown"),
+                    "start_time": workflow_state.get("start_time") or workflow_state.get("created_at"),
+                    "end_time": workflow_state.get("end_time"),
+                    "type": workflow_state.get("type", "unknown"),
+                    "is_archived": True
+                }
+        except Exception as e:
+            logger.error(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷九・蜿門ｾ嶺ｸｭ縺ｫ繧ｨ繝ｩ繝ｼ縺檎匱逕・ {e}")
+        
+            return None
+    
+    def get_all_workflows(
+        self,
+        status: Optional[str] = None,
+        workflow_type: Optional[str] = None,
+        limit: int = 10,
+        offset: int = 0
+    ) -> List[Dict[str, Any]]:
+        """
+        繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ荳隕ｧ繧貞叙蠕励☆繧・        
+        Args:
+            status: 繝輔ぅ繝ｫ繧ｿ繝ｪ繝ｳ繧ｰ縺吶ｋ繧ｹ繝・・繧ｿ繧ｹ・医が繝励す繝ｧ繝ｳ・・            workflow_type: 繝輔ぅ繝ｫ繧ｿ繝ｪ繝ｳ繧ｰ縺吶ｋ繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧ｿ繧､繝暦ｼ医が繝励す繝ｧ繝ｳ・・            limit: 蜿門ｾ励☆繧区怙螟ｧ莉ｶ謨ｰ
+            offset: 繝壹・繧ｸ繝阪・繧ｷ繝ｧ繝ｳ縺ｮ繧ｪ繝輔そ繝・ヨ
+            
+        Returns:
+            繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ諠・ｱ縺ｮ繝ｪ繧ｹ繝・        """
+        # 繧｢繧ｯ繝・ぅ繝悶Ρ繝ｼ繧ｯ繝輔Ο繝ｼ繧貞性繧√ｋ
+        active_workflows = list(self.active_workflows.values())
+        
+        # 繝輔ぅ繝ｫ繧ｿ繝ｪ繝ｳ繧ｰ
+        workflow_list = []
+        for wf in active_workflows:
+            if status and wf.get("status") != status:
+                continue
+                
+            if workflow_type and wf.get("type") != workflow_type:
+                continue
+                
+            workflow_list.append(wf)
+        
+        # 繝・・繧ｿ繝吶・繧ｹ縺九ｉ縺ｮ蜿門ｾ励ｂ螳溯｣・        # 縺溘□縺励√◎縺ｮ縺ｾ縺ｾ菴ｿ逕ｨ縺吶ｋ縺ｨ驥阪￥縺ｪ繧九・縺ｧ縲√・繝ｼ繧ｸ繝阪・繧ｷ繝ｧ繝ｳ繧帝←逕ｨ
+        # (隧ｳ邏ｰ螳溯｣・・逵∫払)
+        
+        # 邨先棡繧偵た繝ｼ繝医√・繝ｼ繧ｸ繝阪・繧ｷ繝ｧ繝ｳ
+        sorted_workflows = sorted(
+            workflow_list,
+            key=lambda w: w.get("start_time", datetime.now()),
+            reverse=True
+        )
+        
+        # 繝壹・繧ｸ繝阪・繧ｷ繝ｧ繝ｳ驕ｩ逕ｨ
+        paginated = sorted_workflows[offset:offset + limit]
+        
+        return paginated
+    
+    def pause_workflow(self, workflow_id: str, reason: str = "manually_paused") -> bool:
+        """
+        繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧剃ｸ譎ょ●豁｢縺吶ｋ
+        
+        Args:
+            workflow_id: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼID
+            reason: 荳譎ょ●豁｢縺ｮ逅・罰
+            
+        Returns:
+            荳譎ょ●豁｢縺梧・蜉溘＠縺溘°縺ｩ縺・°
+        """
+        if workflow_id not in self.active_workflows:
+            logger.warning(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 縺ｯ螳溯｡御ｸｭ縺ｧ縺ｯ縺ゅｊ縺ｾ縺帙ｓ")
+            return False
+            
+        # 荳譎ょ●豁｢迥ｶ諷九↓譖ｴ譁ｰ
+        self.active_workflows[workflow_id]["status"] = "paused"
+        self.active_workflows[workflow_id]["pause_reason"] = reason
+        self.active_workflows[workflow_id]["paused_at"] = datetime.now()
+        
+        logger.info(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 繧剃ｸ譎ょ●豁｢縺励∪縺励◆: {reason}")
+        return True
+    
+    def resume_workflow(self, workflow_id: str) -> bool:
+        """
+        荳譎ょ●豁｢縺励◆繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ繧貞・髢九☆繧・        
+        Args:
+            workflow_id: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼID
+            
+        Returns:
+            蜀埼幕縺梧・蜉溘＠縺溘°縺ｩ縺・°
+        """
+        if workflow_id not in self.active_workflows:
+            logger.warning(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 縺ｯ蟄伜惠縺励∪縺帙ｓ")
+            return False
+            
+        if self.active_workflows[workflow_id]["status"] != "paused":
+            logger.warning(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 縺ｯ荳譎ょ●豁｢迥ｶ諷九〒縺ｯ縺ゅｊ縺ｾ縺帙ｓ")
+            return False
+            
+        # 螳溯｡御ｸｭ迥ｶ諷九↓譖ｴ譁ｰ
+        self.active_workflows[workflow_id]["status"] = "running"
+        self.active_workflows[workflow_id]["resumed_at"] = datetime.now()
+        
+        logger.info(f"繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ {workflow_id} 繧貞・髢九＠縺ｾ縺励◆")
+        return True
+
+
+# 繧ｷ繝ｳ繧ｰ繝ｫ繝医Φ繧､繝ｳ繧ｹ繧ｿ繝ｳ繧ｹ繧呈署萓帙☆繧矩未謨ｰ
+def get_workflow_service() -> WorkflowService:
+    """
+    繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ邂｡逅・し繝ｼ繝薙せ縺ｮ繧ｷ繝ｳ繧ｰ繝ｫ繝医Φ繧､繝ｳ繧ｹ繧ｿ繝ｳ繧ｹ繧貞叙蠕励＠縺ｾ縺吶・    
+    Returns:
+        WorkflowService: 繧ｵ繝ｼ繝薙せ縺ｮ繧､繝ｳ繧ｹ繧ｿ繝ｳ繧ｹ
+    """
+    return WorkflowService() 
+
+
+# FastAPI萓晏ｭ倬未菫よ署萓幃未謨ｰ
+def get_workflow_service_dependency() -> WorkflowService:
+    """
+    FastAPI縺ｮ萓晏ｭ倬未菫よｳｨ蜈･縺ｮ縺溘ａ縺ｮ繝励Ο繝舌う繝繝ｼ髢｢謨ｰ
+    
+    Returns:
+        WorkflowService: 繧ｵ繝ｼ繝薙せ縺ｮ繧､繝ｳ繧ｹ繧ｿ繝ｳ繧ｹ
+    """
+    return get_workflow_service()
+
+
+# 蠕梧婿莠呈鋤諤ｧ縺ｮ縺溘ａ縺ｮ繝ｩ繝・ヱ繝ｼ髢｢謨ｰ・磯撼謗ｨ螂ｨ・・async def run_workflow(
+    workflow_state: Dict[str, Any],
+    **kwargs
+) -> Dict[str, Any]:
+    """
+    譌ｧAPI縺ｨ縺ｮ蠕梧婿莠呈鋤諤ｧ縺ｮ縺溘ａ縺ｮ繝ｩ繝・ヱ繝ｼ髢｢謨ｰ・磯撼謗ｨ螂ｨ・・    
+    Args:
+        workflow_state: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ迥ｶ諷・        **kwargs: 縺昴・莉悶・繝代Λ繝｡繝ｼ繧ｿ
+        
+    Returns:
+        Dict[str, Any]: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ螳溯｡檎ｵ先棡
+        
+    Deprecated:
+        莉｣繧上ｊ縺ｫ WorkflowService.run_workflow() 繧剃ｽｿ逕ｨ縺励※縺上□縺輔＞縲・    """
+    import warnings
+    warnings.warn(
+        "run_workflow髢｢謨ｰ縺ｯ髱樊耳螂ｨ縺ｧ縺吶ゆｻ｣繧上ｊ縺ｫget_workflow_service().run_workflow()繧剃ｽｿ逕ｨ縺励※縺上□縺輔＞縲・,
+        DeprecationWarning,
+        stacklevel=2
+    )
+    
+    workflow_id = workflow_state.get("workflow_id") or f"flow-{uuid.uuid4().hex}"
+    service = get_workflow_service()
+    
+    result = await service.run_workflow(
+        workflow_id=workflow_id,
+        workflow_type="audit",
+        initial_data=workflow_state,
+        **kwargs
+    )
+    
+    return result
+
+
+# 蠕梧婿莠呈鋤諤ｧ縺ｮ縺溘ａ縺ｮ繝ｩ繝・ヱ繝ｼ髢｢謨ｰ・磯撼謗ｨ螂ｨ・・async def get_workflow_status(workflow_id: str) -> Optional[Dict[str, Any]]:
+    """
+    譌ｧAPI縺ｨ縺ｮ蠕梧婿莠呈鋤諤ｧ縺ｮ縺溘ａ縺ｮ繝ｩ繝・ヱ繝ｼ髢｢謨ｰ・磯撼謗ｨ螂ｨ・・    
+    Args:
+        workflow_id: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼID
+        
+    Returns:
+        Optional[Dict[str, Any]]: 繝ｯ繝ｼ繧ｯ繝輔Ο繝ｼ縺ｮ迥ｶ諷区ュ蝣ｱ
+        
+    Deprecated:
+        莉｣繧上ｊ縺ｫ WorkflowService.get_workflow_status() 繧剃ｽｿ逕ｨ縺励※縺上□縺輔＞縲・    """
+    import warnings
+    warnings.warn(
+        "get_workflow_status髢｢謨ｰ縺ｯ髱樊耳螂ｨ縺ｧ縺吶ゆｻ｣繧上ｊ縺ｫget_workflow_service().get_workflow_status()繧剃ｽｿ逕ｨ縺励※縺上□縺輔＞縲・,
+        DeprecationWarning,
+        stacklevel=2
+    )
+    
+    service = get_workflow_service()
+    return service.get_workflow_status(workflow_id) 

@@ -1,0 +1,9 @@
+{
+  "workflow_id": "test-workflow-ab5e1f45",
+  "status": "in_progress",
+  "current_agent": "agent_a",
+  "context_id": "test-context-2844060f",
+  "procedure_id": "proc-test-001",
+  "procedure_text": "\n    監査手続き: 出張精算書類の検証\n    \n    目的:\n    出張精算書類が会社の規程に従って適切に処理されているかを検証する。\n    \n    チェックポイント:\n    - 出張期間と領収書日付の整合性\n    - 申請金額と領収書金額の一致\n    - 承認者の適切性（権限者による承認）\n    ",
+  "updated_at": "2025-03-18T19:41:52.836645"
+}

@@ -1,0 +1,10 @@
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:43 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}

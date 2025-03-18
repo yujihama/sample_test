@@ -1,0 +1,80 @@
+2025-03-18 10:27:23 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "task_001", "difficulty": 5, "description": "テストタスク"}}
+2025-03-18 10:27:23 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "task_001", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:23 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "task_001", "active_tasks_count": 1}
+2025-03-18 10:27:23 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "task_003", "difficulty": 5, "description": "エラーテストタスク"}}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "task_003", "difficulty": 5, "description": "エラーテストタスク"}}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "task_003", "error_count": 1, "retry_attempts": 0}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "task_003", "error_count": 1, "retry_attempts": 0}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "task_003", "remaining_errors": 0, "retry_count": 0}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "task_003", "remaining_errors": 0, "retry_count": 0}
+2025-03-18 10:27:24 | ERROR    | agent.test_agent_b | Error occurred: execution_failed | details={"task_id": "task_003", "retry_count": 0}
+2025-03-18 10:27:24 | ERROR    | agent.test_agent_b | Error occurred: execution_failed | details={"task_id": "task_003", "retry_count": 0}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message received: type=status_check | content={}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message received: type=status_check | content={}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Action performed: status_check | details={"active_tasks_count": 0}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Action performed: status_check | details={"active_tasks_count": 0}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:24 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "sub_1", "difficulty": 3}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "sub_1", "difficulty": 3}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "sub_1", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "sub_1", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "sub_1", "active_tasks_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "sub_1", "active_tasks_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "sub_2", "difficulty": 4}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "sub_2", "difficulty": 4}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "sub_2", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "sub_2", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "sub_2", "active_tasks_count": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "sub_2", "active_tasks_count": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "sub_3", "difficulty": 6}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "sub_3", "difficulty": 6}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "sub_3", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "sub_3", "error_count": 0, "retry_attempts": 0}
+2025-03-18 10:27:26 | ERROR    | agent.test_agent_b | Error occurred: difficulty_too_high | details={"task_id": "sub_3", "difficulty": 6}
+2025-03-18 10:27:26 | ERROR    | agent.test_agent_b | Error occurred: difficulty_too_high | details={"task_id": "sub_3", "difficulty": 6}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "retry_task_001", "difficulty": 4, "max_retries": 5, "description": "リトライ可能なタスク"}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "retry_task_001", "difficulty": 4, "max_retries": 5, "description": "リトライ可能なタスク"}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "retry_task_001", "error_count": 3, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "retry_task_001", "error_count": 3, "retry_attempts": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "retry_task_001", "remaining_errors": 2, "retry_count": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "retry_task_001", "remaining_errors": 2, "retry_count": 0}
+2025-03-18 10:27:26 | ERROR    | agent.test_agent_b | Error occurred: execution_failed | details={"task_id": "retry_task_001", "retry_count": 0}
+2025-03-18 10:27:26 | ERROR    | agent.test_agent_b | Error occurred: execution_failed | details={"task_id": "retry_task_001", "retry_count": 0}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "retry_task_001", "difficulty": 4, "max_retries": 5, "description": "リトライ可能なタスク"}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "retry_task_001", "difficulty": 4, "max_retries": 5, "description": "リトライ可能なタスク"}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "retry_task_001", "error_count": 2, "retry_attempts": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "retry_task_001", "error_count": 2, "retry_attempts": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "retry_task_001", "remaining_errors": 1, "retry_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "retry_task_001", "remaining_errors": 1, "retry_count": 1}
+2025-03-18 10:27:26 | ERROR    | agent.test_agent_b | Error occurred: execution_failed | details={"task_id": "retry_task_001", "retry_count": 1}
+2025-03-18 10:27:26 | ERROR    | agent.test_agent_b | Error occurred: execution_failed | details={"task_id": "retry_task_001", "retry_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "retry_task_001", "difficulty": 4, "max_retries": 5, "description": "リトライ可能なタスク"}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "retry_task_001", "difficulty": 4, "max_retries": 5, "description": "リトライ可能なタスク"}}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "retry_task_001", "error_count": 1, "retry_attempts": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "retry_task_001", "error_count": 1, "retry_attempts": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "retry_task_001", "remaining_errors": 0, "retry_count": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | State change: error_state | details={"task_id": "retry_task_001", "remaining_errors": 0, "retry_count": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_retry_succeeded | details={"task_id": "retry_task_001", "retry_count": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Action performed: task_retry_succeeded | details={"task_id": "retry_task_001", "retry_count": 2}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_b | Message received: type=evaluation_request | content={"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_b | Message received: type=evaluation_request | content={"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_b | Action performed: evaluation_request_received | details={"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_b | Action performed: evaluation_request_received | details={"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}

@@ -1,0 +1,5 @@
+2025-03-18 20:41:42 | INFO     | agent.test_agent_b | Action performed: initialization | details={"agent_id": "test_agent_b"}
+2025-03-18 20:41:42 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "error_task", "error_trigger": true, "description": "エラーを発生させるタスク"}}
+2025-03-18 20:41:42 | INFO     | agent.test_agent_b | Action performed: error_detected | details={"task_id": "error_task", "reason": "error_trigger_detected"}
+2025-03-18 20:41:42 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:41:42 | INFO     | agent.test_agent_b | Action performed: cleanup | details={"agent_id": "test_agent_b"}

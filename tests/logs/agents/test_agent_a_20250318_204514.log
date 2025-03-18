@@ -1,0 +1,5 @@
+2025-03-18 20:45:14 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:45:14 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:45:14 | ERROR    | agent.test_agent_a | Error occurred: unknown_message_type | details={"message_type": "complex_task"}
+2025-03-18 20:45:14 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:45:14 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}

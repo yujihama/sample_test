@@ -1,0 +1,3 @@
+actual_status,agent_id,current_agent,description,expected_status,progress,severity,timestamp,type,updated_at,workflow_id,workflow_status
+none_failed,,,ワークフロー 'workflow-b522dad0' は 'failed' 状態ですが、失敗したエージェントが見つかりません,failed,,medium,2025-03-15T17:03:58.487541,inconsistent_workflow_failure,,workflow-b522dad0,failed
+stalled,agent-a,agent-a,ワークフロー 'wf_proc_ac30_cfa3' の agent-a の進捗が0のまま5分以上経過しています,progressing,0,medium,2025-03-15T17:03:58.487777,stalled_agent,2025-03-15 07:04:13.954906,wf_proc_ac30_cfa3,in_progress

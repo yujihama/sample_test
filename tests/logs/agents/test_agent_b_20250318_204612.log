@@ -1,0 +1,5 @@
+2025-03-18 20:46:12 | INFO     | agent.test_agent_b | Action performed: initialization | details={"agent_id": "test_agent_b"}
+2025-03-18 20:46:12 | INFO     | agent.test_agent_b | Message received: type=error_prone_task | content={"task_id": "task_007", "error_probability": 0.8, "description": "エラーが発生しやすいタスク"}
+2025-03-18 20:46:12 | ERROR    | agent.test_agent_b | Error occurred: unknown_message_type | details={"message_type": "error_prone_task"}
+2025-03-18 20:46:12 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 20:46:12 | INFO     | agent.test_agent_b | Action performed: cleanup | details={"agent_id": "test_agent_b"}

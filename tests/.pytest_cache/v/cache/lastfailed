@@ -1,0 +1,19 @@
+{
+  "unit/repositories/test_regulation_repository.py::TestRegulationRepository::test_search_regulations": true,
+  "unit/repositories/test_regulation_repository.py::TestRegulationRepository::test_create_regulation_audit_trail": true,
+  "e2e/scenarios/test_human_intervention.py": true,
+  "e2e/scenarios/test_workflow_state.py": true,
+  "integration/agents/test_agent_a_workflow.py": true,
+  "integration/agents/test_agent_b_workflow.py": true,
+  "integration/agents/test_agent_c_workflow.py": true,
+  "integration/agents/test_agent_communication.py": true,
+  "integration/agents/test_agent_d_workflow.py": true,
+  "integration/api/test_workflow_api.py": true,
+  "integration/workflow/test_workflow.py": true,
+  "integration/workflow/test_workflow_api.py": true,
+  "integration/workflow/test_workflow_state.py": true,
+  "unit/api/test_audit_trail_endpoints.py": true,
+  "unit/core/test_audit_trail.py": true,
+  "unit/db/test_repositories.py": true,
+  "e2e/scenarios/test_budget_approval_scenario.py::TestBudgetApprovalScenario::test_budget_approval_scenario": true
+}

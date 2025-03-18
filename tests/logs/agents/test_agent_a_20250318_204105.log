@@ -1,0 +1,9 @@
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 8, "requires_approval": true, "description": "承認が必要なタスク"}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 8, "requires_approval": true}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_002", "query": {"type": "human_query", "content": {"task_id": "task_002", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Message received: type=human_response | content={"task_id": "task_002", "approved": true}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Action performed: human_response_received | details={"task_id": "task_002", "approved": true}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:41:05 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}

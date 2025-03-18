@@ -1,0 +1,304 @@
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_001", "difficulty": 5, "description": "テストタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_001", "difficulty": 5, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_001", "pending_tasks_count": 1}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 8, "requires_approval": true, "description": "承認が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 8, "requires_approval": true, "description": "承認が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 8, "requires_approval": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 8, "requires_approval": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_002", "query": {"type": "human_query", "content": {"task_id": "task_002", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_002", "query": {"type": "human_query", "content": {"task_id": "task_002", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=human_response | content={"task_id": "task_002", "approved": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=human_response | content={"task_id": "task_002", "approved": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: human_response_received | details={"task_id": "task_002", "approved": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: human_response_received | details={"task_id": "task_002", "approved": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_003", "priority": "normal", "description": "通常の優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_003", "priority": "normal", "description": "通常の優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_003", "priority": "normal", "description": "通常の優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_003", "priority": "normal", "description": "通常の優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_003", "priority": "normal", "description": "通常の優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_003", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_003", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_003", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_003", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_003", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_003", "pending_tasks_count": 1}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_003", "pending_tasks_count": 1}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_003", "pending_tasks_count": 1}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_003", "pending_tasks_count": 1}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_003", "pending_tasks_count": 1}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_004", "priority": "high", "description": "高優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_004", "priority": "high", "description": "高優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_004", "priority": "high", "description": "高優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_004", "priority": "high", "description": "高優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_004", "priority": "high", "description": "高優先度のタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_004", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_004", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_004", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_004", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_004", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_004", "pending_tasks_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_004", "pending_tasks_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_004", "pending_tasks_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_004", "pending_tasks_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_004", "pending_tasks_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal", "high"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal", "high"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal", "high"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal", "high"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal", "high"]}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_005", "category": "analysis", "description": "分析カテゴリのタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_005", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_005", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_005", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_005", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_005", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_005", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_routing | details={"task_id": "task_005", "category": "analysis", "target_agent": "agent_b"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_routing | details={"task_id": "task_005", "category": "analysis", "target_agent": "agent_b"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_routing | details={"task_id": "task_005", "category": "analysis", "target_agent": "agent_b"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_routing | details={"task_id": "task_005", "category": "analysis", "target_agent": "agent_b"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_routing | details={"task_id": "task_005", "category": "analysis", "target_agent": "agent_b"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: task_routing | details={"task_id": "task_005", "category": "analysis", "target_agent": "agent_b"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_task_received | details={"task_id": "task_008", "requires_collaboration": true}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: collaboration_initiated | details={"task_id": "task_008", "collaboration_type": "risk_assessment"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message received: type=analysis_result | content={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: analysis_result_received | details={"task_id": "task_008", "result": {"risk_level": "medium", "recommendations": ["action1", "action2"]}}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: decision_making | details={"task_id": "task_008", "risk_level": "medium", "recommendations_count": 2}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
+2025-03-18 20:47:56 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}

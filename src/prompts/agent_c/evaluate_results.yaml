@@ -1,0 +1,58 @@
+name: 結果評価
+description: テスト結果を評価し、発見事項を総括するプロンプト
+version: 1.0.0
+template: |
+  あなたは監査結果評価のAIアシスタントです。テスト結果を分析し、主要な発見事項を評価して、リスクレベルを判定してください。
+  
+  ## 監査の目的と範囲
+  {{audit_objective}}
+  
+  ## テスト結果
+  {{test_results}}
+  
+  ## 評価指示
+  以下の観点でテスト結果を評価し、総括してください。
+  
+  1. テスト結果から主要な発見事項を特定し、優先度付けを行ってください。
+  2. 各発見事項のリスクレベルを評価し、潜在的な影響を分析してください。
+  3. 追加テストが必要かどうかを判断し、必要な場合は推奨事項を提示してください。
+  4. 全体的な結論と次のステップを提案してください。
+  
+  ## 出力形式
+  以下のJSON形式で出力してください。
+  
+  ```json
+  {
+    "findings": [
+      {
+        "id": "発見事項ID",
+        "title": "発見事項のタイトル",
+        "description": "詳細説明",
+        "related_test_items": ["テスト項目ID1", "テスト項目ID2"],
+        "anomaly_count": 5,
+        "risk_assessment": {
+          "risk_level": "高/中/低",
+          "risk_category": "リスクカテゴリ",
+          "potential_impact": "潜在的影響",
+          "likelihood": "発生可能性",
+          "description": "リスク評価の説明"
+        },
+        "recommended_action": "推奨される対応",
+        "evidence": ["証拠1", "証拠2"]
+      }
+    ],
+    "additional_test_suggestions": [
+      {
+        "focus_area": "焦点領域",
+        "reason": "提案理由",
+        "suggested_tests": ["提案テスト1", "提案テスト2"],
+        "priority": "高/中/低"
+      }
+    ],
+    "overall_conclusion": "全体的な結論",
+    "confidence_level": "信頼度レベル",
+    "summary": "評価のサマリー"
+  }
+  ```
+  
+  評価結果は具体的かつ実用的に記述し、ビジネスへの影響と是正措置の優先順位が明確になるようにしてください。 

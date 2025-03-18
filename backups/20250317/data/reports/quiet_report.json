@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-03-15T17:04:07.384368",
+  "total_issues": 2,
+  "issues": [
+    {
+      "timestamp": "2025-03-15T17:04:07.383868",
+      "workflow_id": "workflow-b522dad0",
+      "type": "inconsistent_workflow_failure",
+      "description": "ワークフロー 'workflow-b522dad0' は 'failed' 状態ですが、失敗したエージェントが見つかりません",
+      "severity": "medium",
+      "workflow_status": "failed",
+      "current_agent": null,
+      "agent_id": null,
+      "expected_status": "failed",
+      "actual_status": "none_failed"
+    },
+    {
+      "timestamp": "2025-03-15T17:04:07.384043",
+      "workflow_id": "wf_proc_ac30_cfa3",
+      "type": "stalled_agent",
+      "description": "ワークフロー 'wf_proc_ac30_cfa3' の agent-a の進捗が0のまま5分以上経過しています",
+      "severity": "medium",
+      "workflow_status": "in_progress",
+      "current_agent": "agent-a",
+      "agent_id": "agent-a",
+      "expected_status": "progressing",
+      "actual_status": "stalled",
+      "progress": 0,
+      "updated_at": "2025-03-15 07:04:13.954906"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "task_003", "difficulty": 5, "description": "エラーテストタスク"}}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message received: type=task_assignment | content={"task": {"task_id": "task_003", "difficulty": 5, "description": "エラーテストタスク"}}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "task_003", "error_count": 0, "retry_attempts": 0}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Action performed: task_assignment_received | details={"task_id": "task_003", "error_count": 0, "retry_attempts": 0}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "task_003", "active_tasks_count": 1}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | State change: task_accepted | details={"task_id": "task_003", "active_tasks_count": 1}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message received: type=status_check | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message received: type=status_check | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message received: type=status_check | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Action performed: status_check | details={"active_tasks_count": 0}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Action performed: status_check | details={"active_tasks_count": 0}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Action performed: status_check | details={"active_tasks_count": 0}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}
+2025-03-18 21:46:11 | INFO     | agent.test_agent_b | Message sent: type=unknown | content={}

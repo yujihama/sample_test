@@ -1,0 +1,12 @@
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_003", "priority": "normal", "description": "通常の優先度のタスク"}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_003", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_003", "pending_tasks_count": 1}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal"]}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_004", "priority": "high", "description": "高優先度のタスク"}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_004", "difficulty": 0, "requires_approval": false}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_004", "pending_tasks_count": 2}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": ["normal", "high"]}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:42:26 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}

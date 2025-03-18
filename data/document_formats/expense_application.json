@@ -1,0 +1,73 @@
+{
+  "name": "expense_application",
+  "description": "経費申請書フォーマット",
+  "required_fields": [
+    {
+      "name": "title",
+      "regex": "経費\\s*申請\\s*書",
+      "required": true
+    },
+    {
+      "name": "applicant",
+      "regex": "申請者\\s*[:：]\\s*(.*)",
+      "required": true
+    },
+    {
+      "name": "department",
+      "regex": "部署\\s*[:：]\\s*(.*)",
+      "required": false
+    },
+    {
+      "name": "date",
+      "regex": "申請日\\s*[:：]\\s*(\\d{4}年\\s*\\d{1,2}月\\s*\\d{1,2}日|\\d{4}/\\d{1,2}/\\d{1,2})",
+      "required": true
+    },
+    {
+      "name": "amount",
+      "regex": "申請金額\\s*[:：]\\s*(\\d[,\\d]*円)",
+      "required": true
+    },
+    {
+      "name": "purpose",
+      "regex": "目的\\s*[:：]\\s*(.*)",
+      "required": true
+    },
+    {
+      "name": "approver",
+      "regex": "承認者\\s*[:：]\\s*(.*)",
+      "required": true
+    }
+  ],
+  "validation_rules": [
+    {
+      "type": "field_presence",
+      "field": "title",
+      "message": "申請書タイトルが見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "applicant",
+      "message": "申請者が見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "date",
+      "message": "申請日が見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "amount",
+      "message": "申請金額が見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "purpose",
+      "message": "目的が見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "approver",
+      "message": "承認者が見つかりません"
+    }
+  ]
+}

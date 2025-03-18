@@ -1,0 +1,5 @@
+2025-03-18 20:46:55 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:46:55 | INFO     | agent.test_agent_a | Message received: type=decision_task | content={"task_id": "task_008", "requires_collaboration": true, "description": "複数のエージェントでの意思決定が必要なタスク"}
+2025-03-18 20:46:55 | ERROR    | agent.test_agent_a | Error occurred: unknown_message_type | details={"message_type": "decision_task"}
+2025-03-18 20:46:55 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:46:55 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}

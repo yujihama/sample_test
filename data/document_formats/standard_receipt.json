@@ -1,0 +1,43 @@
+{
+  "name": "standard_receipt",
+  "description": "標準的な領収書フォーマット",
+  "required_fields": [
+    {
+      "name": "title",
+      "regex": "領\\s*収\\s*書",
+      "required": true
+    },
+    {
+      "name": "date",
+      "regex": "\\d{4}年\\s*\\d{1,2}月\\s*\\d{1,2}日|\\d{4}/\\d{1,2}/\\d{1,2}",
+      "required": true
+    },
+    {
+      "name": "amount",
+      "regex": "金額.*?\\d[,\\d]*円|\\d[,\\d]*円",
+      "required": true
+    },
+    {
+      "name": "payee",
+      "regex": "(?:宛名|宛先)\\s*[:：]\\s*(.*)",
+      "required": false
+    }
+  ],
+  "validation_rules": [
+    {
+      "type": "field_presence",
+      "field": "title",
+      "message": "領収書タイトルが見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "date",
+      "message": "日付が見つかりません"
+    },
+    {
+      "type": "field_presence",
+      "field": "amount",
+      "message": "金額が見つかりません"
+    }
+  ]
+}

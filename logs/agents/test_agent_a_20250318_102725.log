@@ -1,0 +1,82 @@
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_p1", "difficulty": 5, "priority": 1, "description": "優先度1のタスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_p1", "difficulty": 5, "requires_approval": false}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_p1", "pending_tasks_count": 1}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": [1]}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_p2", "difficulty": 5, "priority": 2, "description": "優先度2のタスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_p2", "difficulty": 5, "requires_approval": false}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_p2", "pending_tasks_count": 2}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": [2, 1]}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_p3", "difficulty": 5, "priority": 3, "description": "優先度3のタスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_p3", "difficulty": 5, "requires_approval": false}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_p3", "pending_tasks_count": 3}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: tasks_prioritized | details={"priorities": [3, 2, 1]}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_001", "difficulty": 6, "category": "urgent", "requires_approval": true, "description": "緊急タスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_001", "difficulty": 6, "category": "urgent", "requires_approval": true, "description": "緊急タスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_001", "difficulty": 6, "requires_approval": true}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_001", "difficulty": 6, "requires_approval": true}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_001", "query": {"type": "human_query", "content": {"task_id": "task_001", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_001", "query": {"type": "human_query", "content": {"task_id": "task_001", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 4, "category": "normal", "requires_approval": false, "description": "通常タスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 4, "category": "normal", "requires_approval": false, "description": "通常タスク"}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 4, "requires_approval": false}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 4, "requires_approval": false}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_002", "pending_tasks_count": 1}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_002", "pending_tasks_count": 1}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:25 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_chain_001", "difficulty": 5, "sub_tasks": [{"id": "sub_1", "difficulty": 3}, {"id": "sub_2", "difficulty": 4}, {"id": "sub_3", "difficulty": 6}], "description": "複数のサブタスクを含むタスク"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_chain_001", "difficulty": 5, "sub_tasks": [{"id": "sub_1", "difficulty": 3}, {"id": "sub_2", "difficulty": 4}, {"id": "sub_3", "difficulty": 6}], "description": "複数のサブタスクを含むタスク"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_chain_001", "difficulty": 5, "sub_tasks": [{"id": "sub_1", "difficulty": 3}, {"id": "sub_2", "difficulty": 4}, {"id": "sub_3", "difficulty": 6}], "description": "複数のサブタスクを含むタスク"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_chain_001", "difficulty": 5, "requires_approval": false}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_chain_001", "difficulty": 5, "requires_approval": false}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_chain_001", "difficulty": 5, "requires_approval": false}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_chain_001", "pending_tasks_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_chain_001", "pending_tasks_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_chain_001", "pending_tasks_count": 1}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=error_report | content={"error_id": "error_retry_001", "task_id": "retry_task_001", "retry_count": 1, "description": "実行エラー"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=error_report | content={"error_id": "error_retry_001", "task_id": "retry_task_001", "retry_count": 1, "description": "実行エラー"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=error_report | content={"error_id": "error_retry_001", "task_id": "retry_task_001", "retry_count": 1, "description": "実行エラー"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: error_report_received | details={"error_id": "error_retry_001", "task_id": "retry_task_001"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: error_report_received | details={"error_id": "error_retry_001", "task_id": "retry_task_001"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: error_report_received | details={"error_id": "error_retry_001", "task_id": "retry_task_001"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=error_report | content={"error_id": "error_retry_001", "task_id": "retry_task_001", "retry_count": 2, "description": "実行エラー"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=error_report | content={"error_id": "error_retry_001", "task_id": "retry_task_001", "retry_count": 2, "description": "実行エラー"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message received: type=error_report | content={"error_id": "error_retry_001", "task_id": "retry_task_001", "retry_count": 2, "description": "実行エラー"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: error_report_received | details={"error_id": "error_retry_001", "task_id": "retry_task_001"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: error_report_received | details={"error_id": "error_retry_001", "task_id": "retry_task_001"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Action performed: error_report_received | details={"error_id": "error_retry_001", "task_id": "retry_task_001"}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:26 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "complex_001", "difficulty": 6, "requires_collaboration": true, "decision_factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}], "description": "複数の判断要素を含むタスク"}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "complex_001", "difficulty": 6, "requires_collaboration": true, "decision_factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}], "description": "複数の判断要素を含むタスク"}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "complex_001", "difficulty": 6, "requires_collaboration": true, "decision_factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}], "description": "複数の判断要素を含むタスク"}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "complex_001", "difficulty": 6, "requires_approval": false}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "complex_001", "difficulty": 6, "requires_approval": false}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "complex_001", "difficulty": 6, "requires_approval": false}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "complex_001", "pending_tasks_count": 1}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "complex_001", "pending_tasks_count": 1}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "complex_001", "pending_tasks_count": 1}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message received: type=final_decision | content={"task_id": "complex_001", "evaluations": [{"response": "task_accepted", "task_id": "complex_001"}, {"response": "evaluation_complete", "evaluation_result": {"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}], "recommendation": "proceed"}}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message received: type=final_decision | content={"task_id": "complex_001", "evaluations": [{"response": "task_accepted", "task_id": "complex_001"}, {"response": "evaluation_complete", "evaluation_result": {"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}], "recommendation": "proceed"}}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message received: type=final_decision | content={"task_id": "complex_001", "evaluations": [{"response": "task_accepted", "task_id": "complex_001"}, {"response": "evaluation_complete", "evaluation_result": {"task_id": "complex_001", "factors": [{"factor": "technical", "weight": 0.4}, {"factor": "resource", "weight": 0.3}, {"factor": "time", "weight": 0.3}], "recommendation": "proceed"}}]}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Action performed: final_decision_evaluation | details={"task_id": "complex_001", "evaluations_count": 2}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Action performed: final_decision_evaluation | details={"task_id": "complex_001", "evaluations_count": 2}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Action performed: final_decision_evaluation | details={"task_id": "complex_001", "evaluations_count": 2}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 10:27:27 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}

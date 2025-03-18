@@ -1,0 +1,12 @@
+2025-03-15 13:33:07 | INFO     | src.core.config:setup_logging:163 - ログレベル INFO でロギングを初期化しました
+2025-03-15 13:33:07 | INFO     | src.core.config:initialize_app:170 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 13:33:07 | INFO     | src.core.config:initialize_app:171 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\src\api\data\audit_agent.db
+2025-03-15 13:33:07 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 13:33:07 | INFO     | __main__:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 13:33:07 | INFO     | __main__:<module>:334 - サーバーを起動しています: 0.0.0.0:8000
+2025-03-15 14:16:50 | INFO     | src.core.config:setup_logging:172 - ログレベル INFO でロギングを初期化しました
+2025-03-15 14:16:50 | INFO     | src.core.config:initialize_app:179 - アプリケーションを初期化しました: 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0
+2025-03-15 14:16:50 | INFO     | src.core.config:initialize_app:180 - データベース接続: sqlite:///C:\Users\nyham\work\sampletest\src\api\audit_agent.db
+2025-03-15 14:16:50 | INFO     | src.utils.db_manager:init_db:40 - データベーススキーマが初期化されました
+2025-03-15 14:16:50 | INFO     | __main__:<module>:65 - 静的ファイルディレクトリをマウントしました: C:\Users\nyham\work\sampletest\static, data\reports
+2025-03-15 14:16:50 | INFO     | __main__:<module>:334 - サーバーを起動しています: 0.0.0.0:8000

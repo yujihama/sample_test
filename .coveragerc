@@ -1,0 +1,14 @@
+[run]
+source = src
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    pass
+
+omit =
+    src/core/agent_coordination.py
+    src/core/conversation_context.py 

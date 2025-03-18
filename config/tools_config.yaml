@@ -1,0 +1,59 @@
+# ツール設定ファイル
+# このファイルはツールレジストリがツールのロード時に使用します
+
+tools:
+  # 画像処理ツール
+  ImageProcessor:
+    module: src.tools.image_processor
+    class: ImageProcessor
+    enabled: true
+    id_suffix: "001"
+    metadata:
+      description: "領収書などの画像分析や処理を行うツール"
+      priority: high
+      capabilities:
+        - 印影検出・検証
+        - 画像の鮮明化
+        - 部分領域の拡大
+  
+  # エクセル解析ツール
+  ExcelAnalyzer:
+    module: src.tools.excel_analyzer
+    class: ExcelAnalyzer
+    enabled: true
+    id_suffix: "001"
+    metadata:
+      description: "Excelファイルの構造解析や特定データの抽出を行うツール"
+      priority: high
+      capabilities:
+        - 複数シートのデータ構造解析
+        - 特定IDに基づくレコード抽出
+        - シート間の関連データ照合
+  
+  # データ照合ツール
+  DataValidator:
+    module: src.tools.data_validator
+    class: DataValidator
+    enabled: true
+    id_suffix: "001"
+    metadata:
+      description: "社員マスタなどのリファレンスデータと照合するツール"
+      priority: medium
+      capabilities:
+        - 社員情報照会
+        - 権限レベル確認
+        - 承認権限の照合
+  
+  # 文書解析ツール
+  DocumentParser:
+    module: src.tools.document_parser
+    class: DocumentParser
+    enabled: true
+    id_suffix: "001"
+    metadata:
+      description: "PDF・スキャン文書の解析やテキスト抽出を行うツール"
+      priority: medium
+      capabilities:
+        - OCRテキスト抽出
+        - フォーマット認識
+        - 形式チェック 

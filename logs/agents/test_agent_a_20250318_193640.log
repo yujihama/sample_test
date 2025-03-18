@@ -1,0 +1,12 @@
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_001", "difficulty": 5, "description": "テストタスク"}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_001", "difficulty": 5, "requires_approval": false}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | State change: task_added | details={"task_id": "task_001", "pending_tasks_count": 1}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 8, "description": "難易度の高いテストタスク"}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Message received: type=task_request | content={"task_id": "task_002", "difficulty": 8, "description": "難易度の高いテストタスク"}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 8, "requires_approval": false}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Action performed: task_evaluation | details={"task_id": "task_002", "difficulty": 8, "requires_approval": false}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_002", "query": {"type": "human_query", "content": {"task_id": "task_002", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Action performed: human_query_created | details={"task_id": "task_002", "query": {"type": "human_query", "content": {"task_id": "task_002", "question": "難易度の高いタスクの承認が必要です"}}}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 19:36:40 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "E001",
+    "name": "山田太郎",
+    "department": "経理部",
+    "position": "部長",
+    "authority_level": 5
+  },
+  {
+    "id": "E002",
+    "name": "佐藤花子",
+    "department": "経理部",
+    "position": "課長",
+    "authority_level": 4
+  },
+  {
+    "id": "E003",
+    "name": "鈴木一郎",
+    "department": "経理部",
+    "position": "主任",
+    "authority_level": 3
+  },
+  {
+    "id": "E004",
+    "name": "田中実",
+    "department": "営業部",
+    "position": "部長",
+    "authority_level": 5
+  },
+  {
+    "id": "E005",
+    "name": "中村誠",
+    "department": "営業部",
+    "position": "課長",
+    "authority_level": 4
+  },
+  {
+    "id": "E006",
+    "name": "小林智子",
+    "department": "開発部",
+    "position": "部長",
+    "authority_level": 5
+  }
+]

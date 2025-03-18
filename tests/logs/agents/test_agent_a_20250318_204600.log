@@ -1,0 +1,9 @@
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Action performed: initialization | details={"agent_id": "test_agent_a"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Message received: type=complex_task | content={"task_id": "task_006", "requires_delegation": true, "description": "複数のエージェントで処理するタスク"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Action performed: complex_task_received | details={"task_id": "task_006", "requires_delegation": true}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Action performed: subtask_created | details={"parent_task_id": "task_006", "subtask_id": "subtask_001"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Message received: type=subtask_completion | content={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Action performed: subtask_completion_received | details={"parent_task_id": "task_006", "subtask_id": "subtask_001", "result": "処理完了"}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Message sent: type=unknown | content={}
+2025-03-18 20:46:00 | INFO     | agent.test_agent_a | Action performed: cleanup | details={"agent_id": "test_agent_a"}
