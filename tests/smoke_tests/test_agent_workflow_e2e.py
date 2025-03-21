@@ -24,6 +24,7 @@ from src.core.messaging import MessageBroker, MessageClient
 from src.utils.workflow_state import save_workflow_state
 from src.utils.logger import setup_logger
 from src.models.schema import MessageType, MessagePriority
+from tests.smoke_tests.test_helpers import save_agent_logs
 
 # ロガーの設定
 logger = setup_logger("smoke_test_workflow")
@@ -148,14 +149,15 @@ async def test_agent_workflow_basic_flow():
         "status": "in_progress",
         "current_agent": "agent_a",
         "context_id": context_id,
-        "procedure_id": "proc-test-001",
         "procedure_text": procedure_text,
-        "updated_at": datetime.now().isoformat()
+        "started_at": datetime.now().isoformat()
     }
     
+    # ワークフロー状態を保存
     logger.info("ワークフロー状態を保存しています...")
     save_workflow_state(workflow_state)
     
+    # テストの実行と完了時のログ保存
     try:
         # 1. エージェントAの処理
         logger.info("1. エージェントAの処理を開始...")
@@ -232,10 +234,15 @@ async def test_agent_workflow_basic_flow():
         print(f"エージェントD結果: {report['status']}")
         print("================================================\n")
         
-        logger.info("==== エージェント連携ワークフロー疎通テスト完了 ====")
+        # テスト完了時にメッセージログを保存
+        logger.info(f"テスト後にエージェントログを保存します: {workflow_id}")
+        save_agent_logs(workflow_id)
         
+        logger.info("==== エージェント連携ワークフロー疎通テスト完了 ====")
     except Exception as e:
         logger.error(f"エージェント連携ワークフローテスト実行中にエラーが発生: {str(e)}")
+        # エラー時もログを保存
+        save_agent_logs(workflow_id)
         pytest.fail(f"エージェント連携ワークフローテスト実行中にエラーが発生: {str(e)}")
 
 

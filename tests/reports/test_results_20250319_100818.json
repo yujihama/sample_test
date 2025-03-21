@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-03-19T10:08:18.765954",
+  "test_type": "integration",
+  "execution_time": 11.56,
+  "return_code": 0,
+  "tests": [
+    {
+      "name": "test_all_agent_graphs_load",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_all_agent_graphs_load",
+      "status": "passed",
+      "duration": 2.89,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_all_agent_graphs_load PASSED [ 25%]"
+    },
+    {
+      "name": "test_agent_collaboration_flow",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_collaboration_flow",
+      "status": "passed",
+      "duration": 2.89,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_collaboration_flow PASSED [ 50%]"
+    },
+    {
+      "name": "test_agent_error_handling",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_error_handling",
+      "status": "passed",
+      "duration": 2.89,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_error_handling PASSED [ 75%]"
+    },
+    {
+      "name": "test_checkpoint_restoration",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_checkpoint_restoration",
+      "status": "passed",
+      "duration": 2.89,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_checkpoint_restoration PASSED [100%]"
+    }
+  ],
+  "agent_results": {
+    "all": {
+      "status": "passed",
+      "execution_time": 2.89
+    },
+    "agent": {
+      "status": "passed",
+      "execution_time": 2.89
+    }
+  }
+}

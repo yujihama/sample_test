@@ -1,0 +1,88 @@
+{
+  "timestamp": "2025-03-19T09:58:50.652073",
+  "test_type": "integration",
+  "execution_time": 13.37,
+  "return_code": 1,
+  "tests": [
+    {
+      "name": "test_all_agent_graphs_load",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_all_agent_graphs_load",
+      "status": "passed",
+      "duration": 1.34,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_all_agent_graphs_load PASSED [ 25%]"
+    },
+    {
+      "name": "test_agent_collaboration_flow",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_collaboration_flow",
+      "status": "failed",
+      "duration": 1.34,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_collaboration_flow FAILED [ 50%]"
+    },
+    {
+      "name": "test_agent_error_handling",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_error_handling",
+      "status": "failed",
+      "duration": 1.34,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_agent_error_handling FAILED [ 75%]"
+    },
+    {
+      "name": "test_checkpoint_restoration",
+      "path": "tests\\integration\\test_agent_e2e_workflow.py::test_checkpoint_restoration",
+      "status": "failed",
+      "duration": 1.34,
+      "details": "tests\\integration\\test_agent_e2e_workflow.py::test_checkpoint_restoration FAILED [100%]"
+    },
+    {
+      "name": "2025-03-19T09:58:45.738805+0900",
+      "path": "2025-03-19T09:58:45.738805+0900",
+      "status": "error",
+      "duration": 1.34,
+      "details": "2025-03-19T09:58:45.738805+0900 | ERROR | src.repositories.base_repository:create_agent_b_graph:504 - エージェントB状態遷移グラフの作成エラー: 'StateGraph' object has no attribute 'set_next'"
+    },
+    {
+      "name": "2025-03-19T09:58:46.279956+0900",
+      "path": "2025-03-19T09:58:46.279956+0900",
+      "status": "error",
+      "duration": 1.34,
+      "details": "2025-03-19T09:58:46.279956+0900 | ERROR | src.repositories.base_repository:create_agent_b_graph:504 - エージェントB状態遷移グラフの作成エラー: 'StateGraph' object has no attribute 'set_next'"
+    },
+    {
+      "name": "2025-03-19T09:58:46.482355+0900",
+      "path": "2025-03-19T09:58:46.482355+0900",
+      "status": "error",
+      "duration": 1.34,
+      "details": "2025-03-19T09:58:46.482355+0900 | ERROR | src.repositories.base_repository:create_agent_b_graph:504 - エージェントB状態遷移グラフの作成エラー: 'StateGraph' object has no attribute 'set_next'"
+    },
+    {
+      "name": "FAILED",
+      "path": "FAILED",
+      "status": "failed",
+      "duration": 1.34,
+      "details": "FAILED tests\\integration\\test_agent_e2e_workflow.py::test_agent_collaboration_flow - AttributeError: 'AgentA' object has no attribute 'process_audit_procedure'"
+    },
+    {
+      "name": "FAILED",
+      "path": "FAILED",
+      "status": "failed",
+      "duration": 1.34,
+      "details": "FAILED tests\\integration\\test_agent_e2e_workflow.py::test_agent_error_handling - AssertionError: エラーハンドリングに失敗しました: 'AgentB' object has no attribute 'execute_tests'"
+    },
+    {
+      "name": "FAILED",
+      "path": "FAILED",
+      "status": "failed",
+      "duration": 1.34,
+      "details": "FAILED tests\\integration\\test_agent_e2e_workflow.py::test_checkpoint_restoration - AttributeError: 'AgentA' object has no attribute 'process_procedure_with_graph'"
+    }
+  ],
+  "agent_results": {
+    "all": {
+      "status": "passed",
+      "execution_time": 1.34
+    },
+    "agent": {
+      "status": "failed",
+      "execution_time": 1.34
+    }
+  }
+}

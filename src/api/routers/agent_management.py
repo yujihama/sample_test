@@ -596,4 +596,111 @@ async def get_message_status(
         }
     except Exception as e:
         logger.error(f"メッセージ状態取得エラー: {e}")
-        raise HTTPException(status_code=500, detail=str(e)) 
+        raise HTTPException(status_code=500, detail=str(e))
+
+# メッセージフローのResponseモデル
+class MessageFlowNode(BaseModel):
+    """メッセージフローノードモデル"""
+    id: str
+    label: str
+    type: str
+
+class MessageFlowLink(BaseModel):
+    """メッセージフローリンクモデル"""
+    source: str
+    target: str
+    value: int
+
+class MessageFlowResponse(BaseModel):
+    """メッセージフローレスポンス"""
+    nodes: List[MessageFlowNode]
+    links: List[MessageFlowLink]
+
+@router.get("/message-flow", response_model=MessageFlowResponse)
+async def get_message_flow(
+    timespan: int = Query(24, description="時間範囲（時間単位）", ge=1, le=72),
+    db: Session = Depends(get_db)
+):
+    """
+    エージェント間のメッセージフローを取得
+    
+    指定された時間範囲内でのエージェント間のメッセージ交換の数と方向を返します。
+    この情報はネットワークグラフの形式で表示するのに適しています。
+    
+    Args:
+        timespan: 時間範囲（時間単位）
+        
+    Returns:
+        ノードとリンクのリストを含むMessageFlowResponse
+    """
+    try:
+        # 本来はデータベースからメッセージフローデータを取得する
+        # この実装はモックデータを返す
+        
+        # エージェントリストを取得
+        agent_service = get_agent_management_service_dependency()
+        agent_list = await list_agents(agent_service)
+        
+        # ノードリストを作成
+        nodes = []
+        for agent in agent_list.agents:
+            agent_type = "unknown"
+            if agent.role:
+                agent_type = agent.role.lower()
+            elif len(agent.capabilities) > 0:
+                agent_type = agent.capabilities[0].lower()
+                
+            nodes.append(
+                MessageFlowNode(
+                    id=agent.agent_id,
+                    label=f"{agent.agent_id.replace('_', ' ').title()} エージェント",
+                    type=agent_type
+                )
+            )
+        
+        # リンクリストをモック
+        links = []
+        coordinator_idx = None
+        
+        # コーディネーターエージェントを探す
+        for i, node in enumerate(nodes):
+            if "coordinator" in node.id or "調整" in node.label:
+                coordinator_idx = i
+                break
+        
+        # コーディネーターが見つからない場合は最初のエージェントをコーディネーターとして使用
+        if coordinator_idx is None and len(nodes) > 0:
+            coordinator_idx = 0
+            
+        # コーディネータと他のエージェント間のリンクを作成
+        if coordinator_idx is not None and len(nodes) > 1:
+            coordinator_id = nodes[coordinator_idx].id
+            
+            for node in nodes:
+                if node.id != coordinator_id:
+                    # コーディネーターからエージェントへのリンク
+                    links.append(
+                        MessageFlowLink(
+                            source=coordinator_id,
+                            target=node.id,
+                            value=int(10 + 20 * hash(node.id) % 100 / 100)  # ランダムな値（10-30）
+                        )
+                    )
+                    
+                    # エージェントからコーディネーターへのリンク
+                    links.append(
+                        MessageFlowLink(
+                            source=node.id,
+                            target=coordinator_id,
+                            value=int(5 + 20 * hash(node.id + "back") % 100 / 100)  # ランダムな値（5-25）
+                        )
+                    )
+        
+        return MessageFlowResponse(nodes=nodes, links=links)
+        
+    except Exception as e:
+        logger.error(f"メッセージフロー取得エラー: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"メッセージフローの取得中にエラーが発生しました: {str(e)}"
+        ) 

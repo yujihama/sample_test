@@ -1,0 +1,19 @@
+ログ保存処理開始: 2025-03-19T11:47:49.659382
+ワークフローID: test-workflow-4cbebba5
+Python実行パス: C:\Users\nyham\work\sampletest\venv\Scripts\python.exe
+プロジェクトルート: C:\Users\nyham\work\sampletest
+ログディレクトリ: C:\Users\nyham\work\sampletest\logs\agent
+カレントディレクトリ: C:\Users\nyham\work\sampletest
+
+メッセージブローカー情報:
+メッセージキュー数: 不明
+メッセージ履歴数: 不明
+
+メッセージ履歴が見つかりませんでした。
+ブローカーにmessage_historyプロパティがありません。
+
+ワークフロー状態ファイルパス: C:\Users\nyham\work\sampletest\data\workflow_states\test-workflow-4cbebba5.json
+ファイルの存在: True
+ワークフロー状態の保存に成功しました。
+
+ログ保存処理完了: 2025-03-19T11:47:49.672346

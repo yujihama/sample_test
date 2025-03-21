@@ -18,6 +18,8 @@ from src.api.routers.human_interaction import router as human_router
 from src.api.routers.tool_execution import router as tool_router
 from src.api.routers.sample_management import router as sample_router
 from src.api.routers.audit_procedure import router as procedure_router
+from src.api.routers.log_endpoints import router as log_router
+from src.api.routers.dashboard_endpoints import router as dashboard_router
 from src.api.dependencies import get_current_user
 
 # グラフとエージェントコンテキスト関連のルーターを追加
@@ -56,6 +58,8 @@ app.include_router(human_router, prefix="/api/v1")
 app.include_router(tool_router, prefix="/api/v1")
 app.include_router(sample_router, prefix="/api/v1")
 app.include_router(procedure_router, prefix="/api/v1")
+app.include_router(log_router, prefix="/api/v1/logs")
+app.include_router(dashboard_router, prefix="/api/v1")
 
 # グラフとエージェントコンテキスト関連のルーターを登録
 if HAS_GRAPH_ROUTERS:

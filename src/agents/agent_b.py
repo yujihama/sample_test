@@ -109,6 +109,9 @@ class AgentB(AgentBase):
         # LangGraph拡張: チェックポイント関連
         elif message_type == "restore_checkpoint":
             return await self.handle_restore_checkpoint(content)
+        # タスクリクエスト処理の追加
+        elif message_type == MessageType.TASK_REQUEST.name:
+            return await self.handle_task_request(message)
         else:
             logger.warning(f"AgentB: 未知のメッセージタイプ {message_type}")
             return {
@@ -286,83 +289,71 @@ class AgentB(AgentBase):
                 # サンプルデータの基本情報をログに記録
                 row_count = len(df)
                 col_count = len(df.columns)
-            # サンプルデータをロード
-            logger.info(f"サンプルデータをロード中: {sample_path}")
-            df, metadata = await asyncio.to_thread(load_sample_data, sample_path)
-            
-            # 基本的なデータ検証
-            if df.empty:
-                self.state.update(is_processing=False, status="error")
-                return {"status": "error", "error": "サンプルデータが空です"}
-            
-            # サンプルデータの基本情報をログに記録
-            row_count = len(df)
-            col_count = len(df.columns)
-            logger.info(f"サンプルデータをロードしました: {row_count}行 x {col_count}列")
-            logger.info(f"カラム: {', '.join(df.columns.tolist())}")
-            
-            # サンプルIDを更新（メタデータから取得するか、与えられたIDを使用）
-            sample_id = metadata.get("id") or sample_id
-            if sample_id:
-                self.state.update(sample_id=sample_id)
-            
-            # テスト項目を実行
-            logger.info(f"テスト項目の実行を開始します: {len(self.state.test_plan.get('test_items', []))}個")
-            results = await self.execute_test_items(df, self.state.test_plan.get("test_items", []))
-            
-            # テスト結果をまとめる
-            summary = generate_test_summary(results)
-            
-            # テスト結果を作成
-            test_result = {
-                "id": f"exec-{uuid.uuid4().hex[:8]}",
-                "plan_id": self.state.test_plan_id,
-                "execution_status": "completed",
-                "results": results,
-                "summary": summary,
-                "executed_at": datetime.now().isoformat(),
-                "sample_id": sample_id,
-                "sample_metadata": {
-                    "row_count": row_count,
-                    "column_count": col_count,
-                    "columns": df.columns.tolist()
+                logger.info(f"サンプルデータをロードしました: {row_count}行 x {col_count}列")
+                logger.info(f"カラム: {', '.join(df.columns.tolist())}")
+                
+                # サンプルIDを更新（メタデータから取得するか、与えられたIDを使用）
+                sample_id = metadata.get("id") or sample_id
+                if sample_id:
+                    self.state.update(sample_id=sample_id)
+                
+                # テスト項目を実行
+                logger.info(f"テスト項目の実行を開始します: {len(self.state.test_plan.get('test_items', []))}個")
+                results = await self.execute_test_items(df, self.state.test_plan.get("test_items", []))
+                
+                # テスト結果をまとめる
+                summary = generate_test_summary(results)
+                
+                # テスト結果を作成
+                test_result = {
+                    "id": f"exec-{uuid.uuid4().hex[:8]}",
+                    "plan_id": self.state.test_plan_id,
+                    "execution_status": "completed",
+                    "results": results,
+                    "summary": summary,
+                    "executed_at": datetime.now().isoformat(),
+                    "sample_id": sample_id,
+                    "sample_metadata": {
+                        "row_count": row_count,
+                        "column_count": col_count,
+                        "columns": df.columns.tolist()
+                    }
                 }
-            }
-            
-            # ワークフローIDがあれば追加
-            if "workflow_id" in self.state.metadata:
-                test_result["workflow_id"] = self.state.metadata["workflow_id"]
-            
-            # 状態を更新
-            self.state.update(
-                test_results=test_result,
-                is_processing=False,
-                status="idle"
-            )
-            self._save_agent_state()
-            
-            # 結果の詳細をログに記録
-            logger.info(f"テスト実行完了: 合格={summary.get('pass', 0)}, 失敗={summary.get('fail', 0)}, エラー={summary.get('error', 0)}")
-            
-            # エージェントCにテスト結果を送信
-            message_id = self.send_message(
-                to_agent=settings.AGENT_C_ID,
-                message_type="test_results",
-                content={
-                    "results": test_result,
-                    "test_plan": self.state.test_plan,
-                    "workflow_id": self.state.metadata.get("workflow_id")
+                
+                # ワークフローIDがあれば追加
+                if "workflow_id" in self.state.metadata:
+                    test_result["workflow_id"] = self.state.metadata["workflow_id"]
+                
+                # 状態を更新
+                self.state.update(
+                    test_results=test_result,
+                    is_processing=False,
+                    status="idle"
+                )
+                self._save_agent_state()
+                
+                # 結果の詳細をログに記録
+                logger.info(f"テスト実行完了: 合格={summary.get('pass', 0)}, 失敗={summary.get('fail', 0)}, エラー={summary.get('error', 0)}")
+                
+                # エージェントCにテスト結果を送信
+                message_id = self.send_message(
+                    to_agent=settings.AGENT_C_ID,
+                    message_type="test_results",
+                    content={
+                        "results": test_result,
+                        "test_plan": self.state.test_plan,
+                        "workflow_id": self.state.metadata.get("workflow_id")
+                    }
+                )
+                
+                logger.info(f"テスト結果をエージェントCに送信しました: {message_id}")
+                
+                return {
+                    "status": "success",
+                    "message": f"テスト実行が完了しました: 合格={summary.get('pass', 0)}, 失敗={summary.get('fail', 0)}, エラー={summary.get('error', 0)}",
+                    "test_results": test_result
                 }
-            )
             
-            logger.info(f"テスト結果をエージェントCに送信しました: {message_id}")
-            
-            return {
-                "status": "success",
-                "message": f"テスト実行が完了しました: 合格={summary.get('pass', 0)}, 失敗={summary.get('fail', 0)}, エラー={summary.get('error', 0)}",
-                "test_results": test_result
-            }
-        
         except Exception as e:
             logger.error(f"テスト実行中にエラーが発生しました: {e}")
             self.state.update(is_processing=False, status="error")
@@ -1480,4 +1471,205 @@ class AgentB(AgentBase):
             return {
                 "status": "error",
                 "message": f"データリクエスト処理エラー: {str(e)}"
+            }
+
+    async def handle_task_request(self, message: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        タスクリクエストメッセージを処理する
+        
+        Args:
+            message: 完全なメッセージオブジェクト
+            
+        Returns:
+            処理結果
+        """
+        try:
+            logger.info(f"AgentB: タスクリクエストを処理します")
+            
+            content = message.get("content", {})
+            sender_id = message.get("sender_id")
+            message_id = message.get("id")
+            workflow_id = message.get("workflow_id")
+            
+            if not sender_id:
+                logger.warning("送信元エージェントが指定されていません")
+                return {
+                    "status": "error",
+                    "message": "送信元エージェントが指定されていません"
+                }
+            
+            # グラフを使用して処理を実行
+            # グラフの初期状態を設定
+            graph_input = {
+                "workflow_id": workflow_id,
+                "status": "in_progress",
+                "current_step": "problem_classification",
+                "task_request": content,
+                "sender_id": sender_id,
+                "message_id": message_id
+            }
+            
+            # LangGraph実行: problem_classification
+            self.state.is_processing = True
+            
+            # グラフを使用して処理
+            try:
+                # グラフが初期化されているか確認
+                if not self.graph:
+                    logger.warning("グラフが初期化されていません、再初期化します")
+                    from src.agents.agent_b_graph import get_agent_b_graph
+                    self.graph = get_agent_b_graph()
+                    
+                    if not self.graph:
+                        logger.error("グラフの初期化に失敗しました")
+                        raise ValueError("グラフの初期化に失敗しました")
+                
+                # グラフ実行
+                graph_state = await asyncio.to_thread(self.graph.invoke, graph_input)
+                
+                # 実行結果の解析
+                issues = graph_state.get("issues", [])
+                analysis_results = graph_state.get("analysis", {})
+                tool_proposals = graph_state.get("tool_proposals", [])
+                
+                # レスポンスを作成
+                response_content = {
+                    "issues": issues,
+                    "analysis_results": analysis_results
+                }
+                
+                # ツール提案がある場合は追加
+                if tool_proposals:
+                    response_content["tool_proposals"] = tool_proposals
+                
+                # 応答を送信
+                if self.message_client:
+                    await asyncio.to_thread(
+                        self.message_client.send_response,
+                        in_response_to=message_id,
+                        recipient_id=sender_id,
+                        message_type="task_response",
+                        content=response_content,
+                        workflow_id=workflow_id
+                    )
+                    logger.info(f"タスク応答をエージェント {sender_id} に送信しました")
+                
+                # 状態をクリア
+                self.state.is_processing = False
+                
+                return {
+                    "status": "success",
+                    "message": "タスクリクエストを処理しました",
+                    "response": response_content
+                }
+                
+            except Exception as e:
+                logger.error(f"グラフ処理中にエラーが発生: {e}")
+                self.state.is_processing = False
+                
+                # エラーレスポンスを送信
+                error_content = {
+                    "status": "error",
+                    "message": f"タスク処理中にエラーが発生しました: {str(e)}",
+                    "issues": ["システムエラーにより処理を完了できませんでした"],
+                    "recommendations": ["システム管理者に連絡してください"]
+                }
+                
+                if self.message_client:
+                    await asyncio.to_thread(
+                        self.message_client.send_response,
+                        in_response_to=message_id,
+                        recipient_id=sender_id,
+                        message_type="task_response",
+                        content=error_content,
+                        workflow_id=workflow_id
+                    )
+                
+                return {
+                    "status": "error",
+                    "message": f"タスク処理中にエラーが発生しました: {str(e)}"
+                }
+        
+        except Exception as e:
+            logger.error(f"タスクリクエスト処理中にエラーが発生: {e}")
+            return {
+                "status": "error",
+                "message": f"タスクリクエスト処理中にエラーが発生: {str(e)}"
+            }
+
+    async def execute_tests(self, test_plan: dict, sample_path: str) -> dict:
+        """
+        テスト計画に基づいてテストを実行する
+        
+        Args:
+            test_plan: 実行するテスト計画
+            sample_path: テスト対象のサンプルデータのパス
+            
+        Returns:
+            テスト結果の辞書
+        """
+        try:
+            logger.info(f"[{self.workflow_id}] テスト実行を開始します: {sample_path}")
+            
+            # パスの存在をチェック
+            if not os.path.exists(sample_path):
+                error_msg = f"サンプルファイルが見つかりません: {sample_path}"
+                logger.error(f"[{self.workflow_id}] {error_msg}")
+                return {
+                    "status": "error",
+                    "error": error_msg,
+                    "workflow_id": self.workflow_id
+                }
+            
+            # テスト計画の検証
+            if not test_plan or "test_items" not in test_plan:
+                error_msg = "無効なテスト計画です"
+                logger.error(f"[{self.workflow_id}] {error_msg}")
+                return {
+                    "status": "error",
+                    "error": error_msg,
+                    "workflow_id": self.workflow_id
+                }
+            
+            # テスト用のモック実装
+            # 実際の実装ではファイルを読み込み、データを分析し、テストを実行します
+            test_items = test_plan.get("test_items", [])
+            results = []
+            
+            for item in test_items:
+                # 各テスト項目を実行（モック）
+                test_result = {
+                    "test_id": item.get("id", "unknown"),
+                    "test_name": item.get("name", "未定義テスト"),
+                    "status": "passed",  # テスト環境ではすべてパス
+                    "details": f"{item.get('name')} テストが正常に実行されました",
+                    "execution_time": 0.5,  # モック値
+                    "execution_date": datetime.now().isoformat()
+                }
+                results.append(test_result)
+            
+            test_results = {
+                "workflow_id": self.workflow_id,
+                "execution_id": str(uuid.uuid4()),
+                "sample_path": sample_path,
+                "results": results,
+                "summary": {
+                    "total_tests": len(results),
+                    "passed": len([r for r in results if r.get("status") == "passed"]),
+                    "failed": len([r for r in results if r.get("status") == "failed"]),
+                    "execution_time": sum(r.get("execution_time", 0) for r in results),
+                    "execution_date": datetime.now().isoformat()
+                },
+                "status": "completed"
+            }
+            
+            logger.info(f"[{self.workflow_id}] テスト実行完了: {len(results)}件のテスト結果")
+            return test_results
+            
+        except Exception as e:
+            logger.error(f"[{self.workflow_id}] テスト実行中にエラー: {str(e)}")
+            return {
+                "status": "error",
+                "error": str(e),
+                "workflow_id": self.workflow_id
             } 

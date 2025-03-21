@@ -1,0 +1,19 @@
+ログ保存処理開始: 2025-03-19T11:48:41.441783
+ワークフローID: test-workflow-0b34fbb6
+Python実行パス: C:\Users\nyham\work\sampletest\venv\Scripts\python.exe
+プロジェクトルート: C:\Users\nyham\work\sampletest
+ログディレクトリ: C:\Users\nyham\work\sampletest\logs\agent
+カレントディレクトリ: C:\Users\nyham\work\sampletest
+
+メッセージブローカー情報:
+メッセージキュー数: 0
+メッセージ履歴数: 0
+
+メッセージ履歴が見つかりませんでした。
+message_historyは空です。
+
+ワークフロー状態ファイルパス: C:\Users\nyham\work\sampletest\data\workflow_states\test-workflow-0b34fbb6.json
+ファイルの存在: False
+ワークフロー状態ファイルが見つからないため、簡易情報を保存: C:\Users\nyham\work\sampletest\logs\agent\workflow_state_test-workflow-0b34fbb6_20250319_114841.json
+
+ログ保存処理完了: 2025-03-19T11:48:41.444626

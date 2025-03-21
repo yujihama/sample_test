@@ -402,4 +402,103 @@ class AgentC(AgentBase):
             return {
                 "status": "failed",
                 "error": str(e)
+            }
+
+    async def evaluate_results(self, test_results: dict, test_plan: dict) -> dict:
+        """
+        テスト結果を評価する
+        
+        Args:
+            test_results: 評価するテスト結果
+            test_plan: 元のテスト計画
+            
+        Returns:
+            評価結果の辞書
+        """
+        try:
+            logger.info(f"[{self.workflow_id}] テスト結果の評価を開始します")
+            
+            # テスト結果と計画の検証
+            if not test_results or "results" not in test_results:
+                error_msg = "無効なテスト結果です"
+                logger.error(f"[{self.workflow_id}] {error_msg}")
+                return {
+                    "status": "error",
+                    "error": error_msg,
+                    "workflow_id": self.workflow_id
+                }
+            
+            if not test_plan or "test_items" not in test_plan:
+                error_msg = "無効なテスト計画です"
+                logger.error(f"[{self.workflow_id}] {error_msg}")
+                return {
+                    "status": "error",
+                    "error": error_msg,
+                    "workflow_id": self.workflow_id
+                }
+            
+            # テスト用のモック実装
+            # 実際の実装ではテスト結果を詳細に分析し、コンプライアンスや基準との照合を行います
+            results = test_results.get("results", [])
+            
+            # 発見事項の生成（モック）
+            findings = []
+            
+            # パス/失敗の状態に基づいて発見事項を生成
+            failed_tests = [r for r in results if r.get("status") != "passed"]
+            
+            if failed_tests:
+                for test in failed_tests:
+                    findings.append({
+                        "id": f"finding-{uuid.uuid4().hex[:8]}",
+                        "test_id": test.get("test_id", "unknown"),
+                        "severity": "高",
+                        "description": f"{test.get('test_name')} が失敗しました",
+                        "impact": "コンプライアンス違反の可能性",
+                        "recommendation": "詳細な調査が必要です"
+                    })
+            else:
+                # すべて成功の場合の一般的な発見事項
+                findings.append({
+                    "id": f"finding-{uuid.uuid4().hex[:8]}",
+                    "severity": "低",
+                    "description": "すべてのテストは成功しましたが、一部の点で改善の余地があります",
+                    "impact": "軽微な影響",
+                    "recommendation": "プロセスの効率化を検討してください"
+                })
+            
+            evaluation = {
+                "workflow_id": self.workflow_id,
+                "evaluation_id": str(uuid.uuid4()),
+                "findings": findings,
+                "compliance_status": "準拠" if not failed_tests else "一部非準拠",
+                "risk_assessment": {
+                    "overall_risk": "低" if not failed_tests else "中",
+                    "risk_areas": [
+                        {
+                            "name": "経費処理の承認手続き",
+                            "risk_level": "低" if not failed_tests else "中",
+                            "controls_effectiveness": "有効" if not failed_tests else "一部有効"
+                        }
+                    ]
+                },
+                "summary": {
+                    "total_findings": len(findings),
+                    "high_severity": len([f for f in findings if f.get("severity") == "高"]),
+                    "medium_severity": len([f for f in findings if f.get("severity") == "中"]),
+                    "low_severity": len([f for f in findings if f.get("severity") == "低"]),
+                    "evaluation_date": datetime.now().isoformat()
+                },
+                "status": "completed"
+            }
+            
+            logger.info(f"[{self.workflow_id}] テスト結果評価完了: {len(findings)}件の発見事項")
+            return evaluation
+            
+        except Exception as e:
+            logger.error(f"[{self.workflow_id}] テスト結果評価中にエラー: {str(e)}")
+            return {
+                "status": "error",
+                "error": str(e),
+                "workflow_id": self.workflow_id
             } 

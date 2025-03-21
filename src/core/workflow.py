@@ -22,6 +22,8 @@ class MemorySaver(BaseCheckpointSaver):
     メモリ内でチェックポイントを保存する簡易なセーバー
     """
     def __init__(self):
+        # BaseCheckpointSaverの初期化をスキップ（input_keyなどの引数を期待しないため）
+        # super().__init__() は呼び出さない
         self.checkpoints = {}
         
     async def get_state(self, config_id: str, thread_id: str) -> Optional[Dict[str, Any]]:
@@ -1095,6 +1097,29 @@ def state_router(state: WorkflowState) -> str:
         return "end"
 
 
+# 一時停止状態からの遷移先を決定するグローバル関数
+def route_from_pause_check(state):
+    """
+    一時停止状態から遷移先のエージェントを決定する
+    
+    Args:
+        state: 現在のワークフロー状態
+        
+    Returns:
+        遷移先ノード名
+    """
+    agent_id = state.get("current_agent", settings.AGENT_A_ID)
+    # エージェントIDが文字列であることを確認
+    if not isinstance(agent_id, str):
+        logger.warning(f"Invalid agent_id in state: {agent_id}, using default agent_a")
+        return "agent_a"
+    # 有効なエージェントIDかチェック
+    if agent_id in ["agent_a", "agent_b", "agent_c", "agent_d"]:
+        return agent_id
+    # デフォルトの最初のエージェントに遷移
+    return "agent_a"
+
+
 def create_audit_workflow() -> StateGraph:
     """
     監査ワークフローグラフを作成する
@@ -1127,7 +1152,7 @@ def create_audit_workflow() -> StateGraph:
             lambda state: state.get("status") == "paused",
             {
                 True: "check_paused",  # まだ一時停止中の場合は繰り返しチェック
-                False: lambda state: state.get("current_agent", settings.AGENT_A_ID)  # 一時停止解除時は現在のエージェントに進む
+                False: "agent_a"  # 一時停止解除時は最初のエージェントに進む（後で状態に基づいて調整される）
             }
         )
         
@@ -1184,7 +1209,7 @@ def create_audit_workflow() -> StateGraph:
             {
                 "paused": "check_paused",  # 一時停止後は一時停止チェックへ
                 "error": "human",  # エラーが解決しない場合は再度人間介入
-                "default": lambda state: state.get("current_agent", settings.AGENT_A_ID)  # デフォルトは現在のエージェントへ
+                "default": "agent_a"  # デフォルトは最初のエージェントへ
             }
         )
         

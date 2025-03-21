@@ -633,6 +633,55 @@ class SampleDataRepository(BaseRepository[SampleData]):
         except SQLAlchemyError as e:
             logger.error(f"サンプルデータの取得中にエラーが発生しました: {e}")
             raise
+    
+    def get_all(
+        self,
+        page: int = 1,
+        per_page: int = 10,
+        sort_by: Optional[str] = None,
+        sort_order: str = "asc"
+    ) -> Tuple[List[SampleData], int]:
+        """
+        サンプルデータの一覧を取得する
+        
+        Args:
+            page: ページ番号（1始まり）
+            per_page: 1ページあたりの件数
+            sort_by: ソートするフィールド名
+            sort_order: ソート順序（"asc"または"desc"）
+            
+        Returns:
+            サンプルデータのリストと総件数のタプル
+        """
+        try:
+            # オフセットの計算
+            offset = (page - 1) * per_page
+            
+            # クエリの構築
+            query = self.db.query(SampleData)
+            
+            # 総件数の取得
+            total = query.count()
+            
+            # ソート条件の適用
+            if sort_by and hasattr(SampleData, sort_by):
+                sort_column = getattr(SampleData, sort_by)
+                if sort_order.lower() == "desc":
+                    query = query.order_by(sort_column.desc())
+                else:
+                    query = query.order_by(sort_column.asc())
+            else:
+                # デフォルトのソート順（作成日時の降順）
+                query = query.order_by(SampleData.created_at.desc())
+            
+            # ページネーションの適用
+            samples = query.offset(offset).limit(per_page).all()
+            
+            return samples, total
+            
+        except Exception as e:
+            logger.error(f"サンプルデータ一覧の取得中にエラーが発生しました: {str(e)}", exc_info=True)
+            raise
 
 
 class WorkflowRepository(BaseRepository[Workflow]):
@@ -928,4 +977,77 @@ class HumanInterventionResponseRepository(BaseRepository[HumanInterventionRespon
 
 def get_human_intervention_response_repository(db: Session) -> HumanInterventionResponseRepository:
     """HumanInterventionResponseRepositoryのインスタンスを取得"""
-    return HumanInterventionResponseRepository(db) 
+    return HumanInterventionResponseRepository(db)
+
+class GraphStateHistoryRepository(BaseRepository[GraphStateHistory]):
+    """グラフ状態履歴リポジトリ"""
+    
+    def __init__(self, db: Session):
+        super().__init__(db, GraphStateHistory)
+    
+    def _prepare_data_for_db(self, obj_in: Dict[str, Any]) -> Dict[str, Any]:
+        """データベース保存用にデータを準備する"""
+        result = obj_in.copy()
+        
+        # リストや辞書はJSON文字列に変換
+        for key, value in list(result.items()):
+            if isinstance(value, (dict, list)) and not isinstance(value, str):
+                result[key] = json.dumps(_serialize_json_safe(value))
+                
+        return result
+    
+    def get_by_workflow_id(self, workflow_id: str, limit: int = 100, offset: int = 0) -> List[GraphStateHistory]:
+        """ワークフローIDによる状態履歴の取得"""
+        return self.db.query(GraphStateHistory)\
+            .filter(GraphStateHistory.workflow_id == workflow_id)\
+            .order_by(GraphStateHistory.created_at.desc())\
+            .offset(offset)\
+            .limit(limit)\
+            .all()
+    
+    def get_transitions(self, workflow_id: str) -> List[GraphStateHistory]:
+        """ワークフローの状態遷移履歴を取得"""
+        return self.db.query(GraphStateHistory)\
+            .filter(GraphStateHistory.workflow_id == workflow_id)\
+            .filter(GraphStateHistory.transition_to.isnot(None))\
+            .order_by(GraphStateHistory.created_at.asc())\
+            .all()
+
+def get_graph_state_history_repository(db: Session) -> GraphStateHistoryRepository:
+    """GraphStateHistoryRepositoryのインスタンスを取得"""
+    return GraphStateHistoryRepository(db)
+
+class CheckpointRecordRepository(BaseRepository[CheckpointRecord]):
+    """チェックポイントレコードリポジトリ"""
+    
+    def __init__(self, db: Session):
+        super().__init__(db, CheckpointRecord)
+    
+    def _prepare_data_for_db(self, obj_in: Dict[str, Any]) -> Dict[str, Any]:
+        """データベース保存用にデータを準備する"""
+        result = obj_in.copy()
+        
+        # リストや辞書はJSON文字列に変換
+        for key, value in list(result.items()):
+            if isinstance(value, (dict, list)) and not isinstance(value, str):
+                result[key] = json.dumps(_serialize_json_safe(value))
+                
+        return result
+    
+    def get_by_workflow_id(self, workflow_id: str) -> List[CheckpointRecord]:
+        """ワークフローIDによるチェックポイントの取得"""
+        return self.db.query(CheckpointRecord)\
+            .filter(CheckpointRecord.workflow_id == workflow_id)\
+            .order_by(CheckpointRecord.created_at.desc())\
+            .all()
+    
+    def get_latest_by_workflow_id(self, workflow_id: str) -> Optional[CheckpointRecord]:
+        """ワークフローIDによる最新のチェックポイントの取得"""
+        return self.db.query(CheckpointRecord)\
+            .filter(CheckpointRecord.workflow_id == workflow_id)\
+            .order_by(CheckpointRecord.created_at.desc())\
+            .first()
+
+def get_checkpoint_record_repository(db: Session) -> CheckpointRecordRepository:
+    """CheckpointRecordRepositoryのインスタンスを取得"""
+    return CheckpointRecordRepository(db) 

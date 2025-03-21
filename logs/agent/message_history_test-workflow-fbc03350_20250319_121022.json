@@ -1,0 +1,38 @@
+[
+  {
+    "workflow_id": "test-workflow-fbc03350",
+    "sender_id": "agent_a",
+    "recipient_id": "agent-b",
+    "message_type": "TASK_REQUEST",
+    "content": {
+      "procedure_id": "PROC-001",
+      "sample_id": "サンプルID-001",
+      "documents": [
+        "出張申請書",
+        "領収書キャプチャ",
+        "精算承認画面"
+      ],
+      "verification_points": [
+        "出張期間と領収書日付の整合性",
+        "申請金額と領収書金額の一致",
+        "承認者の適切性（権限者による承認）"
+      ]
+    },
+    "timestamp": "2025-03-19T12:10:20.691226",
+    "id": "364ffd00-cf6e-4034-84b9-a3f7b709b4cc"
+  },
+  {
+    "type": "task_response",
+    "sender_id": "agent-b",
+    "recipient_id": "agent_a",
+    "content": {
+      "issues": [],
+      "analysis_results": {},
+      "in_response_to": null
+    },
+    "context_id": null,
+    "workflow_id": "test-workflow-fbc03350",
+    "priority": "high",
+    "requires_response": false
+  }
+]

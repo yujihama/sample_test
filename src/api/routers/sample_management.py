@@ -3,9 +3,9 @@
 """
 
 import logging
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from typing import Dict, Any
+from typing import Dict, Any, List, Optional
 
 from src.models.repositories import SampleDataRepository
 from src.utils.db_manager import get_db_context
@@ -17,6 +17,48 @@ router = APIRouter(
     tags=["samples"],
     responses={404: {"description": "Not found"}},
 )
+
+@router.get("")
+async def get_samples(
+    page: int = Query(1, description="ページ番号"),
+    per_page: int = Query(10, description="1ページあたりの件数"),
+    sort_by: Optional[str] = Query(None, description="ソートするフィールド"),
+    sort_order: Optional[str] = Query("asc", description="ソート順序 (asc/desc)")
+) -> Dict[str, Any]:
+    """サンプルデータの一覧を取得する"""
+    logger.info(f"サンプル一覧取得リクエスト: page={page}, per_page={per_page}")
+    with get_db_context() as db:
+        try:
+            repo = SampleDataRepository(db)
+            samples, total = repo.get_all(
+                page=page,
+                per_page=per_page,
+                sort_by=sort_by,
+                sort_order=sort_order
+            )
+            
+            result = {
+                "samples": [
+                    {
+                        "id": sample.id,
+                        "filename": sample.filename,
+                        "file_type": sample.file_type,
+                        "row_count": sample.row_count,
+                        "column_count": sample.column_count,
+                        "procedure_id": sample.procedure_id,
+                        "created_at": sample.created_at.isoformat() if sample.created_at else None
+                    } for sample in samples
+                ],
+                "total": total,
+                "page": page,
+                "per_page": per_page
+            }
+            
+            logger.info(f"サンプル一覧を取得しました: 全{total}件中{len(samples)}件")
+            return result
+        except Exception as e:
+            logger.error(f"サンプル一覧の取得中にエラーが発生しました: {str(e)}", exc_info=True)
+            raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("")
 async def create_sample(

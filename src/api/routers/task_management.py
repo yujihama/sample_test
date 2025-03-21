@@ -1,38 +1,27 @@
 """
-タスク管理APIエンドポイント
-
-このモジュールは、タスクの作成、割り当て、監視などのための
-RESTful APIエンドポイントを提供します。
+タスク管理のAPIルーター
 """
 
-import uuid
-from typing import Dict, List, Any, Optional
-from datetime import datetime
-
-from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks, Query, status
-from pydantic import BaseModel, Field, UUID4
-from sqlalchemy.orm import Session
-
-from src.api.dependencies import get_agent_manager, get_agent_management_service_dependency
-from src.api.dependencies import get_current_user
-from src.core.agent_management_service import AgentManagementService
-from src.models.schema import TaskStatus
-from src.utils.db_manager import get_db
 import logging
+import uuid
+from datetime import datetime
+from typing import Dict, List, Any, Optional
 
+from fastapi import APIRouter, Depends, HTTPException, Query, status
+from pydantic import BaseModel, Field
 
-# ロガーの設定
+from src.core.agent_management_service import AgentManagementService
+from src.api.dependencies import get_agent_management_service_dependency
+
 logger = logging.getLogger(__name__)
 
-# ルーターの設定
 router = APIRouter(
     prefix="/tasks",
     tags=["tasks"],
     responses={404: {"description": "Not found"}},
 )
 
-
-# リクエスト/レスポンスモデル
+# リクエスト/レスポンスモデル定義
 class TaskRequest(BaseModel):
     """タスク作成リクエスト"""
     agent_id: str
@@ -75,8 +64,7 @@ class TaskSubmissionResponse(BaseModel):
     status: str = "received"
     timestamp: datetime = Field(default_factory=datetime.now)
 
-
-@router.post("/submit", response_model=TaskSubmissionResponse)
+@router.post("", response_model=TaskSubmissionResponse)
 async def submit_task(
     task: TaskSubmissionRequest,
     agent_service: AgentManagementService = Depends(get_agent_management_service_dependency)
@@ -157,8 +145,8 @@ async def assign_task(
     )
 
 
-@router.get("/status/{task_id}", response_model=TaskResponse)
-async def get_task_status(
+@router.get("/{task_id}", response_model=TaskResponse)
+async def get_task(
     task_id: str,
     agent_service: AgentManagementService = Depends(get_agent_management_service_dependency)
 ):
@@ -194,7 +182,7 @@ async def get_task_status(
     )
 
 
-@router.get("/list", response_model=TaskListResponse)
+@router.get("", response_model=TaskListResponse)
 async def list_tasks(
     agent_id: Optional[str] = Query(None, description="Filter by agent ID"),
     status: Optional[str] = Query(None, description="Filter by task status"),
@@ -226,8 +214,10 @@ async def list_tasks(
                 )
             )
     else:
-        # すべてのエージェントのタスクを取得
+        # すべてのエージェントを取得
         agents = agent_service.get_all_agents()
+        
+        # 各エージェントのタスクを取得
         for agent in agents:
             agent_id = agent["id"]
             agent_tasks = agent_service.get_agent_tasks(agent_id)

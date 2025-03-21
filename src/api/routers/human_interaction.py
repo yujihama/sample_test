@@ -8,7 +8,7 @@ from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks
 from sqlalchemy.orm import Session
 from typing import Dict, List, Optional, Any
 from pydantic import BaseModel, Field, ConfigDict
-from datetime import datetime
+from datetime import datetime, timedelta
 import uuid
 
 from src.utils.db_manager import get_db
@@ -103,4 +103,43 @@ async def submit_response(
         }
     except Exception as e:
         logger.error(f"応答送信エラー: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/query")
+async def get_queries(
+    status: Optional[str] = None,
+    limit: int = 10,
+    offset: int = 0,
+    db: Session = Depends(get_db)
+):
+    """ヒューマンクエリの一覧を取得する"""
+    try:
+        # 実際のクエリはデータベースから取得
+        # TODO: 実際のクエリ取得処理を実装
+        
+        # ダミーのクエリリストを返す（開発用）
+        queries = [
+            {
+                "id": f"query-{i}",
+                "title": f"承認リクエスト {i}",
+                "description": f"これはテスト用の承認リクエスト{i}です。",
+                "status": "pending" if i % 3 == 0 else ("completed" if i % 3 == 1 else "rejected"),
+                "created_at": (datetime.now() - timedelta(days=i)).isoformat(),
+                "priority": "high" if i % 5 == 0 else ("medium" if i % 5 < 3 else "low")
+            }
+            for i in range(1, 6)  # 5件のダミーデータ
+        ]
+        
+        # ステータスでフィルタリング
+        if status:
+            queries = [q for q in queries if q["status"] == status]
+            
+        return {
+            "queries": queries,
+            "total": len(queries),
+            "limit": limit,
+            "offset": offset
+        }
+    except Exception as e:
+        logger.error(f"クエリ取得エラー: {e}")
         raise HTTPException(status_code=500, detail=str(e))

@@ -1,0 +1,229 @@
+{
+  "activities": [
+    {
+      "id": "act001",
+      "title": "検証エージェント -> 監査チェックエージェント",
+      "type": "メッセージ",
+      "message": "契約書#4302の検証が完了しました。異常パターンを検出しました。",
+      "timestamp": "2023-03-19 15:45:22",
+      "agent": "検証エージェント"
+    },
+    {
+      "id": "act002",
+      "title": "監査チェックエージェント -> 人間",
+      "type": "介入依頼",
+      "message": "取引#4302のフロー検証において売上計上日が契約日と大きく異なります。確認が必要です。",
+      "timestamp": "2023-03-19 15:46:05",
+      "agent": "監査チェックエージェント"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert001",
+      "title": "売上計上日の不整合",
+      "description": "取引#4302において売上計上日が契約日と45日以上異なっています。",
+      "category": "会計処理",
+      "priority": "high",
+      "timestamp": "2023-03-19 15:46:05"
+    },
+    {
+      "id": "alert002",
+      "title": "与信限度額の超過",
+      "description": "取引先ID:2053との3件の取引で与信限度額を超過していますが、特別承認の記録がありません。",
+      "category": "与信管理",
+      "priority": "medium",
+      "timestamp": "2023-03-19 15:30:18"
+    }
+  ],
+  "dashboard": {
+    "summary": {
+      "processingSamples": 35,
+      "processingSamplesTrend": 8,
+      "completedSamples": 542,
+      "completedSamplesTrend": 12,
+      "pendingSamples": 15,
+      "pendingSamplesTrend": -3,
+      "alertCount": 7,
+      "alertCountTrend": 2
+    },
+    "process-status": {
+      "categories": [
+        { "name": "売上取引", "count": 45 },
+        { "name": "購買取引", "count": 32 },
+        { "name": "経費精算", "count": 25 },
+        { "name": "固定資産", "count": 18 },
+        { "name": "その他", "count": 10 }
+      ],
+      "periodData": [
+        { "period": "1月", "processed": 120, "anomalies": 8 },
+        { "period": "2月", "processed": 145, "anomalies": 12 },
+        { "period": "3月", "processed": 165, "anomalies": 15 },
+        { "period": "4月", "processed": 135, "anomalies": 10 },
+        { "period": "5月", "processed": 150, "anomalies": 13 },
+        { "period": "6月", "processed": 180, "anomalies": 16 }
+      ],
+      "sampleStatus": [
+        { 
+          "id": "s001", 
+          "name": "2023年第1四半期売上検証",
+          "status": "processing", 
+          "progress": 65, 
+          "lastUpdated": "2023-03-19 15:30:42"
+        },
+        { 
+          "id": "s002", 
+          "name": "高額固定資産購入承認フロー",
+          "status": "pending", 
+          "progress": 30, 
+          "lastUpdated": "2023-03-19 14:22:15"
+        },
+        { 
+          "id": "s003", 
+          "name": "海外取引コンプライアンスチェック",
+          "status": "completed", 
+          "progress": 100, 
+          "lastUpdated": "2023-03-19 11:45:33"
+        },
+        { 
+          "id": "s004", 
+          "name": "新規取引先審査",
+          "status": "processing", 
+          "progress": 45, 
+          "lastUpdated": "2023-03-19 13:15:27"
+        }
+      ]
+    }
+  },
+  "agents": [
+    { "id": "agent1", "name": "検証エージェント", "type": "validator", "status": "active", "stats": { "completed": 42, "inProgress": 5 } },
+    { "id": "agent2", "name": "監査チェックエージェント", "type": "auditor", "status": "active", "stats": { "completed": 38, "inProgress": 3 } },
+    { "id": "agent3", "name": "証拠収集エージェント", "type": "collector", "status": "warning", "stats": { "completed": 27, "inProgress": 8 } },
+    { "id": "agent4", "name": "報告エージェント", "type": "reporter", "status": "error", "stats": { "completed": 18, "inProgress": 2 } },
+    { "id": "coordinator", "name": "調整エージェント", "type": "coordinator", "status": "active", "stats": { "completed": 120, "inProgress": 0 } }
+  ],
+  "agentFlow": {
+    "nodes": [
+      { "id": "agent1", "label": "検証エージェント", "type": "validator" },
+      { "id": "agent2", "label": "監査チェックエージェント", "type": "auditor" },
+      { "id": "agent3", "label": "証拠収集エージェント", "type": "collector" },
+      { "id": "agent4", "label": "報告エージェント", "type": "reporter" },
+      { "id": "coordinator", "label": "調整エージェント", "type": "coordinator" }
+    ],
+    "links": [
+      { "source": "agent1", "target": "coordinator", "value": 25 },
+      { "source": "coordinator", "target": "agent2", "value": 18 },
+      { "source": "agent2", "target": "coordinator", "value": 15 },
+      { "source": "coordinator", "target": "agent3", "value": 12 },
+      { "source": "agent3", "target": "coordinator", "value": 10 },
+      { "source": "coordinator", "target": "agent4", "value": 8 },
+      { "source": "agent4", "target": "coordinator", "value": 6 }
+    ],
+    "messages": [
+      {
+        "id": "msg001",
+        "source": "agent1",
+        "target": "coordinator",
+        "content": "売上データの異常検出が完了しました。3件の異常を検出しました。",
+        "timestamp": "2023-03-19 15:30:10",
+        "type": "detection"
+      },
+      {
+        "id": "msg002",
+        "source": "coordinator",
+        "target": "agent2",
+        "content": "異常検出された売上データの検証を依頼します。",
+        "timestamp": "2023-03-19 15:31:05",
+        "type": "request"
+      },
+      {
+        "id": "msg003",
+        "source": "agent2",
+        "target": "coordinator",
+        "content": "売上データの検証が完了しました。1件の不整合が確認されました。",
+        "timestamp": "2023-03-19 15:45:22",
+        "type": "validation"
+      },
+      {
+        "id": "msg004",
+        "source": "coordinator",
+        "target": "agent3",
+        "content": "不整合データのエビデンス収集を依頼します。",
+        "timestamp": "2023-03-19 15:46:30",
+        "type": "request"
+      },
+      {
+        "id": "msg005",
+        "source": "agent3",
+        "target": "coordinator",
+        "content": "エビデンス収集が完了しました。関連文書3件を添付します。",
+        "timestamp": "2023-03-19 15:55:15",
+        "type": "evidence"
+      },
+      {
+        "id": "msg006",
+        "source": "coordinator",
+        "target": "agent4",
+        "content": "調査報告書の作成を依頼します。",
+        "timestamp": "2023-03-19 15:56:00",
+        "type": "request"
+      },
+      {
+        "id": "msg007",
+        "source": "agent4",
+        "target": "coordinator",
+        "content": "調査報告書が完成しました。承認が必要です。",
+        "timestamp": "2023-03-19 16:10:45",
+        "type": "report"
+      }
+    ]
+  },
+  "interventions": {
+    "queries": [
+      {
+        "id": "q001",
+        "title": "売上計上日の確認",
+        "description": "取引#4302の売上計上日が契約日から45日後になっています。この遅延に妥当な理由はありますか？",
+        "status": "pending",
+        "priority": "high",
+        "created": "2023-03-19 15:46:20",
+        "agentId": "agent2",
+        "context": {
+          "transactionId": "4302",
+          "contractDate": "2023-01-15",
+          "revenueRecognitionDate": "2023-03-01"
+        }
+      }
+    ]
+  },
+  "samples": [
+    {
+      "id": "s001",
+      "name": "2023年第1四半期売上検証",
+      "description": "第1四半期の全売上取引を対象とした検証",
+      "status": "processing",
+      "progress": 65,
+      "created": "2023-03-15 09:00:00",
+      "lastUpdated": "2023-03-19 15:30:42",
+      "owner": "suzuki.taro@example.com",
+      "parameters": {
+        "dataSource": "salesDatabase",
+        "period": "2023Q1",
+        "sampleSize": 150,
+        "riskBasedSampling": true
+      }
+    }
+  ],
+  "analysis": {
+    "anomalies": [
+      {
+        "id": "ano001",
+        "title": "売上計上タイミングの外れ値",
+        "description": "契約日から売上計上までの期間が標準偏差の3倍を超える取引が検出されました",
+        "count": 12,
+        "trend": 5,
+        "samples": ["t4302", "t4587", "t4601"],
+        "severity": "high"
+      }
+    ]
+  }
+} 

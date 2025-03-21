@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="9.950" timestamp="2025-03-19T09:58:39.992557+09:00" hostname="DESKTOP-4CRNUKJ"><testcase classname="integration.test_agent_e2e_workflow" name="test_all_agent_graphs_load" time="0.034" /><testcase classname="integration.test_agent_e2e_workflow" name="test_agent_collaboration_flow" time="0.212"><failure message="AttributeError: 'AgentA' object has no attribute 'process_audit_procedure'">tests\integration\test_agent_e2e_workflow.py:137: in test_agent_collaboration_flow
+    test_plan = await agent_a.process_audit_procedure(procedure_text)
+E   AttributeError: 'AgentA' object has no attribute 'process_audit_procedure'</failure></testcase><testcase classname="integration.test_agent_e2e_workflow" name="test_agent_error_handling" time="0.196"><failure message="AssertionError: エラーハンドリングに失敗しました: 'AgentB' object has no attribute 'execute_tests'&#10;assert False">tests\integration\test_agent_e2e_workflow.py:196: in test_agent_error_handling
+    result = await agent_b.execute_tests(empty_test_plan, non_existent_path)
+E   AttributeError: 'AgentB' object has no attribute 'execute_tests'. Did you mean: 'execute_test_items'?
+
+During handling of the above exception, another exception occurred:
+tests\integration\test_agent_e2e_workflow.py:201: in test_agent_error_handling
+    assert False, f"エラーハンドリングに失敗しました: {str(e)}"
+E   AssertionError: エラーハンドリングに失敗しました: 'AgentB' object has no attribute 'execute_tests'
+E   assert False</failure></testcase><testcase classname="integration.test_agent_e2e_workflow" name="test_checkpoint_restoration" time="0.174"><failure message="AttributeError: 'AgentA' object has no attribute 'process_procedure_with_graph'">tests\integration\test_agent_e2e_workflow.py:218: in test_checkpoint_restoration
+    state = await agent_a.process_procedure_with_graph(incomplete_procedure)
+E   AttributeError: 'AgentA' object has no attribute 'process_procedure_with_graph'</failure></testcase></testsuite></testsuites>

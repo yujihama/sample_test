@@ -523,13 +523,14 @@ class LLMProcessor:
 
 
 # LLMのインスタンスを取得する関数
-def get_llm(model_name=None, temperature=None):
+def get_llm(model_name=None, temperature=None, streaming=False):
     """
     LLMのインスタンスを取得する
     
     Args:
         model_name: モデル名（デフォルト値はsettingsから）
         temperature: 温度パラメータ（デフォルト値はsettingsから）
+        streaming: ストリーミングモードを有効にするかどうか
         
     Returns:
         LLMインスタンス
@@ -537,27 +538,78 @@ def get_llm(model_name=None, temperature=None):
     model_name = model_name or settings.LLM_MODEL
     temperature = temperature if temperature is not None else settings.LLM_TEMPERATURE
     
-    # テスト環境ではモックLLMを返す
-    if settings.ENV == "test" or not hasattr(settings, "OPENAI_API_KEY"):
+    # 環境変数 USE_MOCK_LLM が "True" の場合のみモックLLMを使用
+    if os.environ.get("USE_MOCK_LLM") == "True":
         logger.debug(f"Using mock LLM for model {model_name}")
         return LLMFactory.create_llm(model_name, temperature)
     
-    # 本番環境では実際のLLMを使用
+    # 実際のLLM APIを使用
+    logger.info(f"Using real LLM API with model {model_name}")
+    
+    # 再試行設定
+    from langchain_core.callbacks.manager import CallbackManager
+    from langchain_core.callbacks import StdOutCallbackHandler
+    from tenacity import retry, stop_after_attempt, wait_exponential
+    
+    # コールバック設定
+    callback_manager = CallbackManager([StdOutCallbackHandler()]) if streaming else None
+    
     if settings.LLM_PROVIDER == "openai" and default_llm_provider == "openai":
-        return ChatOpenAI(
-            model=model_name,
-            temperature=temperature,
-            api_key=settings.OPENAI_API_KEY
+        from langchain_openai import ChatOpenAI
+        
+        # 再試行処理を付加したインスタンス生成
+        @retry(
+            stop=stop_after_attempt(settings.LLM_RETRY_MAX_ATTEMPTS),
+            wait=wait_exponential(
+                multiplier=settings.LLM_RETRY_BASE_DELAY,
+                max=settings.LLM_RETRY_MAX_DELAY,
+                exp_base=settings.LLM_RETRY_BACKOFF_FACTOR
+            ),
+            reraise=True
         )
+        def create_openai_instance():
+            return ChatOpenAI(
+                model=model_name,
+                temperature=temperature,
+                api_key=os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY,
+                max_tokens=settings.LLM_MAX_TOKENS,
+                streaming=streaming,
+                callback_manager=callback_manager,
+                request_timeout=60,  # 60秒のタイムアウト
+                verbose=settings.DEBUG
+            )
+        
+        return create_openai_instance()
+        
     elif settings.LLM_PROVIDER == "anthropic" and default_llm_provider == "anthropic":
-        return ChatAnthropic(
-            model=model_name,
-            temperature=temperature,
-            api_key=settings.ANTHROPIC_API_KEY
+        from langchain_anthropic import ChatAnthropic
+        
+        # 再試行処理を付加したインスタンス生成
+        @retry(
+            stop=stop_after_attempt(settings.LLM_RETRY_MAX_ATTEMPTS),
+            wait=wait_exponential(
+                multiplier=settings.LLM_RETRY_BASE_DELAY,
+                max=settings.LLM_RETRY_MAX_DELAY,
+                exp_base=settings.LLM_RETRY_BACKOFF_FACTOR
+            ),
+            reraise=True
         )
+        def create_anthropic_instance():
+            return ChatAnthropic(
+                model=model_name,
+                temperature=temperature,
+                api_key=os.environ.get("ANTHROPIC_API_KEY") or settings.ANTHROPIC_API_KEY,
+                max_tokens=settings.LLM_MAX_TOKENS,
+                streaming=streaming,
+                callback_manager=callback_manager,
+                timeout=60  # 60秒のタイムアウト
+            )
+        
+        return create_anthropic_instance()
+        
     else:
-        # デフォルトのLLMファクトリーを使用
-        return LLMFactory.create_llm(model_name, temperature)
+        # デフォルトプロバイダーがない場合はエラー
+        raise ValueError(f"LLMプロバイダー {settings.LLM_PROVIDER} は利用できません。必要なパッケージをインストールしてください。")
 
 
 def create_test_result_evaluator_prompt(test_plan: Dict[str, Any], test_results: Dict[str, Any]):
@@ -629,8 +681,8 @@ def create_test_result_evaluator_prompt(test_plan: Dict[str, Any], test_results:
         ("human", human_prompt),
     ])
     
-    # テスト環境または実際のLLMが利用できない場合はモックの結果を返す
-    if settings.ENV == "test" or not hasattr(settings, "OPENAI_API_KEY"):
+    # 環境変数「USE_MOCK_LLM」が "True" の場合のみモックを使用
+    if os.environ.get("USE_MOCK_LLM") == "True":
         mock_result = {
             "findings": [
                 {
@@ -704,7 +756,7 @@ def create_audit_report_generator_prompt(procedure_text: str, summary: Dict[str,
     
     Args:
         procedure_text: 監査手続きテキスト
-        summary: 監査総括
+        summary: 監査結果のサマリー
         
     Returns:
         プロンプトチェーン
@@ -713,35 +765,45 @@ def create_audit_report_generator_prompt(procedure_text: str, summary: Dict[str,
     
     # システムプロンプト
     system_prompt = """
-    あなたは内部監査報告書の作成を担当する専門家です。監査手続きと監査総括に基づいて、包括的な監査報告書を作成してください。
+    あなたは内部監査報告書を作成する専門家です。監査手続きの説明と評価結果をもとに、専門的かつ簡潔な監査報告書を作成してください。
     
     あなたの役割:
-    1. 監査の背景と目的を明確に説明する
-    2. 発見事項を詳細に分析し、その影響を評価する
-    3. 具体的で実行可能な推奨事項を提案する
-    4. 明確な結論を導き出す
+    1. 監査手続きと評価結果に基づいて正式な監査報告書を作成する
+    2. 重要な発見事項を明確に説明し、リスクの重大性を評価する
+    3. 実行可能な改善提案を提示する
     
     出力は厳密にJSON形式で行ってください。以下の構造に従って回答してください:
     
     {
       "title": "監査報告書のタイトル",
-      "executive_summary": "エグゼクティブサマリー（経営層向けの要約）",
-      "background": "監査の背景と目的の説明",
-      "findings_detail": "発見事項の詳細な分析と評価",
-      "recommendations": "具体的な推奨事項",
-      "conclusion": "監査の結論",
-      "appendices": ["付録1", "付録2"]
+      "date": "YYYY-MM-DD",
+      "executive_summary": "エグゼクティブサマリー",
+      "scope": "監査の範囲",
+      "objectives": ["監査の目的のリスト"],
+      "methodology": "監査手法の説明",
+      "findings": [
+        {
+          "id": "発見事項ID",
+          "title": "発見事項のタイトル",
+          "description": "詳細な説明",
+          "severity": "重大度（高/中/低）",
+          "risk": "関連するリスク",
+          "recommendations": ["推奨される対応策のリスト"]
+        }
+      ],
+      "conclusion": "監査全体の結論",
+      "next_steps": ["推奨される次のステップのリスト"]
     }
     """
     
     # 入力テンプレート
     human_prompt = """
-    以下の監査手続きと監査総括に基づいて、包括的な監査報告書を日本語で作成してください。
+    以下の監査手続きと評価結果をもとに、監査報告書を日本語で作成してください。
     
     === 監査手続き ===
     {procedure_text}
     
-    === 監査総括 ===
+    === 評価結果 ===
     {summary}
     
     監査報告書をJSON形式で提供してください。
@@ -753,19 +815,50 @@ def create_audit_report_generator_prompt(procedure_text: str, summary: Dict[str,
         ("human", human_prompt),
     ])
     
-    # テスト環境または実際のLLMが利用できない場合はモックの結果を返す
-    if settings.ENV == "test" or not hasattr(settings, "OPENAI_API_KEY"):
+    # 環境変数「USE_MOCK_LLM」が "True" の場合のみモックを使用
+    if os.environ.get("USE_MOCK_LLM") == "True":
         mock_result = {
             "title": "経費申請プロセスの内部監査報告書",
-            "executive_summary": "本監査では、経費申請プロセスにおいて重大な問題が発見されました。未承認の申請が多数存在し、上限を超える申請も複数確認されました。経費承認プロセスの改善と高額申請に対する追加チェックの導入が必要です。",
-            "background": "本監査は、社内の経費申請プロセスが適切に運用されているかを検証するために実施されました。特に、承認プロセスと金額上限の遵守状況に焦点を当てています。",
-            "findings_detail": "監査の結果、以下の重大な問題が発見されました：\n\n1. **未承認の経費申請が多数存在**: 10件の経費申請のうち、承認されていない申請が7件（70%）ありました。これは許容閾値（5%）を大幅に超えています。\n\n2. **上限を超える経費申請**: 10件の経費申請のうち、上限（20,000円）を超える申請が2件（20%）ありました。これも許容閾値（10%）を超えています。\n\nこれらの問題は、経費管理の内部統制が適切に機能していないことを示しています。",
-            "recommendations": "以下の改善策を推奨します：\n\n1. **経費承認プロセスの見直し**: 承認フローを明確化し、承認漏れを防止するシステムの導入。\n\n2. **管理者への通知機能の強化**: 未承認の経費申請が一定期間残っている場合、管理者に自動通知する仕組みの実装。\n\n3. **高額経費申請の追加承認ステップ**: 一定金額を超える申請には、部門長だけでなく財務部門の承認も必要とする二重承認プロセスの導入。\n\n4. **経費ポリシーの再教育**: 全従業員に対する経費申請ポリシーの再教育と定期的なリマインダーの送信。",
-            "conclusion": "経費申請プロセスには重大な欠陥があり、不正や誤用のリスクが高い状態です。推奨された改善策を早急に実施し、内部統制を強化することが必要です。また、3ヶ月後に追加監査を実施して、改善状況を確認することを推奨します。",
-            "appendices": [
-                "経費申請ポリシー文書",
-                "サンプルデータ分析結果の詳細",
-                "部門別の違反率分析"
+            "date": "2025-03-15",
+            "executive_summary": "経費申請プロセスの内部監査を実施した結果、承認プロセスと上限金額管理に重大な問題が発見されました。即時の是正措置が必要です。",
+            "scope": "2024年1月から3月までの全部門の経費申請データ（500件）",
+            "objectives": [
+                "経費申請と承認プロセスの適切性評価",
+                "不正や誤りの検出",
+                "プロセス改善の機会の特定"
+            ],
+            "methodology": "サンプリングデータの分析、承認フローの検証、規定との整合性確認",
+            "findings": [
+                {
+                    "id": "F-2024-001",
+                    "title": "承認なしの経費処理",
+                    "description": "検証した経費申請の70%が適切な承認を得ずに処理されていました。これは内部統制の重大な欠陥を示しています。",
+                    "severity": "高",
+                    "risk": "不正な経費申請や誤った支払いによる財務的損失",
+                    "recommendations": [
+                        "承認プロセスの自動化と強制力の強化",
+                        "定期的な承認状況のモニタリングの導入",
+                        "承認者向けのトレーニングプログラムの実施"
+                    ]
+                },
+                {
+                    "id": "F-2024-002",
+                    "title": "経費上限超過",
+                    "description": "20%の経費申請が規定の上限金額（20,000円）を超過していました。上限超過申請の追加承認プロセスも機能していません。",
+                    "severity": "中",
+                    "risk": "予算超過と不適切な支出",
+                    "recommendations": [
+                        "システムによる上限金額チェックの自動化",
+                        "高額申請の二次承認ルールの強化",
+                        "部門管理者への定期的なレポート提供"
+                    ]
+                }
+            ],
+            "conclusion": "経費申請プロセスには重大な内部統制の弱点があり、不正や誤りのリスクが高い状態です。承認プロセスと上限管理の改善が急務です。",
+            "next_steps": [
+                "90日以内の承認プロセス改善計画の策定",
+                "30日以内の未承認経費申請の再レビュー",
+                "経費管理システムの機能強化の検討"
             ]
         }
         

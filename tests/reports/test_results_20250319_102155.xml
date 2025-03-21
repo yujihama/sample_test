@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="7" failures="0" skipped="0" tests="7" time="12.021" timestamp="2025-03-19T10:21:57.712800+09:00" hostname="DESKTOP-4CRNUKJ"><testcase classname="" name="integration.agents.test_agent_a_workflow" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\agents\test_agent_a_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\agents\test_agent_a_workflow.py:24: in &lt;module&gt;
+    from tests.integration.db_init import AuditProcedure, SampleData, Workflow, AgentState, AuditResult
+E   ModuleNotFoundError: No module named 'tests.integration.db_init'</error></testcase><testcase classname="" name="integration.agents.test_agent_b_workflow" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\agents\test_agent_b_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\agents\test_agent_b_workflow.py:24: in &lt;module&gt;
+    from tests.integration.db_init import AuditProcedure, SampleData, Workflow, AgentState, AuditResult
+E   ModuleNotFoundError: No module named 'tests.integration.db_init'</error></testcase><testcase classname="" name="integration.agents.test_agent_c_workflow" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\agents\test_agent_c_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\agents\test_agent_c_workflow.py:24: in &lt;module&gt;
+    from tests.integration.db_init import AuditProcedure, SampleData, Workflow, AgentState, AuditResult
+E   ModuleNotFoundError: No module named 'tests.integration.db_init'</error></testcase><testcase classname="" name="integration.agents.test_agent_communication" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\agents\test_agent_communication.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\agents\test_agent_communication.py:17: in &lt;module&gt;
+    from src.core.messaging import MessageClient, AgentMessage, MessageBroker
+E   ImportError: cannot import name 'AgentMessage' from 'src.core.messaging' (C:\Users\nyham\work\sampletest\src\core\messaging.py)</error></testcase><testcase classname="" name="integration.agents.test_agent_d_workflow" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\agents\test_agent_d_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\agents\test_agent_d_workflow.py:24: in &lt;module&gt;
+    from tests.integration.db_init import AuditProcedure, SampleData, Workflow, AgentState, AuditResult, FinalReport
+E   ModuleNotFoundError: No module named 'tests.integration.db_init'</error></testcase><testcase classname="" name="integration.workflow.test_workflow" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\workflow\test_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\workflow\test_workflow.py:29: in &lt;module&gt;
+    from src.utils.workflow_manager import check_workflow_consistency, auto_repair_workflows
+src\utils\workflow_manager.py:18: in &lt;module&gt;
+    from src.models.repositories import workflow_repository, agent_state_repository
+E   ImportError: cannot import name 'workflow_repository' from 'src.models.repositories' (C:\Users\nyham\work\sampletest\src\models\repositories.py)</error></testcase><testcase classname="" name="integration.workflow.test_workflow_state" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\nyham\work\sampletest\tests\integration\workflow\test_workflow_state.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+venv\Lib\site-packages\_pytest\python.py:493: in importtestmodule
+    mod = import_path(
+venv\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+venv\Lib\site-packages\_pytest\assertion\rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests\integration\workflow\test_workflow_state.py:32: in &lt;module&gt;
+    from tests.workflow.mock_repositories import MockSampleDataRepository, mock_get_db
+E   ModuleNotFoundError: No module named 'tests.workflow.mock_repositories'</error></testcase></testsuite></testsuites>

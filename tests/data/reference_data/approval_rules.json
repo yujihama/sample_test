@@ -1,0 +1,38 @@
+[
+  {
+    "category": "出張申請",
+    "min_amount": 0,
+    "max_amount": 100000,
+    "required_level": 3
+  },
+  {
+    "category": "出張申請",
+    "min_amount": 100001,
+    "max_amount": 300000,
+    "required_level": 4
+  },
+  {
+    "category": "出張申請",
+    "min_amount": 300001,
+    "max_amount": null,
+    "required_level": 5
+  },
+  {
+    "category": "経費精算",
+    "min_amount": 0,
+    "max_amount": 50000,
+    "required_level": 3
+  },
+  {
+    "category": "経費精算",
+    "min_amount": 50001,
+    "max_amount": 200000,
+    "required_level": 4
+  },
+  {
+    "category": "経費精算",
+    "min_amount": 200001,
+    "max_amount": null,
+    "required_level": 5
+  }
+]

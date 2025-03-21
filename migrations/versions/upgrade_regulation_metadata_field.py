@@ -11,7 +11,7 @@ from sqlalchemy.dialects import postgresql
 
 # revision identifiers
 revision = 'regulation_metadata_field'
-down_revision = None
+down_revision = 'c1c390fac0d0'  # 初期スキーマのリビジョンID
 branch_labels = None
 depends_on = None
 
@@ -19,7 +19,7 @@ depends_on = None
 def upgrade():
     """メタデータフィールド名を 'meta_info' から 'meta_data' に変更"""
     # PostgreSQLでの実行方法
-    op.alter_column('regulations', 'meta_info', new_column_name='meta_data')
+    # op.alter_column('regulations', 'meta_info', new_column_name='meta_data')
     
     # SQLiteでの実行方法（開発環境用）
     # 1. regulations_backupテーブルを作成
@@ -27,8 +27,7 @@ def upgrade():
     # 3. 古いテーブルを削除
     # 4. 新しいテーブルをリネーム
     
-    # コメントアウトされたSQLite用の代替手段（必要に応じてコメントを解除）
-    """
+    # SQLite用の代替手段
     # 一時テーブルを作成
     op.execute('''
         CREATE TABLE regulations_backup (
@@ -65,7 +64,6 @@ def upgrade():
     
     # 新しいテーブルをリネーム
     op.execute('ALTER TABLE regulations_backup RENAME TO regulations')
-    """
 
 
 def downgrade():

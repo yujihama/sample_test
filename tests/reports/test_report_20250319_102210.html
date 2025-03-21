@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テスト実行結果レポート</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .summary { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .summary-card { background-color: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 15px; width: 23%; }
+        .summary-card h3 { margin-top: 0; color: #555; }
+        .summary-card.success { border-left: 5px solid #4caf50; }
+        .summary-card.failure { border-left: 5px solid #f44336; }
+        .summary-card.error { border-left: 5px solid #ff9800; }
+        .summary-card.rate { border-left: 5px solid #2196f3; }
+        .big-number { font-size: 2em; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f8f8; }
+        tr:hover { background-color: #f1f1f1; }
+        .status-passed { color: #4caf50; font-weight: bold; }
+        .status-failed { color: #f44336; font-weight: bold; }
+        .status-error { color: #ff9800; font-weight: bold; }
+        .performance-chart { margin: 30px 0; text-align: center; }
+        .performance-chart img { max-width: 100%; height: auto; }
+        pre { background-color: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .agent-section { margin-bottom: 40px; }
+        h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>テスト実行結果レポート</h1>
+            <p>生成日時: 2025-03-19 10:22:10</p>
+        </div>
+
+        <h2>実行概要</h2>
+        <div class="summary">
+            <div class="summary-card success">
+                <h3>成功</h3>
+                <div class="big-number">0</div>
+            </div>
+            <div class="summary-card failure">
+                <h3>失敗</h3>
+                <div class="big-number">0</div>
+            </div>
+            <div class="summary-card error">
+                <h3>エラー</h3>
+                <div class="big-number">15</div>
+            </div>
+            <div class="summary-card rate">
+                <h3>成功率</h3>
+                <div class="big-number">0.0%</div>
+            </div>
+        </div>
+
+        
+
+        
+        <h2>テスト詳細</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>テスト名</th>
+                    <th>ステータス</th>
+                    <th>実行時間</th>
+                    <th>詳細</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>===================================</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>=================================== ERRORS ====================================</td>
+                </tr>
+                
+                <tr>
+                    <td>________</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>________ ERROR collecting integration/agents/test_agent_a_workflow.py _________</td>
+                </tr>
+                
+                <tr>
+                    <td>________</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>________ ERROR collecting integration/agents/test_agent_b_workflow.py _________</td>
+                </tr>
+                
+                <tr>
+                    <td>________</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>________ ERROR collecting integration/agents/test_agent_c_workflow.py _________</td>
+                </tr>
+                
+                <tr>
+                    <td>_______</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>_______ ERROR collecting integration/agents/test_agent_communication.py _______</td>
+                </tr>
+                
+                <tr>
+                    <td>________</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>________ ERROR collecting integration/agents/test_agent_d_workflow.py _________</td>
+                </tr>
+                
+                <tr>
+                    <td>___________</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>___________ ERROR collecting integration/workflow/test_workflow.py ____________</td>
+                </tr>
+                
+                <tr>
+                    <td>________</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>________ ERROR collecting integration/workflow/test_workflow_state.py _________</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\agents\test_agent_a_workflow.py</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\agents\test_agent_b_workflow.py</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\agents\test_agent_c_workflow.py</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\agents\test_agent_communication.py</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\agents\test_agent_d_workflow.py</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\workflow\test_workflow.py</td>
+                </tr>
+                
+                <tr>
+                    <td>ERROR</td>
+                    <td class="status-error">error</td>
+                    <td>1.02秒</td>
+                    <td>ERROR tests\integration\workflow\test_workflow_state.py</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        
+
+        
+    </div>
+</body>
+</html> 

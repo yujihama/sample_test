@@ -1,0 +1,36 @@
+[
+  {
+    "workflow_id": "test-workflow-5928816d",
+    "sender_id": "agent_a",
+    "recipient_id": "agent-b",
+    "message_type": "TASK_REQUEST",
+    "content": {
+      "procedure_id": "PROC-005",
+      "sample_id": "サンプルID-005",
+      "documents": [
+        "取引履歴データ"
+      ],
+      "verification_points": [
+        "取引履歴（申請・承認・実行）の整合性",
+        "取引金額の一貫性",
+        "システムログとの時系列整合性"
+      ]
+    },
+    "timestamp": "2025-03-19T12:10:52.395819",
+    "id": "19acd735-a296-4906-b941-5f7a29a3242b"
+  },
+  {
+    "type": "task_response",
+    "sender_id": "agent-b",
+    "recipient_id": "agent_a",
+    "content": {
+      "issues": [],
+      "analysis_results": {},
+      "in_response_to": null
+    },
+    "context_id": null,
+    "workflow_id": "test-workflow-5928816d",
+    "priority": "high",
+    "requires_response": false
+  }
+]

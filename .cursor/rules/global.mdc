@@ -42,6 +42,7 @@ alwaysApply: true
      - 適切なディレクトリ構造の遵守
      - 命名規則の一貫性維持
      - 共通処理の適切な配置
+     - 実行環境はwondows、powreshellを意識すること
 
 ---
 

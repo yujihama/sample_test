@@ -1,0 +1,204 @@
+=== LOG SYSTEM STARTED AT 2025-03-20T14:26:23.811173 ===
+2025-03-20 14:26:23 | INFO | データベースを初期化します: sqlite:///./data/db/audit_agent_new.db (テスト環境: False)
+2025-03-20 14:26:23 | INFO | データベーステーブルを作成します
+2025-03-20 14:26:23 | ERROR | データベースの初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'upload_time', 'updated_at', 'file_type', 'column_count', 'file_size'}
+テーブル workflows の欠落しているカラム: {'sample_data_id', 'created_at', 'results', 'error', 'audit_procedure_id'}
+テーブル agent_states の欠落しているカラム: {'current_task', 'created_at', 'error_info', 'input_data', 'output_data', 'metadata_json'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'audit_result_id', 'category', 'evidence'}
+テーブル messages の欠落しているカラム: {'meta_data', 'agent_state_id', 'delivered_at', 'to_agent_id'}
+2025-03-20 14:26:23 | ERROR | データベース初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'upload_time', 'updated_at', 'file_type', 'column_count', 'file_size'}
+テーブル workflows の欠落しているカラム: {'sample_data_id', 'created_at', 'results', 'error', 'audit_procedure_id'}
+テーブル agent_states の欠落しているカラム: {'current_task', 'created_at', 'error_info', 'input_data', 'output_data', 'metadata_json'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'audit_result_id', 'category', 'evidence'}
+テーブル messages の欠落しているカラム: {'meta_data', 'agent_state_id', 'delivered_at', 'to_agent_id'}
+2025-03-20 14:26:23 | INFO | アプリケーション 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を初期化しました
+2025-03-20 14:26:23 | INFO | 補助ツールを初期化しています...
+2025-03-20 14:26:23 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:26:23 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:26:24 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:26:24 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:26:24 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:26:24 | INFO | ツール初期化: ImageProcessor_001
+2025-03-20 14:26:24 | INFO | 画像処理ツール初期化完了: ImageProcessor_001
+2025-03-20 14:26:24 | INFO | ツールを登録: ImageProcessor_001
+2025-03-20 14:26:24 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:26:24 | INFO | ツール初期化: ExcelAnalyzer_001
+2025-03-20 14:26:24 | INFO | Excel解析ツール初期化完了: ExcelAnalyzer_001
+2025-03-20 14:26:24 | INFO | ツールを登録: ExcelAnalyzer_001
+2025-03-20 14:26:24 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:26:24 | INFO | ツール初期化: DataValidator_001
+2025-03-20 14:26:24 | INFO | データ照合ツール初期化完了: DataValidator_001
+2025-03-20 14:26:24 | INFO | ツールを登録: DataValidator_001
+2025-03-20 14:26:24 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:26:24 | INFO | ツール初期化: DocumentParser_001
+2025-03-20 14:26:24 | INFO | 文書解析ツール初期化完了: DocumentParser_001
+2025-03-20 14:26:24 | INFO | ツールを登録: DocumentParser_001
+2025-03-20 14:26:24 | INFO | ツール初期化完了 - 利用可能なツール数: 6
+2025-03-20 14:26:24 | INFO | エージェントを初期化しています...
+2025-03-20 14:26:24 | INFO | メッセージブローカーを初期化しました
+2025-03-20 14:26:24 | INFO | メッセージングクライアント agent_management_service を初期化しました
+2025-03-20 14:26:24 | INFO | 統合エージェント管理サービスを初期化しました
+2025-03-20 14:26:24 | INFO | エージェント agent1 を登録しました（タイプ: validator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:26:24 | INFO | エージェント agent2 を登録しました（タイプ: auditor, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:26:24 | INFO | エージェント agent3 を登録しました（タイプ: collector, 役割: AgentRole.WORKER）
+2025-03-20 14:26:24 | INFO | エージェント agent4 を登録しました（タイプ: evaluator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:26:24 | INFO | エージェント agent5 を登録しました（タイプ: reporter, 役割: AgentRole.WORKER）
+2025-03-20 14:26:24 | INFO | エージェント初期化完了 - 新規登録: 5, 合計: 5
+2025-03-20 14:26:24 | INFO | 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を起動しています
+2025-03-20 14:26:24 | INFO | サーバーを起動しています: 0.0.0.0:8000
+=== LOG SYSTEM STARTED AT 2025-03-20T14:26:28.944521 ===
+2025-03-20 14:26:28 | INFO | データベースを初期化します: sqlite:///./data/db/audit_agent_new.db (テスト環境: False)
+2025-03-20 14:26:28 | INFO | データベーステーブルを作成します
+2025-03-20 14:26:29 | ERROR | データベースの初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'file_type', 'updated_at', 'column_count', 'upload_time', 'file_size'}
+テーブル workflows の欠落しているカラム: {'error', 'created_at', 'audit_procedure_id', 'sample_data_id', 'results'}
+テーブル agent_states の欠落しているカラム: {'current_task', 'input_data', 'created_at', 'output_data', 'metadata_json', 'error_info'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'evidence', 'category', 'audit_result_id'}
+テーブル messages の欠落しているカラム: {'to_agent_id', 'delivered_at', 'meta_data', 'agent_state_id'}
+2025-03-20 14:26:29 | ERROR | データベース初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'file_type', 'updated_at', 'column_count', 'upload_time', 'file_size'}
+テーブル workflows の欠落しているカラム: {'error', 'created_at', 'audit_procedure_id', 'sample_data_id', 'results'}
+テーブル agent_states の欠落しているカラム: {'current_task', 'input_data', 'created_at', 'output_data', 'metadata_json', 'error_info'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'evidence', 'category', 'audit_result_id'}
+テーブル messages の欠落しているカラム: {'to_agent_id', 'delivered_at', 'meta_data', 'agent_state_id'}
+2025-03-20 14:26:29 | INFO | アプリケーション 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を初期化しました
+2025-03-20 14:26:29 | INFO | 補助ツールを初期化しています...
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:26:29 | INFO | ツール初期化: ImageProcessor_001
+2025-03-20 14:26:29 | INFO | 画像処理ツール初期化完了: ImageProcessor_001
+2025-03-20 14:26:29 | INFO | ツールを登録: ImageProcessor_001
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:26:29 | INFO | ツール初期化: ExcelAnalyzer_001
+2025-03-20 14:26:29 | INFO | Excel解析ツール初期化完了: ExcelAnalyzer_001
+2025-03-20 14:26:29 | INFO | ツールを登録: ExcelAnalyzer_001
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:26:29 | INFO | ツール初期化: DataValidator_001
+2025-03-20 14:26:29 | INFO | データ照合ツール初期化完了: DataValidator_001
+2025-03-20 14:26:29 | INFO | ツールを登録: DataValidator_001
+2025-03-20 14:26:29 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:26:29 | INFO | ツール初期化: DocumentParser_001
+2025-03-20 14:26:29 | INFO | 文書解析ツール初期化完了: DocumentParser_001
+2025-03-20 14:26:29 | INFO | ツールを登録: DocumentParser_001
+2025-03-20 14:26:29 | INFO | ツール初期化完了 - 利用可能なツール数: 6
+2025-03-20 14:26:29 | INFO | エージェントを初期化しています...
+2025-03-20 14:26:29 | INFO | メッセージブローカーを初期化しました
+2025-03-20 14:26:29 | INFO | メッセージングクライアント agent_management_service を初期化しました
+2025-03-20 14:26:29 | INFO | 統合エージェント管理サービスを初期化しました
+2025-03-20 14:26:29 | INFO | エージェント agent1 を登録しました（タイプ: validator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:26:29 | INFO | エージェント agent2 を登録しました（タイプ: auditor, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:26:29 | INFO | エージェント agent3 を登録しました（タイプ: collector, 役割: AgentRole.WORKER）
+2025-03-20 14:26:29 | INFO | エージェント agent4 を登録しました（タイプ: evaluator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:26:29 | INFO | エージェント agent5 を登録しました（タイプ: reporter, 役割: AgentRole.WORKER）
+2025-03-20 14:26:29 | INFO | エージェント初期化完了 - 新規登録: 5, 合計: 5
+=== LOG SYSTEM STARTED AT 2025-03-20T14:31:32.258072 ===
+2025-03-20 14:31:32 | INFO | データベースを初期化します: sqlite:///./data/db/audit_agent_new.db (テスト環境: False)
+2025-03-20 14:31:32 | INFO | データベーステーブルを作成します
+2025-03-20 14:31:32 | ERROR | データベースの初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'upload_time', 'file_size', 'column_count', 'file_type', 'updated_at'}
+テーブル workflows の欠落しているカラム: {'results', 'created_at', 'sample_data_id', 'error', 'audit_procedure_id'}
+テーブル agent_states の欠落しているカラム: {'created_at', 'metadata_json', 'error_info', 'input_data', 'output_data', 'current_task'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'category', 'audit_result_id', 'evidence'}
+テーブル messages の欠落しているカラム: {'to_agent_id', 'meta_data', 'agent_state_id', 'delivered_at'}
+2025-03-20 14:31:32 | ERROR | データベース初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'upload_time', 'file_size', 'column_count', 'file_type', 'updated_at'}
+テーブル workflows の欠落しているカラム: {'results', 'created_at', 'sample_data_id', 'error', 'audit_procedure_id'}
+テーブル agent_states の欠落しているカラム: {'created_at', 'metadata_json', 'error_info', 'input_data', 'output_data', 'current_task'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'category', 'audit_result_id', 'evidence'}
+テーブル messages の欠落しているカラム: {'to_agent_id', 'meta_data', 'agent_state_id', 'delivered_at'}
+2025-03-20 14:31:32 | INFO | アプリケーション 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を初期化しました
+2025-03-20 14:31:32 | INFO | 補助ツールを初期化しています...
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:31:32 | INFO | ツール初期化: ImageProcessor_001
+2025-03-20 14:31:32 | INFO | 画像処理ツール初期化完了: ImageProcessor_001
+2025-03-20 14:31:32 | INFO | ツールを登録: ImageProcessor_001
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:31:32 | INFO | ツール初期化: ExcelAnalyzer_001
+2025-03-20 14:31:32 | INFO | Excel解析ツール初期化完了: ExcelAnalyzer_001
+2025-03-20 14:31:32 | INFO | ツールを登録: ExcelAnalyzer_001
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:31:32 | INFO | ツール初期化: DataValidator_001
+2025-03-20 14:31:32 | INFO | データ照合ツール初期化完了: DataValidator_001
+2025-03-20 14:31:32 | INFO | ツールを登録: DataValidator_001
+2025-03-20 14:31:32 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:31:32 | INFO | ツール初期化: DocumentParser_001
+2025-03-20 14:31:32 | INFO | 文書解析ツール初期化完了: DocumentParser_001
+2025-03-20 14:31:32 | INFO | ツールを登録: DocumentParser_001
+2025-03-20 14:31:32 | INFO | ツール初期化完了 - 利用可能なツール数: 6
+2025-03-20 14:31:32 | INFO | エージェントを初期化しています...
+2025-03-20 14:31:32 | INFO | メッセージブローカーを初期化しました
+2025-03-20 14:31:32 | INFO | メッセージングクライアント agent_management_service を初期化しました
+2025-03-20 14:31:32 | INFO | 統合エージェント管理サービスを初期化しました
+2025-03-20 14:31:32 | INFO | エージェント agent1 を登録しました（タイプ: validator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:31:32 | INFO | エージェント agent2 を登録しました（タイプ: auditor, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:31:32 | INFO | エージェント agent3 を登録しました（タイプ: collector, 役割: AgentRole.WORKER）
+2025-03-20 14:31:32 | INFO | エージェント agent4 を登録しました（タイプ: evaluator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:31:32 | INFO | エージェント agent5 を登録しました（タイプ: reporter, 役割: AgentRole.WORKER）
+2025-03-20 14:31:32 | INFO | エージェント初期化完了 - 新規登録: 5, 合計: 5
+2025-03-20 14:31:32 | INFO | 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を起動しています
+2025-03-20 14:31:32 | INFO | サーバーを起動しています: 0.0.0.0:8000
+=== LOG SYSTEM STARTED AT 2025-03-20T14:31:37.357862 ===
+2025-03-20 14:31:37 | INFO | データベースを初期化します: sqlite:///./data/db/audit_agent_new.db (テスト環境: False)
+2025-03-20 14:31:37 | INFO | データベーステーブルを作成します
+2025-03-20 14:31:37 | ERROR | データベースの初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'file_size', 'file_type', 'upload_time', 'updated_at', 'column_count'}
+テーブル workflows の欠落しているカラム: {'error', 'sample_data_id', 'results', 'audit_procedure_id', 'created_at'}
+テーブル agent_states の欠落しているカラム: {'current_task', 'error_info', 'input_data', 'metadata_json', 'created_at', 'output_data'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'category', 'audit_result_id', 'evidence'}
+テーブル messages の欠落しているカラム: {'meta_data', 'delivered_at', 'agent_state_id', 'to_agent_id'}
+2025-03-20 14:31:37 | ERROR | データベース初期化中にエラーが発生しました: データベース検証エラー:
+テーブル sample_data の欠落しているカラム: {'file_size', 'file_type', 'upload_time', 'updated_at', 'column_count'}
+テーブル workflows の欠落しているカラム: {'error', 'sample_data_id', 'results', 'audit_procedure_id', 'created_at'}
+テーブル agent_states の欠落しているカラム: {'current_task', 'error_info', 'input_data', 'metadata_json', 'created_at', 'output_data'}
+テーブル audit_results の欠落しているカラム: {'details'}
+テーブル findings の欠落しているカラム: {'category', 'audit_result_id', 'evidence'}
+テーブル messages の欠落しているカラム: {'meta_data', 'delivered_at', 'agent_state_id', 'to_agent_id'}
+2025-03-20 14:31:37 | INFO | アプリケーション 内部監査サンプルデータ自動テストAIエージェントシステム v0.1.0 を初期化しました
+2025-03-20 14:31:37 | INFO | 補助ツールを初期化しています...
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: ImageProcessor
+2025-03-20 14:31:37 | INFO | ツール初期化: ImageProcessor_001
+2025-03-20 14:31:37 | INFO | 画像処理ツール初期化完了: ImageProcessor_001
+2025-03-20 14:31:37 | INFO | ツールを登録: ImageProcessor_001
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: ExcelAnalyzer
+2025-03-20 14:31:37 | INFO | ツール初期化: ExcelAnalyzer_001
+2025-03-20 14:31:37 | INFO | Excel解析ツール初期化完了: ExcelAnalyzer_001
+2025-03-20 14:31:37 | INFO | ツールを登録: ExcelAnalyzer_001
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: DataValidator
+2025-03-20 14:31:37 | INFO | ツール初期化: DataValidator_001
+2025-03-20 14:31:37 | INFO | データ照合ツール初期化完了: DataValidator_001
+2025-03-20 14:31:37 | INFO | ツールを登録: DataValidator_001
+2025-03-20 14:31:37 | INFO | ツールクラスを登録: DocumentParser
+2025-03-20 14:31:37 | INFO | ツール初期化: DocumentParser_001
+2025-03-20 14:31:37 | INFO | 文書解析ツール初期化完了: DocumentParser_001
+2025-03-20 14:31:37 | INFO | ツールを登録: DocumentParser_001
+2025-03-20 14:31:37 | INFO | ツール初期化完了 - 利用可能なツール数: 6
+2025-03-20 14:31:37 | INFO | エージェントを初期化しています...
+2025-03-20 14:31:37 | INFO | メッセージブローカーを初期化しました
+2025-03-20 14:31:37 | INFO | メッセージングクライアント agent_management_service を初期化しました
+2025-03-20 14:31:37 | INFO | 統合エージェント管理サービスを初期化しました
+2025-03-20 14:31:37 | INFO | エージェント agent1 を登録しました（タイプ: validator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:31:37 | INFO | エージェント agent2 を登録しました（タイプ: auditor, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:31:37 | INFO | エージェント agent3 を登録しました（タイプ: collector, 役割: AgentRole.WORKER）
+2025-03-20 14:31:37 | INFO | エージェント agent4 を登録しました（タイプ: evaluator, 役割: AgentRole.SPECIALIST）
+2025-03-20 14:31:37 | INFO | エージェント agent5 を登録しました（タイプ: reporter, 役割: AgentRole.WORKER）
+2025-03-20 14:31:37 | INFO | エージェント初期化完了 - 新規登録: 5, 合計: 5

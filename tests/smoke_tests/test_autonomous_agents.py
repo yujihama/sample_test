@@ -21,6 +21,7 @@ from src.core.messaging import MessageBroker, MessageClient
 from src.models.schema import MessageType, MessagePriority
 from src.core.agent_workflow import run_workflow
 from src.scripts.agent_daemon import AgentDaemon, AgentWorker
+from tests.smoke_tests.test_helpers import save_agent_logs
 
 
 # マークを設定
@@ -61,6 +62,18 @@ class TestAutonomousAgents:
         
         if hasattr(agent_b.state, "is_autonomous") and agent_b.state.is_autonomous:
             await agent_b.stop_autonomous_mode()
+        
+        # エージェントのメッセージ履歴を保存
+        if hasattr(agent_a, "workflow_id") and agent_a.workflow_id:
+            logger.info(f"テスト終了後にエージェントログを保存します: {agent_a.workflow_id}")
+            save_agent_logs(agent_a.workflow_id)
+        elif hasattr(agent_b, "workflow_id") and agent_b.workflow_id:
+            logger.info(f"テスト終了後にエージェントログを保存します: {agent_b.workflow_id}")
+            save_agent_logs(agent_b.workflow_id)
+        else:
+            # ワークフローIDがない場合は直接メッセージブローカーから保存
+            logger.info("テスト終了後にエージェントログを保存します（ワークフローIDなし）")
+            save_agent_logs()
     
     @pytest.mark.smoke
     async def test_agent_autonomous_mode_start_stop(self, setup_agents):
@@ -90,6 +103,11 @@ class TestAutonomousAgents:
     async def test_autonomous_message_processing(self, setup_agents):
         """自律的なメッセージ処理をテスト"""
         agent_a, agent_b, broker = setup_agents
+        
+        # テスト用ワークフローIDの設定
+        workflow_id = f"test-workflow-{uuid.uuid4().hex[:8]}"
+        agent_a.workflow_id = workflow_id
+        agent_b.workflow_id = workflow_id
         
         # 自律モードを開始（短いポーリング間隔で）
         assert await agent_a.start_autonomous_mode({"polling_interval": 0.2})
@@ -131,6 +149,10 @@ class TestAutonomousAgents:
         # 自律モードを停止
         await agent_a.stop_autonomous_mode()
         await agent_b.stop_autonomous_mode()
+        
+        # テスト完了時にエージェントのログを保存
+        logger.info(f"テスト中にエージェントログを保存します: {workflow_id}")
+        save_agent_logs(workflow_id)
     
     @pytest.mark.smoke
     async def test_agent_worker(self, setup_agents):

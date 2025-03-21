@@ -1,0 +1,114 @@
+{
+  "timestamp": "2025-03-19T10:22:10.525632",
+  "test_type": "integration",
+  "execution_time": 15.31,
+  "return_code": 2,
+  "tests": [
+    {
+      "name": "===================================",
+      "path": "===================================",
+      "status": "error",
+      "duration": 1.02,
+      "details": "=================================== ERRORS ===================================="
+    },
+    {
+      "name": "________",
+      "path": "________",
+      "status": "error",
+      "duration": 1.02,
+      "details": "________ ERROR collecting integration/agents/test_agent_a_workflow.py _________"
+    },
+    {
+      "name": "________",
+      "path": "________",
+      "status": "error",
+      "duration": 1.02,
+      "details": "________ ERROR collecting integration/agents/test_agent_b_workflow.py _________"
+    },
+    {
+      "name": "________",
+      "path": "________",
+      "status": "error",
+      "duration": 1.02,
+      "details": "________ ERROR collecting integration/agents/test_agent_c_workflow.py _________"
+    },
+    {
+      "name": "_______",
+      "path": "_______",
+      "status": "error",
+      "duration": 1.02,
+      "details": "_______ ERROR collecting integration/agents/test_agent_communication.py _______"
+    },
+    {
+      "name": "________",
+      "path": "________",
+      "status": "error",
+      "duration": 1.02,
+      "details": "________ ERROR collecting integration/agents/test_agent_d_workflow.py _________"
+    },
+    {
+      "name": "___________",
+      "path": "___________",
+      "status": "error",
+      "duration": 1.02,
+      "details": "___________ ERROR collecting integration/workflow/test_workflow.py ____________"
+    },
+    {
+      "name": "________",
+      "path": "________",
+      "status": "error",
+      "duration": 1.02,
+      "details": "________ ERROR collecting integration/workflow/test_workflow_state.py _________"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\agents\\test_agent_a_workflow.py"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\agents\\test_agent_b_workflow.py"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\agents\\test_agent_c_workflow.py"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\agents\\test_agent_communication.py"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\agents\\test_agent_d_workflow.py"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\workflow\\test_workflow.py"
+    },
+    {
+      "name": "ERROR",
+      "path": "ERROR",
+      "status": "error",
+      "duration": 1.02,
+      "details": "ERROR tests\\integration\\workflow\\test_workflow_state.py"
+    }
+  ],
+  "agent_results": {}
+}

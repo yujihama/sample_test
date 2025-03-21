@@ -1,0 +1,15 @@
+ログ保存処理開始: 2025-03-19T11:48:21.022585
+ワークフローID: None
+Python実行パス: C:\Users\nyham\work\sampletest\venv\Scripts\python.exe
+プロジェクトルート: C:\Users\nyham\work\sampletest
+ログディレクトリ: C:\Users\nyham\work\sampletest\logs\agent
+カレントディレクトリ: C:\Users\nyham\work\sampletest
+
+メッセージブローカー情報:
+メッセージキュー数: 0
+メッセージ履歴数: 0
+
+メッセージ履歴が見つかりませんでした。
+message_historyは空です。
+
+ログ保存処理完了: 2025-03-19T11:48:21.023974

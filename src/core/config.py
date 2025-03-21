@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     APP_VERSION: str = "0.1.0"
     DEBUG: bool = True
     APP_HOST: str = "127.0.0.1"
-    APP_PORT: int = 8000
+    APP_PORT: int = 5000
     APP_ENV: str = "development"
     LOG_LEVEL: str = "INFO"
     
@@ -30,13 +30,16 @@ class Settings(BaseSettings):
     
     # LLM設定
     LLM_PROVIDER: str = "openai"  # openai, anthropic
-    LLM_MODEL: str = "gpt-4"  # gpt-4, gpt-3.5-turbo, claude-3-opus, etc.
+    LLM_MODEL: str = "gpt-4o"  # gpt-4, gpt-3.5-turbo, claude-3-opus, etc.
     LLM_TEMPERATURE: float = 0.2
     LLM_MAX_TOKENS: int = 4000
     LLM_RETRY_MAX_ATTEMPTS: int = 3
     LLM_RETRY_BASE_DELAY: float = 1.0
     LLM_RETRY_MAX_DELAY: float = 60.0
     LLM_RETRY_BACKOFF_FACTOR: float = 2.0
+    # API キー設定
+    OPENAI_API_KEY: str = ""
+    ANTHROPIC_API_KEY: str = ""
     
     # エージェント設定
     AGENT_IDS: List[str] = ["agent_a", "agent_b", "agent_c", "agent_d", "coordinator"]
@@ -55,11 +58,11 @@ class Settings(BaseSettings):
     LOG_RETENTION: str = "1 week"
     
     # データベース設定
-    DB_URL: str = "sqlite:///./data/app.db"
+    DB_URL: str = "sqlite:///./data/db/audit_agent_new.db"
     # DB_URLのエイリアスとしてDATABASE_URLを追加
-    DATABASE_URL: str = "sqlite:///./data/app.db"
+    DATABASE_URL: str = "sqlite:///./data/db/audit_agent_new.db"
     # SQLiteデータベースファイルの実際のパス
-    DB_PATH: str = str(Path(BASE_DIR) / "data" / "app.db")
+    DB_PATH: str = str(Path(BASE_DIR) / "data" / "db" / "audit_agent_new.db")
     
     # テスト設定
     TESTING: bool = False
@@ -67,9 +70,10 @@ class Settings(BaseSettings):
     MOCK_HUMAN_INTERACTION: bool = True  # テスト時の人間の介入をモック化するかどうか
     
     model_config = ConfigDict(
-        env_file=".env",
+        env_file="config/.env",
         env_file_encoding="utf-8",
-        case_sensitive=True
+        case_sensitive=True,
+        extra="ignore"
     )
 
 

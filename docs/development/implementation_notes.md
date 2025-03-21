@@ -887,4 +887,64 @@
 - [規程情報ユーティリティ](src/utils/regulation_utils.py)
 - [監査証跡デコレータ](src/utils/audit_decorators.py)
 - [エージェント管理サービス](src/core/agent_management_service.py)
-- [ワークフロー管理サービス](src/core/workflow_service.py) 
+- [ワークフロー管理サービス](src/core/workflow_service.py)
+
+## エージェント間メッセージング修正（2023-03-21）
+
+### 問題の概要
+
+エージェント間通信のスモークテスト実行時に以下のエラーが発生しました：
+
+1. **MessageType列挙型の属性エラー**:
+   - `type object 'MessageType' has no attribute 'TASK_RESPONSE'` 
+   - src/core/messaging.pyとsrc/models/schema.pyに重複する列挙型定義があり、参照先に問題があった
+
+2. **send_responseメソッドの引数エラー**:
+   - `MessageClient.send_response() got an unexpected keyword argument 'message_id'`
+   - メソッドのシグネチャが実装と一致していない問題
+
+### 修正内容
+
+1. **メッセージタイプの参照修正**:
+   - `MessageType.TASK_RESPONSE.name`の使用箇所を直接文字列 `"task_response"` に変更
+   - src/agents/agent_b.pyの各所で修正
+
+2. **send_responseメソッドの引数修正**:
+   - message_id引数をin_response_toに変更（正しいパラメータ名に修正）
+   - src/agents/agent_b.pyの非同期送信処理において、正しいパラメータを使用するよう修正
+
+### 影響範囲
+
+1. **エージェントB**:
+   - タスク応答の送信プロセスを修正
+   - エラーハンドリング時のメッセージ送信も修正
+
+2. **自動テスト**:
+   - test_autonomous_use_case.pyでの参照も同様に修正
+   - MessageType.TASK_RESPONSE.nameを"task_response"に置換
+   - MessageType.TOOL_RESULT.nameを"tool_result"に置換
+
+### テスト結果
+
+修正後、以下のテストが正常に実行されることを確認しました：
+
+1. **smokeテスト**:
+   - 全39テストが成功
+   - test_tool_usage_workflowとtest_excel_analysis_workflowが正常に実行
+   - エージェント間の通信が正常に機能することを確認
+
+### 教訓と注意点
+
+1. **API設計における一貫性**:
+   - メソッドのパラメータ名は実装と一致させる重要性
+   - 特に非同期メソッドの呼び出しでは、正確なキーワード引数が必要
+
+2. **列挙型の統一**:
+   - 複数の列挙型定義による参照エラーを防ぐために、一元管理の重要性
+   - 直接文字列定数を使用することでモジュール間の依存性を低減
+
+3. **エラーメッセージの活用**:
+   - エラーメッセージから的確な問題箇所を特定することの重要性
+   - 「Did you mean 'message_type'?」などのヒントを活用した修正
+
+この修正により、エージェント間の通信の安定性が向上し、テストの実行が正常に完了できるようになりました。 

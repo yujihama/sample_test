@@ -33,6 +33,8 @@ from langgraph.checkpoint.base import BaseCheckpointSaver
 from src.core.agent_base import AgentState
 from src.utils.llm_utils import LLMFactory, PromptManager
 
+import sys
+
 
 class AgentAGraphState(TypedDict, total=False):
     """エージェントA状態遷移グラフの状態型定義"""
@@ -600,14 +602,19 @@ def create_agent_a_graph() -> StateGraph:
         
     except Exception as e:
         logger.error(f"エージェントA状態遷移グラフの作成エラー: {e}")
-        # 基本的なグラフを作成してエラー時のフォールバックとする
-        basic_workflow = StateGraph(AgentAGraphState)
-        basic_workflow.add_node("procedure_understanding", procedure_understanding_node)
-        basic_workflow.add_edge("procedure_understanding", END)
-        basic_workflow.set_entry_point("procedure_understanding")
-        
-        logger.warning("エラーによりフォールバックグラフを作成")
-        return basic_workflow.compile()
+        # 完全に新しいStateGraphを作成し、異なるノード名を使用
+        try:
+            fallback_workflow = StateGraph(AgentAGraphState)
+            fallback_workflow.add_node("fallback_node", lambda x: x)
+            fallback_workflow.add_edge("fallback_node", END)
+            fallback_workflow.set_entry_point("fallback_node")
+            
+            logger.warning("エラーによりフォールバックグラフを作成")
+            compiled_fallback = fallback_workflow.compile()
+            return compiled_fallback
+        except Exception as fallback_error:
+            logger.error(f"フォールバックグラフの作成も失敗: {fallback_error}")
+            return None
 
 
 # シングルトンインスタンスを提供する関数
@@ -616,6 +623,10 @@ _agent_a_graph_instance = None
 def get_agent_a_graph() -> StateGraph:
     """エージェントA状態遷移グラフのシングルトンインスタンスを取得"""
     global _agent_a_graph_instance
+    # テスト環境では常に新しいインスタンスを作成する
+    if "pytest" in sys.modules:
+        return create_agent_a_graph()
+    # 通常の実行では、シングルトンパターンを使用
     if _agent_a_graph_instance is None:
         _agent_a_graph_instance = create_agent_a_graph()
     return _agent_a_graph_instance 
